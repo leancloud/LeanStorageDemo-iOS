@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8F02B628-97B1-497A-9480-6F6B47CDA40D</string>
+	<string>965104C7-7D3A-4549-9ECA-B8DFE4A47022</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AVOSDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>github.com:leancloud/ios-simple-demo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AVOSDemo.xcodeproj</string>
+	<string>AVOSDemo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D43B06780FA0F001C3045F20F7EA7E3ECB9AD559</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:leancloud/ios-simple-demo.git</string>

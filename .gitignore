@@ -14,7 +14,6 @@ xcuserdata
 *.moved-aside
 *.mobileprovision
 DerivedData
-AVOSCloud
 .idea/
 # Pods - for those of you who use CocoaPods
 Pods
