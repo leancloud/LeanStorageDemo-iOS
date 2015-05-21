@@ -22,10 +22,9 @@
         }else{
             msg=[NSString stringWithFormat:@"创建失败: %@",[error description]];
         }
-        
+
         [self log:msg];
     }];
-    
 }
 
 -(void)demoUpdateObject{

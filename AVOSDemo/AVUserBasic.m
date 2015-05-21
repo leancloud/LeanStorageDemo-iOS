@@ -28,7 +28,7 @@
     }];
 }
 
--(void)demoUserRegister2{
+-(void)demoUserRegisterSecond{
     AVUser *user = [AVUser user];
     user.username=@"XiaoMing";
     user.password=@"123456";
@@ -50,8 +50,6 @@
 }
 
 -(void)demoUserLogin{
-
-    
     [AVUser logInWithUsernameInBackground:@"XiaoMing" password:@"123456" block:^(AVUser *user, NSError *error) {
         if (user) {
             [self log:[NSString stringWithFormat:@"登陆成功 %@",[user description]]];
@@ -75,6 +73,28 @@
             [self log:[NSString stringWithFormat:@"重置密码的连接已经发送到用户邮箱 %@",email]];
         }else{
             [self log:[NSString stringWithFormat:@"重置密码出错 %@",[error description]]];
+        }
+    }];
+}
+
+- (void)demoUpdatePassword {
+    AVUser *user = [AVUser user];
+    user.username = NSStringFromSelector(_cmd);
+    user.password = @"111111";
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            [self log:[NSString stringWithFormat:@"注册用户失败 %@",[error description]]];
+        }else {
+            NSString *newPassword = @"123456";
+            [user updatePassword:@"111111" newPassword:newPassword block:^(id object, NSError *error) {
+                if (error) {
+                    [self log:[NSString stringWithFormat:@"重置密码出错 %@", error]];
+                } else {
+                    [self log:[NSString stringWithFormat:@"重置密码成功，新的密码为 %@", newPassword]];
+                }
+                // 如果想在后台看到这个用户，可注释掉下面一行
+                [user deleteInBackground];
+            }];
         }
     }];
 }

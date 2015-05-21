@@ -23,6 +23,8 @@
 "Register"  ="注册";
 "Login"     ="登陆";
 "Reset"     ="重置";
+"Request"   ="请求";
+"Verify"    ="验证";
 
 "By"        ="按";
 "From"      ="从";
@@ -38,3 +40,7 @@
 "Count"     ="数量";
 "Password"  ="密码";
 "Keyword"   ="关键词";
+"Sms"       ="短信";
+"Code"      ="验证码";
+
+"Second"    ="二";

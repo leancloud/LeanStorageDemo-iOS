@@ -15,4 +15,7 @@
 -(NSArray*)allDemoMethod;
 
 -(void)log:(NSString*)msg;
+
+-(BOOL)filterError:(NSError *)error;
+
 @end

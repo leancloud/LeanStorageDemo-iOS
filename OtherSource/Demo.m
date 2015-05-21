@@ -16,6 +16,15 @@
     NSLog(@"%@ dealloc",NSStringFromClass([self class]));
 }
 
+-(BOOL)filterError:(NSError *)error{
+    if (error) {
+        [self log:[NSString stringWithFormat:@"%@", error]];
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
 -(void)log:(NSString*)msg{
     NSLog(@"%@",msg);
     NSString *text= self.outputView.text;

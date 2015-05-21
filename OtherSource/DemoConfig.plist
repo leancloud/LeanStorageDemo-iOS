@@ -52,6 +52,14 @@
 			<key>detail</key>
 			<string>AVSearchQuery基本用法</string>
 		</dict>
+		<dict>
+			<key>class</key>
+			<string>AVSMSBasic</string>
+			<key>name</key>
+			<string>SMS</string>
+			<key>detail</key>
+			<string>短信验证码基本用法</string>
+		</dict>
 	</array>
 	<key>高级用法</key>
 	<array>

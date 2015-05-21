@@ -65,6 +65,15 @@
     self.window.rootViewController=[self rootController];
     [self.window makeKeyAndVisible];
     
+    
+    // 输出内部日志，发布时记得关闭
+#ifdef DEBUG
+    [AVOSCloud setVerbosePolicy:kAVVerboseShow];
+    [AVLogger addLoggerDomain:AVLoggerDomainIM];
+    [AVLogger addLoggerDomain:AVLoggerDomainCURL];
+    [AVLogger setLoggerLevelMask:AVLoggerLevelAll];
+#endif
+    
     return YES;
 }
 
@@ -98,11 +107,7 @@
     //这儿你可以加入自己的代码 根据推送的数据进行相应处理
 }
 
-
-
-#pragma mark -
-#pragma mark DemoApp的方法, 不需要关注
-#pragma mark -
+#pragma mark - DemoApp的方法, 不需要关注
 
 -(UIViewController *)rootController{
     NSDictionary *config=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DemoConfig" ofType:@"plist"]];
@@ -134,8 +139,8 @@
     UITabBarController *tabC=[[UITabBarController alloc] init];
     tabC.delegate=self;
     [tabC setViewControllers:tabs];
-    
-    tabC.title=[tabs[0] title];
+    tabC.selectedIndex = 1;
+    tabC.title=[tabs[tabC.selectedIndex] title];
     
     if ([tabC respondsToSelector:@selector(edgesForExtendedLayout)])
         tabC.edgesForExtendedLayout = UIRectEdgeNone;
