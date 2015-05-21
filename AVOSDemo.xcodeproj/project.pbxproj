@@ -28,6 +28,7 @@
 		1FAA7D7F1859BB5600A2065B /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D7E1859BB5600A2065B /* AVFileBasic.m */; };
 		1FAA7D821859BC7500A2065B /* AVSubclassAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D811859BC7500A2065B /* AVSubclassAdvanced.m */; };
 		702D60771B0DD2FE001C2631 /* AVSMSBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 702D60761B0DD2FE001C2631 /* AVSMSBasic.m */; };
+		702D607A1B0DE782001C2631 /* AlertViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 702D60791B0DE782001C2631 /* AlertViewHelper.m */; };
 		8C00F7801945653300E1F7BD /* AVSearchQueryBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F77F1945653300E1F7BD /* AVSearchQueryBasic.m */; };
 		8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F78219458F5E00E1F7BD /* SearchResultController.m */; };
 		8C00F7881945B69000E1F7BD /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F7871945B69000E1F7BD /* PBWebViewController.m */; };
@@ -78,6 +79,8 @@
 		63E3A1C6E14780B42E9F8B4A /* Pods-AVOSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVOSDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVOSDemo/Pods-AVOSDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		702D60751B0DD2FE001C2631 /* AVSMSBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSMSBasic.h; sourceTree = "<group>"; };
 		702D60761B0DD2FE001C2631 /* AVSMSBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSMSBasic.m; sourceTree = "<group>"; };
+		702D60781B0DE782001C2631 /* AlertViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewHelper.h; sourceTree = "<group>"; };
+		702D60791B0DE782001C2631 /* AlertViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewHelper.m; sourceTree = "<group>"; };
 		740CAFF9A2FA0206CAF0220E /* Pods-AVOSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVOSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AVOSDemo/Pods-AVOSDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C00F77E1945653300E1F7BD /* AVSearchQueryBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSearchQueryBasic.h; sourceTree = "<group>"; };
 		8C00F77F1945653300E1F7BD /* AVSearchQueryBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSearchQueryBasic.m; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				1F66B1FD185EA8870034AA65 /* AppDelegate.m */,
 				8C00F78119458F5E00E1F7BD /* SearchResultController.h */,
 				8C00F78219458F5E00E1F7BD /* SearchResultController.m */,
+				702D60781B0DE782001C2631 /* AlertViewHelper.h */,
+				702D60791B0DE782001C2631 /* AlertViewHelper.m */,
 			);
 			path = OtherSource;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				8C00F7881945B69000E1F7BD /* PBWebViewController.m in Sources */,
 				8C00F7801945653300E1F7BD /* AVSearchQueryBasic.m in Sources */,
 				1FAA7D7F1859BB5600A2065B /* AVFileBasic.m in Sources */,
+				702D607A1B0DE782001C2631 /* AlertViewHelper.m in Sources */,
 				1F71866C18603F3700D7B79D /* AVUserBasic.m in Sources */,
 				1FAA7D6B1859691F00A2065B /* DemoRunC.m in Sources */,
 				1F66B1FE185EA8870034AA65 /* AppDelegate.m in Sources */,

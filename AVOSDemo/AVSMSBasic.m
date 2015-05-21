@@ -8,30 +8,30 @@
 
 #import "AVSMSBasic.h"
 
-#warning 配置您的手机号码
-static NSString *testPhoneNumber = @"132616309x";
-
 @implementation AVSMSBasic
 
 - (void)demoRequestSmsCode {
-    // 需要在设置中勾选 "启用帐号无关短信验证服务"
-    if ([testPhoneNumber containsString:@"x"]) {
-        [self log:@"请先在代码中配置您的手机号码"];
-        return;
-    }
-    [AVOSCloud requestSmsCodeWithPhoneNumber:testPhoneNumber appName:@"玩拍" operation:@"注册" timeToLive:10 callback: ^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:[NSString stringWithFormat:@"请求短信验证码成功，手机号码为 %@", testPhoneNumber]];
-        }
-    }];
-}
-
-- (void)demoVerifySmsCode {
-    // 请先用上一个示例来请求验证短信
-    NSString *smsCode = @"339237";
-    [AVOSCloud verifySmsCode:smsCode mobilePhoneNumber:testPhoneNumber callback:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:[NSString stringWithFormat:@"验证成功，手机号码为 %@，验证码为 %@", testPhoneNumber,smsCode]];
+    [self.alertViewHelper showInputAlertViewWithMessage:@"请输入您的手机号码进行注册" block:^(NSString *phoneNumber) {
+        if (phoneNumber.length > 0) {
+            // 需要在设置中勾选 "启用帐号无关短信验证服务"
+            // 有可能超过 100条免费测试短信，发送失败
+            [AVOSCloud requestSmsCodeWithPhoneNumber:phoneNumber appName:@"玩拍" operation:@"注册" timeToLive:10 callback: ^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error]) {
+                    [self.alertViewHelper showInputAlertViewWithMessage:@"短信验证码请求成功，请输入您收到的验证码" block:^(NSString *smsCode) {
+                        if (smsCode.length > 0) {
+                            [AVOSCloud verifySmsCode:smsCode mobilePhoneNumber:phoneNumber callback:^(BOOL succeeded, NSError *error) {
+                                if ([self filterError:error]) {
+                                    [self log:[NSString stringWithFormat:@"验证成功，手机号码为 %@，验证码为 %@", phoneNumber, smsCode]];
+                                }
+                            }];
+                        }else {
+                            [self log:@"input nothing"];
+                        }
+                    }];
+                }
+            }];
+        }else {
+            [self log:@"input nothing"];
         }
     }];
 }

@@ -33,6 +33,13 @@
     [self.controller onFinish];
 }
 
+- (AlertViewHelper *)alertViewHelper {
+    if (_alertViewHelper == nil) {
+        _alertViewHelper = [[AlertViewHelper alloc] init];
+    }
+    return _alertViewHelper;
+}
+
 /* 把方法名本地化*/
 -(NSString*)localizedNameForMethod:(NSString*)mtd{
     //方法名都是标准骆驼命名法
