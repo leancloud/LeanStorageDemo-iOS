@@ -18,28 +18,44 @@
 "Cups"      ="CUPS";
 */
 
+- (void)logEvent:(NSString *)eventName {
+    [self log:[NSString stringWithFormat:@"提交了事件： %@",eventName]];
+}
+
 -(void)demoAnalyticsDeviceError{
-    [AVAnalytics event:@"刷卡器错误"];
+    NSString *event = @"刷卡器错误";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 -(void)demoAnalyticsSwipSuccess{
-    [AVAnalytics event:@"刷卡成功"];
+    NSString *event = @"刷卡成功";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 -(void)demoAnalyticsSwipError{
-    [AVAnalytics event:@"刷卡失败"];
+    NSString *event = @"刷卡失败";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 -(void)demoAnalyticsRefund{
-    [AVAnalytics event:@"退货"];
+    NSString *event = @"退货";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 -(void)demoAnalyticsReverse{
-    [AVAnalytics event:@"冲正"];
+    NSString *event = @"冲正";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 -(void)demoAnalyticsCupsError{
-    [AVAnalytics event:@"CUPS错误"];
+    NSString *event = @"CUPS错误";
+    [AVAnalytics event:event];
+    [self logEvent:event];
 }
 
 MakeSourcePath
