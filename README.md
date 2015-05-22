@@ -1,7 +1,7 @@
 ## 介绍
 这个示例项目是为了帮助使用AVOSCloud的开发者, 尽快的熟悉和使用SDK而建立的。主要展示AVOSCloud SDK的各种基础和高级用法.
 
-![simple1](https://cloud.githubusercontent.com/assets/5022872/5718203/39fcbaf6-9b46-11e4-8bf4-f17fd08fc551.png)![image](OtherSource/demorun.png)
+![simple1](https://cloud.githubusercontent.com/assets/5022872/5718203/39fcbaf6-9b46-11e4-8bf4-f17fd08fc551.png) ![image](OtherSource/demorun.png)
 
 ## 如何运行
 
