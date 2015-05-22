@@ -3,33 +3,23 @@
 
 ![simple1](https://cloud.githubusercontent.com/assets/5022872/5718203/39fcbaf6-9b46-11e4-8bf4-f17fd08fc551.png)
 
-![simple2](https://cloud.githubusercontent.com/assets/5022872/5718202/39f8a7f4-9b46-11e4-9060-8c8fb0350389.png)
+![image](OtherSource/demorun.png)
 
 ## 如何运行
 
-1. 用XCode打开AVOSDemo.xcodeproj，选择运行的scheme和设备，点击运行按钮或菜单`Product`->`Run`或快捷键`Command(⌘)`+`r`就可以运行此示例
-
-2. 如果你想获取最新发布的SDK，你也可以使用`cocoapods`,将`Frameworks`目录下的文件删除，然后在终端执行代码:
-
-	    pod install
-
-    不出问题的话 1分钟即可完成所有设置, 并生成名为`AVOSDemo.xcworkspace`的Xcode工作空间，用Xcode打开它，按第1种介绍的方法运行即可
-
-----
+```
+   pod install
+   open AVOSDemo.xcworkspace
+```
 
 ## 使用说明
 
-### 替换 App 信息
+### 登录后台查看数据
 
-示例使用的是公共的 app id 和 app key，您可以在`AppDelegate.m`修改成您自己的应用 id 和 key。
+用 账号/密码 (leancloud@163.com/Public123) 登录 https://leancloud.cn ，选择应用 `LeanStorage-Demo` ，即可查看后台数据。强烈建议你边查看后台边运行 Demo。当在 Demo 运行代码来增删改查时，就可以在后台看到相应的数据变化。
 
-### 查看源码
-您可以在Xcode中看到本项目的所有代码. 也可以在App运行和操作中更直观的查看.
+![image](https://cloud.githubusercontent.com/assets/5022872/7763947/3b25548e-007b-11e5-9a1b-af3ca1806175.png)
 
-1. 每一例子列表右上角都有`查看源码`的按钮, 可以直接查看本组例子的源码. 
-2. 每一个例子运行界面也会直接显示当前列子的代码片段.  
-
-![image](OtherSource/demorun.png)
 
 ### 编译警告
 代码中有一些人为添加的编译,是为了引起您足够的重视, 如果觉得没问题可以删除掉该行
@@ -38,7 +28,7 @@
 
 1. 新建一个继承`Demo`的类, 文件位置在项目的`AVOSDemo`文件夹
 2. 在.m里的`@end`前加一句`MakeSourcePath` 用来在编译时生成返回这个文件的方法
-3. 加一个demo方法. 方法必须以demo开头, 且必须是严格按照骆驼命名法, 否则方法名现实可能会有问题
+3. 加一个demo方法. 方法必须以demo开头, 且必须是严格按照骆驼命名法, 否则方法名显示可能会有问题
 
 ----
 ## 其他
