@@ -2,13 +2,16 @@ PODS:
   - AVOSCloud (3.1.1.1)
   - AVOSCloudSNS (3.1.1.1):
     - AVOSCloud
+  - LZAlertViewHelper (0.0.1)
 
 DEPENDENCIES:
   - AVOSCloud
   - AVOSCloudSNS
+  - LZAlertViewHelper
 
 SPEC CHECKSUMS:
   AVOSCloud: 0c0b91ffd91f83b448312027e5f8b243f261c42a
   AVOSCloudSNS: fa177d50fe83b630d684dd27d790358531b365cc
+  LZAlertViewHelper: bc650b6d202c8950be3da5758c00ef43cbfe2243
 
-COCOAPODS: 0.37.0
+COCOAPODS: 0.37.1

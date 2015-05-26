@@ -33,9 +33,9 @@
     [self.controller onFinish];
 }
 
-- (AlertViewHelper *)alertViewHelper {
+- (LZAlertViewHelper *)alertViewHelper {
     if (_alertViewHelper == nil) {
-        _alertViewHelper = [[AlertViewHelper alloc] init];
+        _alertViewHelper = [[LZAlertViewHelper alloc] init];
     }
     return _alertViewHelper;
 }

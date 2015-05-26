@@ -3,4 +3,4 @@
 
 pod 'AVOSCloud'
 pod 'AVOSCloudSNS'
-
+pod 'LZAlertViewHelper'

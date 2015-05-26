@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AlertViewHelper.h"
+#import <LZAlertViewHelper/LZAlertViewHelper.h>
 @class DemoRunC;
 @interface Demo : NSObject
 @property(nonatomic,readonly) NSString *sourcePath;
 @property(nonatomic,weak) UITextView *outputView;
 @property(nonatomic,weak) DemoRunC *controller;
-@property(nonatomic,strong) AlertViewHelper *alertViewHelper;
+@property(nonatomic,strong) LZAlertViewHelper *alertViewHelper;
 -(NSArray*)allDemoMethod;
 
 -(void)log:(NSString*)msg;
