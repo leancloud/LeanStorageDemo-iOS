@@ -15,6 +15,7 @@
         if (confirm) {
             // 需要在网站设置中勾选 "启用帐号无关短信验证服务"
             // 有可能超过 100条免费测试短信，发送失败
+            // 短信里的 【】 需要到网站修改应用名，跟下面的appName参数无关
             [AVOSCloud requestSmsCodeWithPhoneNumber:phoneNumber appName:@"玩拍" operation:@"注册" timeToLive:10 callback: ^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self.alertViewHelper showInputAlertViewWithMessage:@"短信验证码请求成功，请输入您收到的验证码" block:^(BOOL confirm, NSString *smsCode) {

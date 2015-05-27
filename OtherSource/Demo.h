@@ -16,7 +16,7 @@
 @property(nonatomic,strong) LZAlertViewHelper *alertViewHelper;
 -(NSArray*)allDemoMethod;
 
--(void)log:(NSString*)msg;
+- (void)log:(NSString *)format, ...;
 
 -(BOOL)filterError:(NSError *)error;
 

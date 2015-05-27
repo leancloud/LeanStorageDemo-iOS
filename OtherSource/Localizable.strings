@@ -6,7 +6,28 @@
   Copyright (c) 2013年 AVOS. All rights reserved.
 */
 
+// verbs
+"Create"    ="创建";
+"Add"       ="添加";
+"Update"    ="更新";
+"Delete"    ="删除";
+"Get"       ="获取";
+"Register"  ="注册";
+"Login"     ="登录";
+"Reset"     ="重置";
+"Request"   ="请求";
+"Verify"    ="验证";
+"Logout"    ="注销";
 
+// adv
+"By"        ="按";
+"From"      ="从";
+"With"      ="用";
+"Only"      ="仅";
+"To"        ="来";
+"And"       ="和";
+
+// noun
 "Object"    ="对象";
 "File"      ="文件";
 "Query"     ="查询";
@@ -14,22 +35,6 @@
 "Subclass"  ="子类";
 "User"      ="用户";
 "Relation"  ="关联";
-
-"Create"    ="创建";
-"Add"       ="添加";
-"Update"    ="更新";
-"Delete"    ="删除";
-"Get"       ="获取";
-"Register"  ="注册";
-"Login"     ="登陆";
-"Reset"     ="重置";
-"Request"   ="请求";
-"Verify"    ="验证";
-
-"By"        ="按";
-"From"      ="从";
-"With"      ="用";
-"Only"      ="仅";
 
 "Name"      ="名称";
 "Path"      ="路径";
@@ -42,5 +47,13 @@
 "Keyword"   ="关键词";
 "Sms"       ="短信";
 "Code"      ="验证码";
+"Email"     ="邮箱";
+"Phone"     ="手机";
+"Number"    ="号码";
+"Username"  ="用户名";
 
+// adj
 "Second"    ="二";
+"Old"       ="旧";
+"Current"   ="当前";
+"Anonymous" = "匿名";
