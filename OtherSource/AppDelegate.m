@@ -15,7 +15,7 @@
 
 #import "Student.h"
 
-#warning 请替换成自己的id和key 这样可以控制台中看到数据变化 https://cn.avoscloud.com/applist.html
+#warning 请替换成自己的id和key ，或用 leancloud@163.com/Public123  登录，来查看后台数据
 #define AVOSCloudAppID  @"ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk"
 #define AVOSCloudAppKey @"6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc"
 
@@ -23,19 +23,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /* 重要! 注册子类 App生命周期内 只需要执行一次即可*/
+    [Student registerSubclass];
+    
     //设置AVOSCloud
     [AVOSCloud setApplicationId:AVOSCloudAppID
                       clientKey:AVOSCloudAppKey];
     
-    
     //统计应用启动情况
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    
-    
-    /* 重要! 注册子类 App生命周期内 只需要执行一次即可*/
-#warning 为了引起你的注意! 如果明白了用法可以删除这行
-    [Student registerSubclass];
     
     
     /**可选 统计应用崩溃数据
