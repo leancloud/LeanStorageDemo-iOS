@@ -1,7 +1,8 @@
 ## 介绍
 这个示例项目是为了帮助使用 LeanCloud 的开发者, 尽快的熟悉和使用SDK而建立的。主要展示 LeanCloud SDK的各种基础和高级用法.
 
-![simple1](https://cloud.githubusercontent.com/assets/5022872/5718203/39fcbaf6-9b46-11e4-8bf4-f17fd08fc551.png) ![image](OtherSource/demorun.png)
+![demo3](https://cloud.githubusercontent.com/assets/5022872/7852215/80862f34-052c-11e5-9e32-6dee5d584dc0.png)![demo2](https://cloud.githubusercontent.com/assets/5022872/7852211/71f4ac66-052c-11e5-868a-b98b34867a06.png)![demo1](https://cloud.githubusercontent.com/assets/5022872/7852220/8d7a0e86-052c-11e5-90f2-409db9dc6cc7.png)
+
 
 ## 如何运行
 
