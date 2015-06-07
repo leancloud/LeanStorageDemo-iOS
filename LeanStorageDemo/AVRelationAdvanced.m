@@ -37,37 +37,30 @@
     
     //保存
     [xiaoGang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [self log:[NSString stringWithFormat:@"关联成功 %@",[xiaoGang description]]];
-        }else{
-            [self log:[NSString stringWithFormat:@"关联失败 %@",[error description]]];
+        if([self filterError:error]) {
+            [self log:[NSString stringWithFormat:@"关联成功 %@",xiaoGang]];
         }
     }];
 }
 
 -(void)demoGetRelationMember{
-    //这里默认有个一直的Student的id: 52b290bce4b0c95c1fa49ad7
-    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"52b290bce4b0c95c1fa49ad7"];
-    
+    //这里默认有个一直的Student的id: 55740e70e4b002b1c5dddd9a
+    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"55740e70e4b002b1c5dddd9a"];
     //这是AVObject的另一个获取数据的用法, 只有在数据不存在时进行网络请求
     [xiaoGang fetchIfNeeded];
-    
     //获取Relation属性
     AVRelation *friends= [xiaoGang relationforKey:@"friends"];
-    
     [[friends query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error==nil) {
-            [self log:[NSString stringWithFormat:@"关联获取成功 %@",[objects description]]];
-        }else{
-            [self log:[NSString stringWithFormat:@"关联获取失败 %@",[error description]]];
+        if ([self filterError:error]) {
+            [self log:@"关联获取成功 %@", objects];
         }
     }];
     
 }
 
 -(void)demoDeleteRelationMember{
-    //这里默认有个一直的Student的id: 52b290bce4b0c95c1fa49ad7
-    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"52b290bce4b0c95c1fa49ad7"];
+    //这里默认有个一直的Student的id: 55740e70e4b002b1c5dddd9a
+    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"55740e70e4b002b1c5dddd9a"];
     
     //这是AVObject的另一个获取数据的用法, 只获取某些熟悉
     [xiaoGang fetchIfNeededWithKeys:@[@"friends"]];
@@ -82,10 +75,8 @@
     [friends removeObject:xiaoHong];
     
     [xiaoGang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
+        if ([self filterError:error]) {
             [self log:[NSString stringWithFormat:@"关联删除成功 %@",[xiaoGang description]]];
-        }else{
-            [self log:[NSString stringWithFormat:@"关联删除失败 %@",[error description]]];
         }
     }];
 }

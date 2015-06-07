@@ -135,7 +135,7 @@
     UITabBarController *tabC=[[UITabBarController alloc] init];
     tabC.delegate=self;
     [tabC setViewControllers:tabs];
-    tabC.selectedIndex = 1;
+    tabC.selectedIndex = 0;
     tabC.title=[tabs[tabC.selectedIndex] title];
     
     if ([tabC respondsToSelector:@selector(edgesForExtendedLayout)])

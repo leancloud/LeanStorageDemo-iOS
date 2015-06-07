@@ -47,6 +47,7 @@
     [file save];
     
     //删除文件
+    // 若报 Forbidden to delete by class permissions. 的错误，请去网站控制台更改 File class 的权限
     [file deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
             [self log:[NSString stringWithFormat:@"文件[%@] 已经删除",file.objectId]];
