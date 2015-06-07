@@ -9,6 +9,7 @@
 #import "Demo.h"
 #import <objc/runtime.h>
 #import "DemoRunC.h"
+#import "ImageViewController.h"
 
 @implementation Demo
 
@@ -38,6 +39,12 @@
     self.outputView.text=[text stringByAppendingFormat:@"\n-------- RUN --------\n%@",msg];
     [self.outputView scrollRectToVisible:CGRectMake(0, self.outputView.contentSize.height, 1, 1) animated:YES];
     [self.controller onFinish];
+}
+
+- (void)showImage:(UIImage *)image {
+    ImageViewController *vc = [[ImageViewController alloc] init];
+    vc.image = image;
+    [self.controller.navigationController pushViewController:vc animated:YES];
 }
 
 - (LZAlertViewHelper *)alertViewHelper {

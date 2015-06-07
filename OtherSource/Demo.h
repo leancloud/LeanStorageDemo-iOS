@@ -15,9 +15,9 @@
 @property(nonatomic,weak) DemoRunC *controller;
 @property(nonatomic,strong) LZAlertViewHelper *alertViewHelper;
 -(NSArray*)allDemoMethod;
-
 - (void)log:(NSString *)format, ...;
-
 -(BOOL)filterError:(NSError *)error;
+
+- (void)showImage:(UIImage *)image;
 
 @end

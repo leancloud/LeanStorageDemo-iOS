@@ -7,6 +7,7 @@
 //
 
 #import "AVFileBasic.h"
+#import "ImageViewController.h"
 
 @implementation AVFileBasic
 
@@ -28,10 +29,8 @@
 }
 
 -(void)demoFromPathCreateFile{
-    
     //从本地文件路径创建文件
     AVFile *file=[AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
-    
     //保存文件
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
@@ -55,37 +54,50 @@
             [self log:[error description]];
         }
     }];
-    
 }
 
 -(void)demoWithFileIdGetFile{
-    NSString *fileId=@"52aeaefde4b0d060c6fb18ca";
-    
+    NSString *fileId=@"5573fddee4b06a32094af62b";
     //第一步先得到文件实例, 其中会包含文件的地址
     [AVFile getFileWithObjectId:fileId withBlock:^(AVFile *file, NSError *error) {
-        if(file){
+        if ([self filterError:error]) {
             [self log:[NSString stringWithFormat:@"获取成功: %@",[file description]]];
-            
             //文件实例获取成功可以再进一步获取文件内容
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 if(data){
                     //获取到了文件内容
                     //这儿我们已知它是个图片 所以可以显示图片
-                    
                     UIImage *img=[UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
-                    
+                    [self showImage:img];
                     [self log:[NSString stringWithFormat:@"成功得到图片: %@",[img description]]];
                 }
             } progressBlock:^(NSInteger percentDone) {
                 [self log:[NSString stringWithFormat:@"加载进度: %ld%%", (long)percentDone]];
             }];
-            
-        }else{
-            [self log:[NSString stringWithFormat:@"获取失败: %@",fileId]];
         }
     }];
 }
 
+-(void)demoFileMetaData{
+    // 可以用 metaData 来保存文件附属的信息，而不用新建表关联File表来做
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    NSData * imageData = UIImageJPEGRepresentation(image, 0.8);
+    AVFile *file = [AVFile fileWithData:imageData];
+    [file.metaData setObject:@(image.size.width) forKey:@"width"];
+    [file.metaData setObject:@(image.size.height) forKey:@"height"];
+    [file.metaData setObject:@"LeanCloud" forKey:@"author"];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"保存文件成功，同时关联了许多元数据 metaData : %@", file.metaData];
+        }
+    }];
+}
+
+- (void)demoFileClearCache{
+    [AVFile clearAllCachedFiles];
+    [self log:@"清除了全部文件的缓存，请运行用文件ID获取文件的例子，会看到下载进度多次被回调"];
+}
 
 MakeSourcePath
 @end

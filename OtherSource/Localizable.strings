@@ -35,7 +35,6 @@
 "Subclass"  ="子类";
 "User"      ="用户";
 "Relation"  ="关联";
-
 "Name"      ="名称";
 "Path"      ="路径";
 "Geo"       ="地理位置";
@@ -51,9 +50,11 @@
 "Phone"     ="手机";
 "Number"    ="号码";
 "Username"  ="用户名";
+"Data"      ="数据";
 
 // adj
 "Second"    ="二";
 "Old"       ="旧";
 "Current"   ="当前";
-"Anonymous" = "匿名";
+"Anonymous" ="匿名";
+"Meta"      ="元";
