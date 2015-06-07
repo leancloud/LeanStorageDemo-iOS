@@ -18,6 +18,8 @@
 "Request"   ="请求";
 "Verify"    ="验证";
 "Logout"    ="注销";
+"Combine"   ="结合";
+"Clear"     ="清除";
 
 // adv
 "By"        ="按";
@@ -51,6 +53,9 @@
 "Number"    ="号码";
 "Username"  ="用户名";
 "Data"      ="数据";
+"Qiniu"     ="七牛";
+"Api"       ="接口";
+"Cache"     ="缓存";
 
 // adj
 "Second"    ="二";

@@ -78,7 +78,7 @@
     }];
 }
 
--(void)demoFileMetaData{
+- (void)demoFileMetaData{
     // 可以用 metaData 来保存文件附属的信息，而不用新建表关联File表来做
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
@@ -94,7 +94,38 @@
     }];
 }
 
-- (void)demoFileClearCache{
+- (void)demoThumbnail{
+    NSString *fileId=@"5573fddee4b06a32094af62b";
+    // 这里从 objectId 获取 AVFile 只是为了Demo用，在你的应用中可能是从另外一个对象获得
+    [AVFile getFileWithObjectId:fileId withBlock:^(AVFile *file, NSError *error) {
+        if ([self filterError:error]) {
+            // 第一个参数为 scaleToFit
+            [file getThumbnail:NO width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+                [self showImage:image];
+                [self log:@"成功获取宽高为100的缩略图"];
+            }];
+        }
+    }];
+}
+
+-(void)demoCombineQiniuApi {
+    NSString *fileId=@"5573fddee4b06a32094af62b";
+    [AVFile getFileWithObjectId:fileId withBlock:^(AVFile *file, NSError *error) {
+        if ([self filterError:error]) {
+            // 更多图片处理请参考 http://docs.qiniu.com/api/v6/image-process.html
+            AVFile *thumbnailFile = [AVFile fileWithURL:[NSString stringWithFormat:@"%@?imageView/1/w/%@/h/%@", file.url, @"50", @"100"]];
+            [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if ([self filterError:error]) {
+                    UIImage * image = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
+                    [self showImage:image];
+                    [self log:@"成功用七牛接口获得缩略图"];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)demoClearFileCache{
     [AVFile clearAllCachedFiles];
     [self log:@"清除了全部文件的缓存，请运行用文件ID获取文件的例子，会看到下载进度多次被回调"];
 }

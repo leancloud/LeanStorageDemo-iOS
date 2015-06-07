@@ -29,7 +29,8 @@
 - (UIImageView *)imageView {
     if (_imageView == nil) {
         _imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.backgroundColor = [UIColor whiteColor];
+        _imageView.contentMode = UIViewContentModeCenter;
         _imageView.image = self.image;
     }
     return _imageView;
