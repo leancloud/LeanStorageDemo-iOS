@@ -60,6 +60,14 @@
 			<key>detail</key>
 			<string>短信验证码基本用法</string>
 		</dict>
+		<dict>
+			<key>class</key>
+			<string>CQLBasic</string>
+			<key>name</key>
+			<string>CQL</string>
+			<key>detail</key>
+			<string>CQL 基本用法</string>
+		</dict>
 	</array>
 	<key>高级用法</key>
 	<array>

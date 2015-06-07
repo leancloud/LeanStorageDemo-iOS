@@ -21,6 +21,7 @@
 		1FAA7D681859668D00A2065B /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D671859668D00A2065B /* Demo.m */; };
 		1FAA7D6B1859691F00A2065B /* DemoRunC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D6A1859691F00A2065B /* DemoRunC.m */; };
 		706780121B24334B002F1413 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780111B24334B002F1413 /* ImageViewController.m */; };
+		706780151B244837002F1413 /* CQLBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780141B244837002F1413 /* CQLBasic.m */; };
 		709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */; };
 		709679AB1B0EEF2B00BB43D8 /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679991B0EEF2B00BB43D8 /* AVFileBasic.m */; };
 		709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */; };
@@ -61,6 +62,8 @@
 		64E5071E3BA8709F34647A0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		706780101B24334B002F1413 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		706780111B24334B002F1413 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		706780131B244837002F1413 /* CQLBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLBasic.h; sourceTree = "<group>"; };
+		706780141B244837002F1413 /* CQLBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQLBasic.m; sourceTree = "<group>"; };
 		709679961B0EEF2B00BB43D8 /* AVAnalyticsBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAnalyticsBasic.h; sourceTree = "<group>"; };
 		709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAnalyticsBasic.m; sourceTree = "<group>"; };
 		709679981B0EEF2B00BB43D8 /* AVFileBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFileBasic.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				709679A51B0EEF2B00BB43D8 /* AVSubclassAdvanced.m */,
 				709679A61B0EEF2B00BB43D8 /* AVUserBasic.h */,
 				709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */,
+				706780131B244837002F1413 /* CQLBasic.h */,
+				706780141B244837002F1413 /* CQLBasic.m */,
 				709679A81B0EEF2B00BB43D8 /* Student.h */,
 				709679A91B0EEF2B00BB43D8 /* Student.m */,
 			);
@@ -355,6 +360,7 @@
 				706780121B24334B002F1413 /* ImageViewController.m in Sources */,
 				709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */,
 				709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */,
+				706780151B244837002F1413 /* CQLBasic.m in Sources */,
 				709679AE1B0EEF2B00BB43D8 /* AVRelationAdvanced.m in Sources */,
 				709679B21B0EEF2B00BB43D8 /* AVUserBasic.m in Sources */,
 				1F1E0FBA18585B1000E9097E /* SourceViewController.m in Sources */,
