@@ -103,8 +103,6 @@
         
         NSString *name=[mtd substringFromIndex:4];
         
-        
-        
         //只显示demo开头的方法
         if ([mtd hasPrefix:@"demo"]) {
             NSDictionary *info=@{

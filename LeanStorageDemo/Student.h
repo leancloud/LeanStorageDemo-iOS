@@ -8,6 +8,8 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
+static NSString *const kStudentKeyHobbies = @"hobbies";
+
 typedef enum{
     GenderUnkonwn=0,
     GenderMale=1,
@@ -16,8 +18,9 @@ typedef enum{
 
 @interface Student : AVObject<AVSubclassing>
 
-@property(nonatomic,copy)   NSString *name;
-@property(nonatomic,assign) int age;
-@property(nonatomic,assign) GenderType gender;
+@property (nonatomic, copy)   NSString *name;
+@property (nonatomic, assign) int age;
+@property (nonatomic, assign) GenderType gender;
+@property (nonatomic, strong) NSArray *hobbies;
 
 @end

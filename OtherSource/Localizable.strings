@@ -20,6 +20,7 @@
 "Logout"    ="注销";
 "Combine"   ="结合";
 "Clear"     ="清除";
+"Remove"    ="移除";
 
 // adv
 "By"        ="按";
@@ -56,6 +57,11 @@
 "Qiniu"     ="七牛";
 "Api"       ="接口";
 "Cache"     ="缓存";
+"Offline"   ="离线";
+"Counter"   ="计数器";
+"Array"     ="数组";
+"One"       ="一";
+"Two"       ="二";
 
 // adj
 "Second"    ="二";

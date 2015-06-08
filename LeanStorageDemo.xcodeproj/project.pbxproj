@@ -310,7 +310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\nrm -rf \"${to_path}\"\nmkdir \"${to_path}\"\n\nrsync -arc ./LeanStorageDemo/*.m \"${to_path}\"\n                      \n\n";
+			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\n#rm -rf \"${to_path}\"\n#mkdir \"${to_path}\"\n\nrsync -arc --delete ./LeanStorageDemo/*.m \"${to_path}\"\n\n\n";
 		};
 		D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
