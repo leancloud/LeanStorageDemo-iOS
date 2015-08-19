@@ -24,14 +24,15 @@
 		706780121B24334B002F1413 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780111B24334B002F1413 /* ImageViewController.m */; };
 		706780151B244837002F1413 /* CQLBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780141B244837002F1413 /* CQLBasic.m */; };
 		706F85A71B847A0E0079CC55 /* alpacino.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 706F85A61B847A0E0079CC55 /* alpacino.jpg */; };
+		706F85AA1B84D2DF0079CC55 /* PointerBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F85A91B84D2DF0079CC55 /* PointerBasic.m */; };
+		706F85AD1B84D5280079CC55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F85AC1B84D5280079CC55 /* Post.m */; };
 		709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */; };
 		709679AB1B0EEF2B00BB43D8 /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679991B0EEF2B00BB43D8 /* AVFileBasic.m */; };
 		709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */; };
 		709679AD1B0EEF2B00BB43D8 /* AVQueryBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799D1B0EEF2B00BB43D8 /* AVQueryBasic.m */; };
-		709679AE1B0EEF2B00BB43D8 /* AVRelationAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799F1B0EEF2B00BB43D8 /* AVRelationAdvanced.m */; };
-		709679AF1B0EEF2B00BB43D8 /* AVSearchQueryBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A11B0EEF2B00BB43D8 /* AVSearchQueryBasic.m */; };
+		709679AE1B0EEF2B00BB43D8 /* AVRelationBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799F1B0EEF2B00BB43D8 /* AVRelationBasic.m */; };
+		709679AF1B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A11B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m */; };
 		709679B01B0EEF2B00BB43D8 /* AVSMSBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A31B0EEF2B00BB43D8 /* AVSMSBasic.m */; };
-		709679B11B0EEF2B00BB43D8 /* AVSubclassAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A51B0EEF2B00BB43D8 /* AVSubclassAdvanced.m */; };
 		709679B21B0EEF2B00BB43D8 /* AVUserBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */; };
 		709679B31B0EEF2B00BB43D8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A91B0EEF2B00BB43D8 /* Student.m */; };
 		8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F78219458F5E00E1F7BD /* SearchResultController.m */; };
@@ -68,6 +69,10 @@
 		706780131B244837002F1413 /* CQLBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLBasic.h; sourceTree = "<group>"; };
 		706780141B244837002F1413 /* CQLBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQLBasic.m; sourceTree = "<group>"; };
 		706F85A61B847A0E0079CC55 /* alpacino.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alpacino.jpg; path = OtherSource/alpacino.jpg; sourceTree = SOURCE_ROOT; };
+		706F85A81B84D2DF0079CC55 /* PointerBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerBasic.h; sourceTree = "<group>"; };
+		706F85A91B84D2DF0079CC55 /* PointerBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerBasic.m; sourceTree = "<group>"; };
+		706F85AB1B84D5280079CC55 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		706F85AC1B84D5280079CC55 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		709679961B0EEF2B00BB43D8 /* AVAnalyticsBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAnalyticsBasic.h; sourceTree = "<group>"; };
 		709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAnalyticsBasic.m; sourceTree = "<group>"; };
 		709679981B0EEF2B00BB43D8 /* AVFileBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFileBasic.h; sourceTree = "<group>"; };
@@ -76,14 +81,12 @@
 		7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVObjectBasic.m; sourceTree = "<group>"; };
 		7096799C1B0EEF2B00BB43D8 /* AVQueryBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVQueryBasic.h; sourceTree = "<group>"; };
 		7096799D1B0EEF2B00BB43D8 /* AVQueryBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVQueryBasic.m; sourceTree = "<group>"; };
-		7096799E1B0EEF2B00BB43D8 /* AVRelationAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRelationAdvanced.h; sourceTree = "<group>"; };
-		7096799F1B0EEF2B00BB43D8 /* AVRelationAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVRelationAdvanced.m; sourceTree = "<group>"; };
-		709679A01B0EEF2B00BB43D8 /* AVSearchQueryBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSearchQueryBasic.h; sourceTree = "<group>"; };
-		709679A11B0EEF2B00BB43D8 /* AVSearchQueryBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSearchQueryBasic.m; sourceTree = "<group>"; };
+		7096799E1B0EEF2B00BB43D8 /* AVRelationBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRelationBasic.h; sourceTree = "<group>"; };
+		7096799F1B0EEF2B00BB43D8 /* AVRelationBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVRelationBasic.m; sourceTree = "<group>"; };
+		709679A01B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSearchQueryAdvanced.h; sourceTree = "<group>"; };
+		709679A11B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSearchQueryAdvanced.m; sourceTree = "<group>"; };
 		709679A21B0EEF2B00BB43D8 /* AVSMSBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSMSBasic.h; sourceTree = "<group>"; };
 		709679A31B0EEF2B00BB43D8 /* AVSMSBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSMSBasic.m; sourceTree = "<group>"; };
-		709679A41B0EEF2B00BB43D8 /* AVSubclassAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSubclassAdvanced.h; sourceTree = "<group>"; };
-		709679A51B0EEF2B00BB43D8 /* AVSubclassAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSubclassAdvanced.m; sourceTree = "<group>"; };
 		709679A61B0EEF2B00BB43D8 /* AVUserBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVUserBasic.h; sourceTree = "<group>"; };
 		709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVUserBasic.m; sourceTree = "<group>"; };
 		709679A81B0EEF2B00BB43D8 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -201,20 +204,22 @@
 				7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */,
 				7096799C1B0EEF2B00BB43D8 /* AVQueryBasic.h */,
 				7096799D1B0EEF2B00BB43D8 /* AVQueryBasic.m */,
-				7096799E1B0EEF2B00BB43D8 /* AVRelationAdvanced.h */,
-				7096799F1B0EEF2B00BB43D8 /* AVRelationAdvanced.m */,
-				709679A01B0EEF2B00BB43D8 /* AVSearchQueryBasic.h */,
-				709679A11B0EEF2B00BB43D8 /* AVSearchQueryBasic.m */,
+				7096799E1B0EEF2B00BB43D8 /* AVRelationBasic.h */,
+				7096799F1B0EEF2B00BB43D8 /* AVRelationBasic.m */,
+				709679A01B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.h */,
+				709679A11B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m */,
+				706F85A81B84D2DF0079CC55 /* PointerBasic.h */,
+				706F85A91B84D2DF0079CC55 /* PointerBasic.m */,
 				709679A21B0EEF2B00BB43D8 /* AVSMSBasic.h */,
 				709679A31B0EEF2B00BB43D8 /* AVSMSBasic.m */,
-				709679A41B0EEF2B00BB43D8 /* AVSubclassAdvanced.h */,
-				709679A51B0EEF2B00BB43D8 /* AVSubclassAdvanced.m */,
 				709679A61B0EEF2B00BB43D8 /* AVUserBasic.h */,
 				709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */,
 				706780131B244837002F1413 /* CQLBasic.h */,
 				706780141B244837002F1413 /* CQLBasic.m */,
 				709679A81B0EEF2B00BB43D8 /* Student.h */,
 				709679A91B0EEF2B00BB43D8 /* Student.m */,
+				706F85AB1B84D5280079CC55 /* Post.h */,
+				706F85AC1B84D5280079CC55 /* Post.m */,
 			);
 			path = LeanStorageDemo;
 			sourceTree = "<group>";
@@ -318,7 +323,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\n#rm -rf \"${to_path}\"\n#mkdir \"${to_path}\"\n\nrsync -arc --delete ./LeanStorageDemo/*.m \"${to_path}\"\n\n\n";
+			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\n#rm -rf \"${to_path}\"\n#mkdir \"${to_path}\"\n\necho $to_path\n\nrsync -arc --delete ./LeanStorageDemo/*.m \"${to_path}\"\n\n\n";
 		};
 		D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -365,18 +370,19 @@
 				1F1E0FB718585AD200E9097E /* main.m in Sources */,
 				709679AB1B0EEF2B00BB43D8 /* AVFileBasic.m in Sources */,
 				1FAA7D5618586FE800A2065B /* DemoListC.m in Sources */,
+				706F85AA1B84D2DF0079CC55 /* PointerBasic.m in Sources */,
 				706780121B24334B002F1413 /* ImageViewController.m in Sources */,
 				709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */,
 				709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */,
 				706780151B244837002F1413 /* CQLBasic.m in Sources */,
-				709679AE1B0EEF2B00BB43D8 /* AVRelationAdvanced.m in Sources */,
+				706F85AD1B84D5280079CC55 /* Post.m in Sources */,
+				709679AE1B0EEF2B00BB43D8 /* AVRelationBasic.m in Sources */,
 				709679B21B0EEF2B00BB43D8 /* AVUserBasic.m in Sources */,
 				1F1E0FBA18585B1000E9097E /* SourceViewController.m in Sources */,
 				1FAA7D681859668D00A2065B /* Demo.m in Sources */,
-				709679AF1B0EEF2B00BB43D8 /* AVSearchQueryBasic.m in Sources */,
+				709679AF1B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m in Sources */,
 				709679B31B0EEF2B00BB43D8 /* Student.m in Sources */,
 				8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */,
-				709679B11B0EEF2B00BB43D8 /* AVSubclassAdvanced.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

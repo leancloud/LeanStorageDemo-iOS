@@ -13,6 +13,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 #import "Student.h"
+#import "Post.h"
 
 #warning 请替换成自己的id和key ，或用 leancloud@163.com/Public123  登录，来查看后台数据
 #define AVOSCloudAppID  @"ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk"
@@ -24,6 +25,7 @@
 {
     /* 重要! 注册子类 App生命周期内 只需要执行一次即可*/
     [Student registerSubclass];
+    [Post registerSubclass];
     
     //设置AVOSCloud
     [AVOSCloud setApplicationId:AVOSCloudAppID
@@ -134,7 +136,7 @@
     UITabBarController *tabC=[[UITabBarController alloc] init];
     tabC.delegate=self;
     [tabC setViewControllers:tabs];
-    tabC.selectedIndex = 1;
+    tabC.selectedIndex = 0;
     tabC.title=[tabs[tabC.selectedIndex] title];
     
     if ([tabC respondsToSelector:@selector(edgesForExtendedLayout)])

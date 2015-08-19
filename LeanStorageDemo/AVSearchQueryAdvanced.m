@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 AVOS. All rights reserved.
 //
 
-#import "AVSearchQueryBasic.h"
+#import "AVSearchQueryAdvanced.h"
 #import "DemoRunC.h"
 #import "SearchResultController.h"
 
 static const int showResultButtonTag = 1000;
-@implementation AVSearchQueryBasic {
+@implementation AVSearchQueryAdvanced {
     NSArray *_objects;
 }
 

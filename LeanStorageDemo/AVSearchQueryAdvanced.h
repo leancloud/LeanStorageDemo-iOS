@@ -8,6 +8,6 @@
 
 #import "Demo.h"
 
-@interface AVSearchQueryBasic : Demo
+@interface AVSearchQueryAdvanced : Demo
 
 @end

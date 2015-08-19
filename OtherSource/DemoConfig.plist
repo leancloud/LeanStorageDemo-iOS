@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>初级用法</key>
+	<key>a.常用功能</key>
 	<array>
 		<dict>
 			<key>class</key>
@@ -11,6 +11,22 @@
 			<string>AVObject</string>
 			<key>detail</key>
 			<string>基本AVObject用法, 增删改查</string>
+		</dict>
+		<dict>
+			<key>class</key>
+			<string>PointerBasic</string>
+			<key>name</key>
+			<string>Pointer</string>
+			<key>detail</key>
+			<string>一对一、一对多关系建模</string>
+		</dict>
+		<dict>
+			<key>class</key>
+			<string>AVRelationBasic</string>
+			<key>name</key>
+			<string>AVRelation</string>
+			<key>detail</key>
+			<string>多对多关系建模</string>
 		</dict>
 		<dict>
 			<key>class</key>
@@ -46,14 +62,6 @@
 		</dict>
 		<dict>
 			<key>class</key>
-			<string>AVSearchQueryBasic</string>
-			<key>name</key>
-			<string>搜索</string>
-			<key>detail</key>
-			<string>AVSearchQuery基本用法</string>
-		</dict>
-		<dict>
-			<key>class</key>
 			<string>AVSMSBasic</string>
 			<key>name</key>
 			<string>SMS</string>
@@ -69,23 +77,15 @@
 			<string>CQL 基本用法</string>
 		</dict>
 	</array>
-	<key>高级用法</key>
+	<key>b.组件功能</key>
 	<array>
 		<dict>
 			<key>class</key>
-			<string>AVSubclassAdvanced</string>
+			<string>AVSearchQueryAdvanced</string>
 			<key>name</key>
-			<string>子类化</string>
+			<string>搜索</string>
 			<key>detail</key>
-			<string>子类化的相关例子</string>
-		</dict>
-		<dict>
-			<key>class</key>
-			<string>AVRelationAdvanced</string>
-			<key>name</key>
-			<string>关联操作(一对多, 多对多关系)</string>
-			<key>detail</key>
-			<string>AVRelation增删改查.</string>
+			<string>AVSearchQuery基本用法</string>
 		</dict>
 	</array>
 </dict>

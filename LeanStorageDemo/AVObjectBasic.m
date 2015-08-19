@@ -17,6 +17,8 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 -(void)demoCreateObject{
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
+    student.age=12;
+    student.gender=GenderMale;
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"创建成功 %@", student];
@@ -226,5 +228,54 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
+- (void)demoBatchCreateObjectAndFile {
+    NSMutableArray *students = [NSMutableArray array];
+    for (int i = 10; i < 15; i++) {
+        Student *student = [Student object];
+        AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
+        student.avatar = avatar;
+        student.age = i;
+        [students addObject:student];
+    }
+    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"批量了保存了10个学生及其头像，他们是：%@", students];
+        }
+    }];
+}
+
+- (void)demoFromDictionaryCreateObject {
+    NSString *json = @"{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}";
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
+    NSDictionary *o = [[dict objectForKey:@"result"] objectAtIndex:0];
+    AVUser *user = [AVUser user];
+    [user objectFromDictionary:o];
+    [self log:@"从一大段文本创建了User对象，user:%@", json, user];
+}
+
+- (void)demoAnyType {
+    Student *student = [Student object];
+    student.any = @(1);
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"Student 的 any 列被保存为了数字: %@", student];
+            student.any =@"hello world";
+            [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error]) {
+                    [self log:@"Student 的 any 列被保存为了字符串：%@", student];
+                    student.any = @{@"score":@(100), @"name":@"kitty"};
+                    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if ([self filterError:error]) {
+                            [self log:@"Student 的 any 列被保存为了字典：%@", student];
+                            [self log:@"结束"];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+}
+
 MakeSourcePath
+
 @end

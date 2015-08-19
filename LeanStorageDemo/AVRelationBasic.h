@@ -8,6 +8,6 @@
 
 #import "Demo.h"
 
-@interface AVRelationAdvanced : Demo
+@interface AVRelationBasic : Demo
 
 @end

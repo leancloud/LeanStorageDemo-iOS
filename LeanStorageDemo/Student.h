@@ -23,5 +23,6 @@ typedef enum{
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) GenderType gender;
 @property (nonatomic, strong) NSArray *hobbies;
+@property (nonatomic, strong) id any;
 
 @end

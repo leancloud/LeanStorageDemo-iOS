@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 AVOS. All rights reserved.
 //
 
-#import "AVRelationAdvanced.h"
+#import "AVRelationBasic.h"
 #import "Student.h"
 
-@implementation AVRelationAdvanced
+@implementation AVRelationBasic
 
 -(void)demoAddRelation{
     //假设有2个Student xiaoQiang和xiaoHong
@@ -68,7 +68,6 @@
     
     //假设我们要删掉xiaoGang的这个朋友: 52b290bce4b0c95c1fa49ad7
     Student *xiaoHong=[Student objectWithoutDataWithObjectId:@"52b290b9e4b0c95c1fa49ad6"];
-    
     
     //获取Relation属性
     AVRelation *friends= [xiaoGang relationforKey:@"friends"];

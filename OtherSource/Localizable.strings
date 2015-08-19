@@ -22,6 +22,7 @@
 "Clear"     ="清除";
 "Remove"    ="移除";
 "Fetch"     ="获取";
+"Relate"    ="关联";
 
 // adv
 "By"        ="按";
@@ -64,6 +65,7 @@
 "Array"     ="数组";
 "One"       ="一";
 "Two"       ="二";
+"Dictionary"="字典";
 
 // adj
 "Second"    ="二";
