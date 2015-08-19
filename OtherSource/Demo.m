@@ -105,8 +105,15 @@
         
         //只显示demo开头的方法
         if ([mtd hasPrefix:@"demo"]) {
+            NSString *displayName;
+            if ([name hasSuffix:@"_"]) {
+                // 不翻译
+                displayName = [name substringToIndex:name.length - 1];
+            } else {
+                displayName = [self localizedNameForMethod:name];
+            }
             NSDictionary *info=@{
-                                 @"name":[self localizedNameForMethod:name],
+                                 @"name":displayName,
                                  @"detail":[NSString stringWithFormat:@"方法示例: %@",mtd],
                                  @"method":mtd,
                                  };
@@ -120,6 +127,19 @@
     
     
     return mts;
+}
+
+#pragma mark - Demo Utils
+- (void)createStudentForDemo:(StudentBlock)block {
+    Student *student = [[Student alloc] init];
+    student.name = @"Jane";
+    student.age = 18;
+    student.gender = GenderFamale;
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            block(student);
+        }
+    }];
 }
 
 MakeSourcePath

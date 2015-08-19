@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <LZAlertViewHelper/LZAlertViewHelper.h>
+#import "Student.h"
+
+typedef void (^StudentBlock) (Student *student);
+
 @class DemoRunC;
 @interface Demo : NSObject
 @property(nonatomic,readonly) NSString *sourcePath;
@@ -19,5 +23,7 @@
 -(BOOL)filterError:(NSError *)error;
 
 - (void)showImage:(UIImage *)image;
+
+- (void)createStudentForDemo:(StudentBlock)block;
 
 @end

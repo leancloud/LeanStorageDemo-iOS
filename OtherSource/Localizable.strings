@@ -66,6 +66,7 @@
 "One"       ="一";
 "Two"       ="二";
 "Dictionary"="字典";
+"Policy"    ="策略";
 
 // adj
 "Second"    ="二";
@@ -73,3 +74,4 @@
 "Current"   ="当前";
 "Anonymous" ="匿名";
 "Meta"      ="元";
+"All"       ="所有";

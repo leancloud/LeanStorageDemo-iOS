@@ -10,21 +10,7 @@
 #import "Student.h"
 #import "Post.h"
 
-typedef void (^StudentBlock) (Student *student);
-
 @implementation PointerBasic
-
-- (void)createStudentForDemo:(StudentBlock)block {
-    Student *student = [[Student alloc] init];
-    student.name = @"Jane";
-    student.age = 18;
-    student.gender = GenderFamale;
-    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            block(student);
-        }
-    }];
-}
 
 - (void)demoRelateObject {
     [self createStudentForDemo:^(Student *student) {
