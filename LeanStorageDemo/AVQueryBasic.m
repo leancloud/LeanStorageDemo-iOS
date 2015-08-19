@@ -43,6 +43,36 @@
     }];
 }
 
+- (void)demoAndQuery_ {
+    AVQuery *query1 = [Student query];
+    [query1 whereKey:kStudentKeyName notEqualTo:@"Mike"];;
+    
+    AVQuery *query2 = [Student query];
+    [query2 whereKey:kStudentKeyName hasPrefix:@"M"];
+    
+    AVQuery *query = [AVQuery andQueryWithSubqueries:@[query1, query2]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"名字不为 Mike 且 M 开头的学生：%@", objects];
+        }
+    }];
+}
+
+- (void)demoOrQuery {
+    AVQuery *query1 = [Student query];
+    [query1 whereKey:kStudentKeyName equalTo:@"Mike"];
+    
+    AVQuery *query2 = [Student query];
+    [query2 whereKey:kStudentKeyName hasPrefix:@"J"];
+    
+    AVQuery *query = [AVQuery orQueryWithSubqueries:@[query1, query2]];
+    [query countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"名字为 Mike 或 J 开头的学生有 %ld 个", number];
+        }
+    }];
+}
+
 - (void)demoLastModifyEnabled {
     // 放在 AppDelegate 较好
     [AVOSCloud setLastModifyEnabled:YES];

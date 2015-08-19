@@ -9,6 +9,11 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 static NSString *const kStudentKeyHobbies = @"hobbies";
+static NSString *const kStudnetKeyAvatar = @"avatar";
+static NSString *const kStudnetKeyAge = @"age";
+static NSString *const kStudnetKeyGender = @"gender";
+static NSString *const kStudentKeyAny = @"any";
+static NSString *const kStudentKeyName = @"name";
 
 typedef enum{
     GenderUnkonwn=0,
