@@ -7,7 +7,7 @@
 ## 如何运行
 
 ```
-   pod install
+   pod install --verbose --no-repo-update
    open LeanStorageDemo.xcworkspace
 ```
 

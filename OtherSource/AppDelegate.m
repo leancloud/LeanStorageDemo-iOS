@@ -11,7 +11,6 @@
 
 
 #import <AVOSCloud/AVOSCloud.h>
-#import <AVOSCloudSNS/AVOSCloudSNS.h>
 
 #import "Student.h"
 

@@ -16,7 +16,8 @@ static const int showResultButtonTag = 1000;
 }
 
 - (void)demoByKeywordQuery{
-    AVSearchQuery *searchQuery = [AVSearchQuery searchWithQueryString:@"test"];
+    // 需要控制台开启应用内搜索
+    AVSearchQuery *searchQuery = [AVSearchQuery searchWithQueryString:@"Xiao"];
     searchQuery.className = @"Student";
     searchQuery.highlights = @"name";
     searchQuery.limit = 10;

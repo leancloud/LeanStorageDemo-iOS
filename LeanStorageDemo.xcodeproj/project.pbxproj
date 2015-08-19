@@ -20,6 +20,7 @@
 		1FAA7D581859551C00A2065B /* DemoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA7D571859551C00A2065B /* DemoConfig.plist */; };
 		1FAA7D681859668D00A2065B /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D671859668D00A2065B /* Demo.m */; };
 		1FAA7D6B1859691F00A2065B /* DemoRunC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D6A1859691F00A2065B /* DemoRunC.m */; };
+		26664E341B88B521039B1760 /* libPods-LeanStorageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B7131E74E02C8E768D8C9 /* libPods-LeanStorageDemo.a */; };
 		706780121B24334B002F1413 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780111B24334B002F1413 /* ImageViewController.m */; };
 		706780151B244837002F1413 /* CQLBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780141B244837002F1413 /* CQLBasic.m */; };
 		709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C92326EDD4FF726E60BC68A /* Pods-LeanStorageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanStorageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1F1E0FB618585AD200E9097E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F1E0FB818585B1000E9097E /* SourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceViewController.h; sourceTree = "<group>"; };
 		1F1E0FB918585B1000E9097E /* SourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceViewController.m; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		1FAA7D671859668D00A2065B /* Demo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo.m; sourceTree = "<group>"; };
 		1FAA7D691859691F00A2065B /* DemoRunC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoRunC.h; sourceTree = "<group>"; };
 		1FAA7D6A1859691F00A2065B /* DemoRunC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoRunC.m; sourceTree = "<group>"; };
-		64E5071E3BA8709F34647A0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2F8B7131E74E02C8E768D8C9 /* libPods-LeanStorageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeanStorageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		706780101B24334B002F1413 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		706780111B24334B002F1413 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		706780131B244837002F1413 /* CQLBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLBasic.h; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		8C731E0719518D1A00FFF8E7 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		8C731E0819518D1A00FFF8E7 /* AVOSCloudSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudSNS.framework; sourceTree = "<group>"; };
 		C40F5674E93E3ADFC5797BF7 /* libPods-AVOSDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AVOSDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE961CEEADF21076C9D2267 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DB5EAEC5FDEBA56782FAA647 /* Pods-LeanStorageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanStorageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FEF2E3942C4FF2DAA1D89F07 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				8C731E0519517D1300FFF8E7 /* CoreLocation.framework in Frameworks */,
 				8C731E0619517D1300FFF8E7 /* CoreTelephony.framework in Frameworks */,
 				03541D61E1484198CB7CD0B3 /* libPods.a in Frameworks */,
+				26664E341B88B521039B1760 /* libPods-LeanStorageDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +146,7 @@
 				1F3AF9B71828C6DE003277B5 /* Supporting Files */,
 				1F3AF9AF1828C6DE003277B5 /* Frameworks */,
 				1F3AF9AE1828C6DE003277B5 /* Products */,
-				CEE510EB26A41BF1FA3DC5E0 /* Pods */,
+				F79596D9E25631625E4112F5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +167,7 @@
 				8C731E0819518D1A00FFF8E7 /* AVOSCloudSNS.framework */,
 				C40F5674E93E3ADFC5797BF7 /* libPods-AVOSDemo.a */,
 				FEF2E3942C4FF2DAA1D89F07 /* libPods.a */,
+				2F8B7131E74E02C8E768D8C9 /* libPods-LeanStorageDemo.a */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -221,11 +225,11 @@
 			path = PBWebViewController;
 			sourceTree = "<group>";
 		};
-		CEE510EB26A41BF1FA3DC5E0 /* Pods */ = {
+		F79596D9E25631625E4112F5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EFE961CEEADF21076C9D2267 /* Pods.debug.xcconfig */,
-				64E5071E3BA8709F34647A0B /* Pods.release.xcconfig */,
+				1C92326EDD4FF726E60BC68A /* Pods-LeanStorageDemo.debug.xcconfig */,
+				DB5EAEC5FDEBA56782FAA647 /* Pods-LeanStorageDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -324,7 +328,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ECAB2276AFAF70F349D93CB4 /* Check Pods Manifest.lock */ = {
@@ -447,7 +451,7 @@
 		};
 		1F3AF9E31828C6DE003277B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE961CEEADF21076C9D2267 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1C92326EDD4FF726E60BC68A /* Pods-LeanStorageDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -469,7 +473,7 @@
 		};
 		1F3AF9E41828C6DE003277B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64E5071E3BA8709F34647A0B /* Pods.release.xcconfig */;
+			baseConfigurationReference = DB5EAEC5FDEBA56782FAA647 /* Pods-LeanStorageDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
