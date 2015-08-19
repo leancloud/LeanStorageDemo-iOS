@@ -21,6 +21,7 @@
 "Combine"   ="结合";
 "Clear"     ="清除";
 "Remove"    ="移除";
+"Fetch"     ="获取";
 
 // adv
 "By"        ="按";
@@ -29,6 +30,7 @@
 "Only"      ="仅";
 "To"        ="来";
 "And"       ="和";
+"Batch"     ="批量";
 
 // noun
 "Object"    ="对象";

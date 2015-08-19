@@ -18,6 +18,7 @@ typedef enum{
 
 @interface Student : AVObject<AVSubclassing>
 
+@property (nonatomic, strong) AVFile *avatar;
 @property (nonatomic, copy)   NSString *name;
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) GenderType gender;

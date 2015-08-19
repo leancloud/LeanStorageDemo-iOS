@@ -23,6 +23,7 @@
 		26664E341B88B521039B1760 /* libPods-LeanStorageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B7131E74E02C8E768D8C9 /* libPods-LeanStorageDemo.a */; };
 		706780121B24334B002F1413 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780111B24334B002F1413 /* ImageViewController.m */; };
 		706780151B244837002F1413 /* CQLBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706780141B244837002F1413 /* CQLBasic.m */; };
+		706F85A71B847A0E0079CC55 /* alpacino.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 706F85A61B847A0E0079CC55 /* alpacino.jpg */; };
 		709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */; };
 		709679AB1B0EEF2B00BB43D8 /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679991B0EEF2B00BB43D8 /* AVFileBasic.m */; };
 		709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */; };
@@ -66,6 +67,7 @@
 		706780111B24334B002F1413 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		706780131B244837002F1413 /* CQLBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLBasic.h; sourceTree = "<group>"; };
 		706780141B244837002F1413 /* CQLBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQLBasic.m; sourceTree = "<group>"; };
+		706F85A61B847A0E0079CC55 /* alpacino.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alpacino.jpg; path = OtherSource/alpacino.jpg; sourceTree = SOURCE_ROOT; };
 		709679961B0EEF2B00BB43D8 /* AVAnalyticsBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAnalyticsBasic.h; sourceTree = "<group>"; };
 		709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAnalyticsBasic.m; sourceTree = "<group>"; };
 		709679981B0EEF2B00BB43D8 /* AVFileBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFileBasic.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				1FAA7D571859551C00A2065B /* DemoConfig.plist */,
 				1F66B1FF185EA8B40034AA65 /* LeanStorageDemo-Info.plist */,
 				1F66B200185EA8B40034AA65 /* cloud.png */,
+				706F85A61B847A0E0079CC55 /* alpacino.jpg */,
 				1F66B201185EA8B40034AA65 /* cloud@2x.png */,
 				1F66B202185EA8B40034AA65 /* Images.xcassets */,
 				1F66B203185EA8B40034AA65 /* Localizable.strings */,
@@ -292,6 +295,7 @@
 			files = (
 				1F66B205185EA8B40034AA65 /* cloud.png in Resources */,
 				1F66B208185EA8B40034AA65 /* Localizable.strings in Resources */,
+				706F85A71B847A0E0079CC55 /* alpacino.jpg in Resources */,
 				1F1E0FBC18585C0E00E9097E /* html in Resources */,
 				1F66B207185EA8B40034AA65 /* Images.xcassets in Resources */,
 				1F66B206185EA8B40034AA65 /* cloud@2x.png in Resources */,

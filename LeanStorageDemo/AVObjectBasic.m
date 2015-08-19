@@ -24,6 +24,31 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
+- (void)demoCreateObjectAndFile {
+    Student *student = [Student object];
+    student.name = @"Mike";
+    AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
+    
+    student.avatar = avatar;
+    
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"保存对象与文件成功。 student : %@", student];
+        }
+    }];
+}
+
+- (void)demoWithDictionaryCreateObject {
+    NSDictionary *dict = @{@"name":@"Mike"};
+    Student *student = [Student object];
+    [student objectFromDictionary:dict];
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"用字典赋值字段并保存成功！student:%@", student];
+        }
+    }];
+}
+
 -(void)demoUpdateObject{
     //我们先创建一个Object 才可以更新
     Student *student = [[Student alloc] init];
@@ -117,6 +142,84 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
             [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"hobbis after: %@", student.hobbies];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)createStudentsForDemo:(AVArrayResultBlock)block {
+    NSMutableArray *students = [NSMutableArray array];
+    for (int i = 10; i < 20; i++) {
+        Student *student = [Student object];
+        student.age = i;
+        [students addObject:student];
+    }
+    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            block(nil, error);
+        } else {
+            block(students, nil);
+        }
+    }];
+}
+
+- (void)demoBatchCreate {
+    NSMutableArray *students = [NSMutableArray array];
+    for (int i = 10; i < 20; i++) {
+        Student *student = [Student object];
+        student.age = i;
+        [students addObject:student];
+    }
+    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"批量创建了10个学生！他们是：%@", students];
+        }
+    }];
+}
+
+- (void)demoBatchFetch {
+    // 先保存10个学生，示例用
+    [self createStudentsForDemo:^(NSArray *students, NSError *error) {
+        if ([self filterError:error]) {
+            NSMutableArray *fetchStudents = [NSMutableArray array];
+            for (Student *student in students) {
+                // 构造对象，无数据
+                Student *fetchStudent = [Student objectWithoutDataWithObjectId:student.objectId];
+                [fetchStudents addObject:fetchStudent];
+            }
+            [AVObject fetchAllIfNeededInBackground:fetchStudents block:^(NSArray *objects, NSError *error) {
+                if ([self filterError:error]) {
+                    [self log:@"批量获取了10个学生！他们是：%@",fetchStudents];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)demoBatchUpdate {
+    // 先保存10个学生，示例用
+    [self createStudentsForDemo:^(NSArray *students, NSError *error) {
+        if ([self filterError:error]) {
+            for (Student *student in students) {
+                // 构造对象，无数据
+                student.name = @"Mike";
+            }
+            [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error]) {
+                    [self log:@"批量更新了10个学生！他们是：%@",students];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)demoBatchDelete {
+    [self createStudentsForDemo:^(NSArray *students, NSError *error) {
+        if ([self filterError:error]) {
+            [AVObject deleteAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error]) {
+                    [self log:@"批量删除了10个学生！他们是：%@",students];
                 }
             }];
         }
