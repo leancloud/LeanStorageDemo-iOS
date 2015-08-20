@@ -135,6 +135,7 @@
     student.name = @"Jane";
     student.age = 18;
     student.gender = GenderFamale;
+    student.hobbies = @[@"swimming", @"running"];
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             block(student);

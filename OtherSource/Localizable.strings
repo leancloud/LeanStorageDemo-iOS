@@ -23,6 +23,7 @@
 "Remove"    ="移除";
 "Fetch"     ="获取";
 "Relate"    ="关联";
+"Limit"     ="限制";
 
 // adv
 "By"        ="按";
@@ -67,11 +68,19 @@
 "Two"       ="二";
 "Dictionary"="字典";
 "Policy"    ="策略";
+"Single"    ="一个";
+"Key"       ="字段";
+"Condition" ="条件";
+"Order"     ="排序";
+"Size"      ="大小";
+"Regex"     ="正则表达式";
 
 // adj
-"Second"    ="二";
+"Second"    ="第二";
 "Old"       ="旧";
 "Current"   ="当前";
 "Anonymous" ="匿名";
 "Meta"      ="元";
 "All"       ="所有";
+"Multiple"  ="多个";
+"Descending"="降序";

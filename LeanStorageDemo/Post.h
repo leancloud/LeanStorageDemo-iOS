@@ -10,6 +10,8 @@
 #import "Student.h"
 
 #define kPostKeyLikes @"likes"
+#define kPostKeyAuthor @"author"
+#define kPostKeyContent @"content";
 
 @interface Post : AVObject<AVSubclassing>
 
