@@ -76,6 +76,7 @@
 "Order"     ="排序";
 "Size"      ="大小";
 "Regex"     ="正则表达式";
+"Local"     ="本地";
 
 // adj
 "Second"    ="第二";

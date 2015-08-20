@@ -76,6 +76,14 @@
 			<key>detail</key>
 			<string>CQL 基本用法</string>
 		</dict>
+		<dict>
+			<key>class</key>
+			<string>OtherBasic</string>
+			<key>name</key>
+			<string>其它</string>
+			<key>detail</key>
+			<string>获取服务器时间等接口</string>
+		</dict>
 	</array>
 	<key>b.组件功能</key>
 	<array>

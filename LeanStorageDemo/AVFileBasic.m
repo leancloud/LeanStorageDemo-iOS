@@ -109,11 +109,11 @@
     }];
 }
 
+// 更多图片处理请参考 http://docs.qiniu.com/api/v6/image-process.html
 -(void)demoCombineQiniuApi {
     NSString *fileId=@"5573fddee4b06a32094af62b";
     [AVFile getFileWithObjectId:fileId withBlock:^(AVFile *file, NSError *error) {
         if ([self filterError:error]) {
-            // 更多图片处理请参考 http://docs.qiniu.com/api/v6/image-process.html
             AVFile *thumbnailFile = [AVFile fileWithURL:[NSString stringWithFormat:@"%@?imageView/1/w/%@/h/%@", file.url, @"50", @"100"]];
             [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 if ([self filterError:error]) {
@@ -122,6 +122,15 @@
                     [self log:@"成功用七牛接口获得缩略图"];
                 }
             }];
+        }
+    }];
+}
+
+- (void)demoFileLocalPath {
+    AVFile *file=[AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"保存了文件，文件本地路径为：%@", file.localPath];
         }
     }];
 }

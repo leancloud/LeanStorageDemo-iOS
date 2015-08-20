@@ -26,6 +26,7 @@
 		706F85A71B847A0E0079CC55 /* alpacino.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 706F85A61B847A0E0079CC55 /* alpacino.jpg */; };
 		706F85AA1B84D2DF0079CC55 /* PointerBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F85A91B84D2DF0079CC55 /* PointerBasic.m */; };
 		706F85AD1B84D5280079CC55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F85AC1B84D5280079CC55 /* Post.m */; };
+		708F55491B85D9C60071CA48 /* OtherBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 708F55481B85D9C60071CA48 /* OtherBasic.m */; };
 		709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */; };
 		709679AB1B0EEF2B00BB43D8 /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679991B0EEF2B00BB43D8 /* AVFileBasic.m */; };
 		709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7096799B1B0EEF2B00BB43D8 /* AVObjectBasic.m */; };
@@ -73,6 +74,8 @@
 		706F85A91B84D2DF0079CC55 /* PointerBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerBasic.m; sourceTree = "<group>"; };
 		706F85AB1B84D5280079CC55 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		706F85AC1B84D5280079CC55 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		708F55471B85D9C60071CA48 /* OtherBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherBasic.h; sourceTree = "<group>"; };
+		708F55481B85D9C60071CA48 /* OtherBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherBasic.m; sourceTree = "<group>"; };
 		709679961B0EEF2B00BB43D8 /* AVAnalyticsBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAnalyticsBasic.h; sourceTree = "<group>"; };
 		709679971B0EEF2B00BB43D8 /* AVAnalyticsBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAnalyticsBasic.m; sourceTree = "<group>"; };
 		709679981B0EEF2B00BB43D8 /* AVFileBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFileBasic.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				709679A31B0EEF2B00BB43D8 /* AVSMSBasic.m */,
 				709679A61B0EEF2B00BB43D8 /* AVUserBasic.h */,
 				709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */,
+				708F55471B85D9C60071CA48 /* OtherBasic.h */,
+				708F55481B85D9C60071CA48 /* OtherBasic.m */,
 				706780131B244837002F1413 /* CQLBasic.h */,
 				706780141B244837002F1413 /* CQLBasic.m */,
 				709679A81B0EEF2B00BB43D8 /* Student.h */,
@@ -381,6 +386,7 @@
 				1F1E0FBA18585B1000E9097E /* SourceViewController.m in Sources */,
 				1FAA7D681859668D00A2065B /* Demo.m in Sources */,
 				709679AF1B0EEF2B00BB43D8 /* AVSearchQueryAdvanced.m in Sources */,
+				708F55491B85D9C60071CA48 /* OtherBasic.m in Sources */,
 				709679B31B0EEF2B00BB43D8 /* Student.m in Sources */,
 				8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */,
 			);
