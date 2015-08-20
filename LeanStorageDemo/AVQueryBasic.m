@@ -208,7 +208,7 @@
     }];
 }
 
-- (void)demoDoesNotMatchesInSubquery {
+- (void)demoDoesNotMatchesInSubquery_ {
     AVQuery *query = [Student query];
     [query orderByDescending:@"createdAt"];
     query.limit = 50;

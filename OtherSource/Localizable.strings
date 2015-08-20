@@ -24,6 +24,7 @@
 "Fetch"     ="获取";
 "Relate"    ="关联";
 "Limit"     ="限制";
+"Include"   ="包含";
 
 // adv
 "By"        ="按";
@@ -33,6 +34,7 @@
 "To"        ="来";
 "And"       ="和";
 "Batch"     ="批量";
+"Not"       ="不";
 
 // noun
 "Object"    ="对象";
@@ -84,3 +86,4 @@
 "All"       ="所有";
 "Multiple"  ="多个";
 "Descending"="降序";
+"Reverse"   ="反向";

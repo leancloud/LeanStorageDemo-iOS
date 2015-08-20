@@ -9,6 +9,7 @@
 #import "AVRelationBasic.h"
 #import "Student.h"
 
+// 大多数 Array 的限制条件也可以作用于 Relation，如 whereKey:sizeEqualTo
 @implementation AVRelationBasic
 
 -(void)demoAddRelation{
@@ -44,8 +45,14 @@
 }
 
 -(void)demoGetRelationMember{
-    //这里默认有个一直的Student的id: 55740e70e4b002b1c5dddd9a
-    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"55740e70e4b002b1c5dddd9a"];
+    AVQuery *query = [Student query];
+    [query whereKey:kStudentKeyName equalTo:@"XiaoGang"];
+    Student *xiaoGang = (Student *)[query getFirstObject];
+    if (xiaoGang == nil) {
+        [self log:@"请先运行第一个创建关联的示例"];
+        return;
+    }
+    
     //这是AVObject的另一个获取数据的用法, 只有在数据不存在时进行网络请求
     [xiaoGang fetchIfNeeded];
     //获取Relation属性
@@ -55,27 +62,70 @@
             [self log:@"关联获取成功 %@", objects];
         }
     }];
-    
+}
+
+- (Student *)getStudentWithFriends{
+    AVQuery *query = [Student query];
+    [query whereKey:kStudentKeyName equalTo:@"XiaoGang"];
+    [query whereKey:kStudnetKeyFriends sizeEqualTo:2];
+    [query orderByDescending:@"createdAt"];
+    Student *xiaoGang = (Student *)[query getFirstObject];
+    if (xiaoGang == nil) {
+        [self log:@"请先运行第一个创建关联的示例"];
+    }
+    return xiaoGang;
 }
 
 -(void)demoDeleteRelationMember{
-    //这里默认有个一直的Student的id: 55740e70e4b002b1c5dddd9a
-    Student *xiaoGang=[Student objectWithoutDataWithObjectId:@"55740e70e4b002b1c5dddd9a"];
+    Student *xiaoGang = [self getStudentWithFriends];
+    AVRelation *friends = [xiaoGang relationforKey:kStudnetKeyFriends];
+    AVQuery *friendsQuery = [friends query];
+    NSArray *array = [friendsQuery findObjects];
+    if (array.count == 0) {
+        [self log:@"请先运行第一个创建关联的示例"];
+        return;
+    }
+    Student *student = array[0];
     
-    //这是AVObject的另一个获取数据的用法, 只获取某些熟悉
-    [xiaoGang fetchIfNeededWithKeys:@[@"friends"]];
-    
-    
-    //假设我们要删掉xiaoGang的这个朋友: 52b290bce4b0c95c1fa49ad7
-    Student *xiaoHong=[Student objectWithoutDataWithObjectId:@"52b290b9e4b0c95c1fa49ad6"];
-    
-    //获取Relation属性
-    AVRelation *friends= [xiaoGang relationforKey:@"friends"];
-    [friends removeObject:xiaoHong];
-    
+    [friends removeObject:student];
+    [self log:@"删除关系前 friends: %@", array];
     [xiaoGang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
-            [self log:[NSString stringWithFormat:@"关联删除成功 %@",[xiaoGang description]]];
+            [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                [self log:@"关联删除之后 friends: %@",objects];
+            }];
+        }
+    }];
+}
+
+- (void)demoRelationCount {
+    Student *xiaoGang = [self getStudentWithFriends];
+    AVRelation *friends = [xiaoGang relationforKey:kStudnetKeyFriends];
+    AVQuery *friendsQuery = [friends query];
+    [friendsQuery countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"friends relation count: %ld", number];
+        }
+    }];
+}
+
+- (void)demoRelationReverseQuery {
+    AVQuery *query = [Student query];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:kStudentKeyName equalTo:@"XiaoHong"];
+    Student *xiaoHong = (Student *)[query getFirstObject];
+    if (xiaoHong == nil) {
+        [self log:@"请先运行第一个示例"];
+        return;
+    }
+    AVQuery *reverseQuery = [AVRelation reverseQuery:xiaoHong.className relationKey:kStudnetKeyFriends childObject:xiaoHong];
+    [reverseQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([self filterError:error]) {
+            if (objects.count) {
+                [self log:@"找到朋友中有 XiaoHong 的学生 %@", objects];
+            } else {
+                [self log:@"请先运行第一个示例"];
+            }
         }
     }];
 }
