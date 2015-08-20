@@ -194,6 +194,34 @@
     }];
 }
 
+- (void)demoMatchesInSubquery {
+    AVQuery *query = [Student query];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 50;
+    
+    AVQuery *postQuery = [Post query];
+    [postQuery whereKey:kPostKeyAuthor matchesQuery:query];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"最近创建的50个学生的微博：%@", objects];
+        }
+    }];
+}
+
+- (void)demoDoesNotMatchesInSubquery {
+    AVQuery *query = [Student query];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 50;
+    
+    AVQuery *postQuery = [Post query];
+    [postQuery whereKey:kPostKeyAuthor doesNotMatchQuery:query];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"除去最近50个学生创建的微博：%@", objects];
+        }
+    }];
+}
+
 - (void)demoLastModifyEnabled {
     // 放在 AppDelegate 较好
     [AVOSCloud setLastModifyEnabled:YES];
