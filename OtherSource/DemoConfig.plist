@@ -78,6 +78,14 @@
 		</dict>
 		<dict>
 			<key>class</key>
+			<string>EngineBasic</string>
+			<key>name</key>
+			<string>云引擎</string>
+			<key>detail</key>
+			<string>云引擎与SDK交互</string>
+		</dict>
+		<dict>
+			<key>class</key>
 			<string>OtherBasic</string>
 			<key>name</key>
 			<string>其它</string>

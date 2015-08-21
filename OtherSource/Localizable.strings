@@ -27,7 +27,7 @@
 "Include"   ="包含";
 "Read"      ="读取";
 "Write"     ="写入";
-"Subscripting"="下标";
+"Call"      ="调用";
 
 // adv
 "By"        ="按";
@@ -87,6 +87,9 @@
 "Config"    ="设置";
 "Keys"      ="字段";
 "Type"      ="类型";
+"Subscripting"="下标";
+"Cloud"     ="云";
+"Function"  ="函数";
 
 // adj
 "Second"    ="第二";
@@ -99,3 +102,4 @@
 "Descending"="降序";
 "Reverse"   ="反向";
 "Unique"    ="唯一";
+"Full"      ="整个";
