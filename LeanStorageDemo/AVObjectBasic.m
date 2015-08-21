@@ -14,6 +14,8 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 
 @implementation AVObjectBasic
 
+#pragma mark - 简单的增删改查
+
 -(void)demoCreateObject{
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
@@ -22,31 +24,6 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"创建成功 %@", student];
-        }
-    }];
-}
-
-- (void)demoCreateObjectAndFile {
-    Student *student = [Student object];
-    student.name = @"Mike";
-    AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
-    
-    student.avatar = avatar;
-    
-    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:@"保存对象与文件成功。 student : %@", student];
-        }
-    }];
-}
-
-- (void)demoWithDictionaryCreateObject {
-    NSDictionary *dict = @{@"name":@"Mike"};
-    Student *student = [Student object];
-    [student objectFromDictionary:dict];
-    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:@"用字典赋值字段并保存成功！student:%@", student];
         }
     }];
 }
@@ -93,6 +70,42 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
+#pragma mark - 复杂一点的数据操作
+
+- (void)demoCreateObjectAndFile {
+    Student *student = [Student object];
+    student.name = @"Mike";
+    AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
+    
+    student.avatar = avatar;
+    
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"保存对象与文件成功。 student : %@", student];
+        }
+    }];
+}
+
+- (void)demoFromDictionaryCreateObject {
+    NSString *json = @"{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}";
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
+    NSDictionary *o = [[dict objectForKey:@"result"] objectAtIndex:0];
+    AVUser *user = [AVUser user];
+    [user objectFromDictionary:o];
+    [self log:@"从一大段文本创建了User对象，user:%@", json, user];
+}
+
+- (void)demoWithDictionaryCreateObject {
+    NSDictionary *dict = @{@"name":@"Mike"};
+    Student *student = [Student object];
+    [student objectFromDictionary:dict];
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"用字典赋值字段并保存成功！student:%@", student];
+        }
+    }];
+}
+
 - (void)demoOfflineCreateObject{
     // 不管在线还是离线都能保存，这里测试离线是否能保存
     [self log:@"请在网络关闭时运行本方法，然后开启网络，看是否保存上"];
@@ -116,6 +129,61 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
+
+- (void)demoAnyType {
+    Student *student = [Student object];
+    student.any = @(1);
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"Student 的 any 列被保存为了数字: %@", student];
+            student.any =@"hello world";
+            [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error]) {
+                    [self log:@"Student 的 any 列被保存为了字符串：%@", student];
+                    student.any = @{@"score":@(100), @"name":@"kitty"};
+                    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if ([self filterError:error]) {
+                            [self log:@"Student 的 any 列被保存为了字典：%@", student];
+                            [self log:@"结束"];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)demoGetAllKeys {
+    [self createStudentForDemo:^(Student *student) {
+        [self log:@"对象的所有字段为：%@", [student allKeys]];
+    }];
+}
+
+- (void)demoRemoveKey {
+    [self createStudentForDemo:^(Student *student) {
+        [self log:@"移除前有字段：%@", [student allKeys]];
+        [student removeObjectForKey:kStudentKeyName];
+        [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if ([self filterError:error]) {
+                [self log:@"移除后有字段：%@", [student allKeys]];
+            }
+        }];
+    }];
+}
+
+- (void)demoSubscriptingReadWrite {
+    Student *student = [Student object];
+    // 下标赋值
+    student[kStudentKeyName] = @"subscript";
+    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if ([self filterError:error]) {
+            [self log:@"下标访问学生名字 :%@", student[kStudentKeyName]];
+        }
+    }];
+}
+
+#pragma mark - 数组操作
+
 - (void)demoArrayAddObject {
     Student *student = [Student objectWithoutDataWithObjectId:kDemoStudentId];
     // 获取 Demo 的对象
@@ -130,6 +198,19 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
                 }
             }];
         }
+    }];
+}
+
+- (void)demoArrayAddMultipleObject {
+    [self createStudentForDemo:^(Student *student) {
+        [self log:@"添加前，student.hobbies = %@", student.hobbies];
+        [student addObjectsFromArray:@[@"table tennis", @"fly"] forKey:kStudentKeyHobbies];
+        [self log:@"将两个爱好添加到了爱好数组里"];
+        [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if ([self filterError:error]) {
+                [self log:@"添加后，student.hobbies = %@", student.hobbies];
+            }
+        }];
     }];
 }
 
@@ -149,6 +230,8 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
         }
     }];
 }
+
+#pragma mark - 批量操作
 
 - (void)createStudentsForDemo:(AVArrayResultBlock)block {
     NSMutableArray *students = [NSMutableArray array];
@@ -240,38 +323,6 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"批量了保存了10个学生及其头像，他们是：%@", students];
-        }
-    }];
-}
-
-- (void)demoFromDictionaryCreateObject {
-    NSString *json = @"{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}";
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
-    NSDictionary *o = [[dict objectForKey:@"result"] objectAtIndex:0];
-    AVUser *user = [AVUser user];
-    [user objectFromDictionary:o];
-    [self log:@"从一大段文本创建了User对象，user:%@", json, user];
-}
-
-- (void)demoAnyType {
-    Student *student = [Student object];
-    student.any = @(1);
-    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:@"Student 的 any 列被保存为了数字: %@", student];
-            student.any =@"hello world";
-            [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if ([self filterError:error]) {
-                    [self log:@"Student 的 any 列被保存为了字符串：%@", student];
-                    student.any = @{@"score":@(100), @"name":@"kitty"};
-                    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                        if ([self filterError:error]) {
-                            [self log:@"Student 的 any 列被保存为了字典：%@", student];
-                            [self log:@"结束"];
-                        }
-                    }];
-                }
-            }];
         }
     }];
 }

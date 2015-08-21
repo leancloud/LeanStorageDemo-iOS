@@ -26,7 +26,7 @@
             [self log:@"%@", error];
         }
         [AVOSCloud setNetworkTimeoutInterval:timerInterval];
-    }];;
+    }];
 }
 
 MakeSourcePath

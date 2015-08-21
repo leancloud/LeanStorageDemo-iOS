@@ -25,6 +25,9 @@
 "Relate"    ="关联";
 "Limit"     ="限制";
 "Include"   ="包含";
+"Read"      ="读取";
+"Write"     ="写入";
+"Subscripting"="下标";
 
 // adv
 "By"        ="按";
@@ -82,6 +85,8 @@
 "Network"   ="网络";
 "Timeout"   ="超时";
 "Config"    ="设置";
+"Keys"      ="字段";
+"Type"      ="类型";
 
 // adj
 "Second"    ="第二";
