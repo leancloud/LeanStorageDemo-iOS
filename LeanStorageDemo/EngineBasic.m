@@ -55,7 +55,7 @@
 -(void)demoFetchFullObject {
     [AVCloud callFunctionInBackground:@"fullObject" withParameters:nil block:^(id object, NSError *error) {
         if ([self filterError:error]) {
-            [self log:@"从云代码中获取整个对象：%@", object];
+            [self log:@"从云引擎中获取整个对象：%@", object];
         }
     }];
 }
