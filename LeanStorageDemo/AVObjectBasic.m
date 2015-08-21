@@ -129,7 +129,6 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
-
 - (void)demoAnyType {
     Student *student = [Student object];
     student.any = @(1);
@@ -222,12 +221,28 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
             [self log:@"hobbis before : %@", student.hobbies];
             // 移除对象到数组
             [student removeObject:@"swimming" forKey:kStudentKeyHobbies];
+            // 或者用：[student removeObjectsInArray:@[@"swimming"] forKey:kStudentKeyHobbies];
             [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"hobbis after: %@", student.hobbies];
                 }
             }];
         }
+    }];
+}
+
+- (void)demoArrayAddUniqueObject {
+    [self createStudentForDemo:^(Student *student) {
+        [self log:@"hobbis before : %@", student.hobbies];
+        [student addUniqueObject:@"swimming" forKey:kStudentKeyHobbies];
+        // 或者用下面语句
+        // [student addUniqueObjectsFromArray:@[@"swimming"] forKey:kStudentKeyHobbies];
+        [self log:@"添加了唯一对象 swimming 到爱好数组中"];
+        [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if ([self filterError:error]) {
+                [self log:@"hobbis after: %@", student.hobbies];
+            }
+        }];
     }];
 }
 
