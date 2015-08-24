@@ -97,8 +97,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 
 - (void)demoWithDictionaryCreateObject {
     NSDictionary *dict = @{@"name":@"Mike"};
-    Student *student = [Student object];
-    [student objectFromDictionary:dict];
+    Student *student = [Student objectWithClassName:[Student parseClassName] dictionary:dict];
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"用字典赋值字段并保存成功！student:%@", student];
