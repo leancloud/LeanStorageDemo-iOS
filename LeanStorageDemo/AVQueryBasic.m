@@ -87,7 +87,7 @@
 - (void)demoAddSecondOrder {
     AVQuery *query = [Student query];
     [query orderByDescending:kStudnetKeyAge];
-    [query orderByAscending:kStudentKeyName];
+    [query addDescendingOrder:kStudentKeyName];
     [query setLimit:5];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -251,7 +251,7 @@
     // 从网络获取了数据
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
-            // 服务器记录表的修改时间，如果两次查询之间表未被修改，则以下查询将从本地缓存获取数据
+            // 服务器记录表的修改时间，如果两次查询之间表未被修改且参数一样，则以下查询将从本地缓存获取数据
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"从本地缓存中获得数据：%@", objects];
