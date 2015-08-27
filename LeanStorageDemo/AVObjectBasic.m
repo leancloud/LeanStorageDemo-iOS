@@ -92,7 +92,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     NSDictionary *o = [[dict objectForKey:@"result"] objectAtIndex:0];
     AVUser *user = [AVUser user];
     [user objectFromDictionary:o];
-    [self log:@"从一大段文本创建了User对象，user:%@", json, user];
+    [self log:@"从一大段文本创建了User对象，user:%@", user];
 }
 
 - (void)demoWithDictionaryCreateObject {
