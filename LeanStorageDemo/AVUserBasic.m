@@ -213,6 +213,26 @@ static NSString *const kDemoPassword = @"123456";
     }];
 }
 
+- (void)demoPhoneNumberRegisterOrLogin {
+    [self.alertViewHelper showInputAlertViewWithMessage:@"请输入手机号来注册或登录" block:^(BOOL confirm, NSString *phone) {
+        if (confirm) {
+            [AVOSCloud requestSmsCodeWithPhoneNumber:phone callback:^(BOOL succeeded, NSError *error) {
+                if ([self filterError:error])  {
+                    [self.alertViewHelper showInputAlertViewWithMessage:@"验证码已发送，请输入验证码" block:^(BOOL confirm, NSString *smsCode) {
+                        if (confirm) {
+                            [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:phone smsCode:smsCode block:^(AVUser *user, NSError *error) {
+                                if ([self filterError:error]) {
+                                    [self log:@"注册或登录成功 phone:%@\nuser:%@",phone, user];
+                                }
+                            }];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+}
+
 #pragma mark - anonymous
 
 - (void)demoAnonymousUserLogin {
