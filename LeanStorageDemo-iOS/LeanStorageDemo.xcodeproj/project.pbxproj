@@ -47,7 +47,6 @@
 		1F66B201185EA8B40034AA65 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud@2x.png"; path = "OtherSource/cloud@2x.png"; sourceTree = SOURCE_ROOT; };
 		1F66B202185EA8B40034AA65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OtherSource/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1F66B203185EA8B40034AA65 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = OtherSource/Localizable.strings; sourceTree = SOURCE_ROOT; };
-		1F66B209185EF7BA0034AA65 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		1FAA7D571859551C00A2065B /* DemoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DemoConfig.plist; path = OtherSource/DemoConfig.plist; sourceTree = SOURCE_ROOT; };
 		706780131B244837002F1413 /* CQLBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLBasic.h; sourceTree = "<group>"; };
 		706780141B244837002F1413 /* CQLBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQLBasic.m; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 		1F3AF9A41828C6DE003277B5 = {
 			isa = PBXGroup;
 			children = (
-				1F66B209185EF7BA0034AA65 /* README.md */,
 				709679951B0EEF2B00BB43D8 /* LeanStorageDemo */,
 				1F1E0FB518585AD200E9097E /* OtherSource */,
 				1F3AF9B71828C6DE003277B5 /* Supporting Files */,

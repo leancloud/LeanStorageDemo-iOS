@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>功能列表</key>
+	<array>
+		<dict>
+			<key>class</key>
+			<string>AVObjectDemo</string>
+			<key>name</key>
+			<string>AVObject</string>
+			<key>detail</key>
+			<string>基本AVObject用法, 增删改查</string>
+		</dict>
+	</array>
+</dict>
+</plist>

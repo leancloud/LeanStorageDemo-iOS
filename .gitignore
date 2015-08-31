@@ -17,3 +17,5 @@ DerivedData
 .idea/
 Pods
 Podfile.lock
+*.hmap
+*.ipa
