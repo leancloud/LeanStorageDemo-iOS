@@ -52,10 +52,7 @@
     //同样会防止在模拟器运行时得到`didFailToRegisterForRemoteNotificationsWithError`的错误提醒
     
 #if !TARGET_IPHONE_SIMULATOR
-    [application registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeBadge |
-     UIRemoteNotificationTypeAlert |
-     UIRemoteNotificationTypeSound];
+    [AVOSCloud registerForRemoteNotification];
 #endif
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -65,10 +62,7 @@
     
     // 输出内部日志，发布时记得关闭
 #ifdef DEBUG
-    [AVOSCloud setVerbosePolicy:kAVVerboseShow];
-    [AVLogger addLoggerDomain:AVLoggerDomainIM];
-    [AVLogger addLoggerDomain:AVLoggerDomainCURL];
-    [AVLogger setLoggerLevelMask:AVLoggerLevelAll];
+    [AVOSCloud setAllLogsEnabled:YES];
 #endif
     
     return YES;
@@ -106,7 +100,7 @@
 
 #pragma mark - DemoApp的方法, 不需要关注
 
--(UIViewController *)rootController{
+- (UIViewController *)rootController {
     NSDictionary *config=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DemoConfig" ofType:@"plist"]];
     
     NSMutableArray *tabs=[NSMutableArray array];
@@ -141,7 +135,6 @@
     
     if ([tabC respondsToSelector:@selector(edgesForExtendedLayout)])
         tabC.edgesForExtendedLayout = UIRectEdgeNone;
-
     
     UINavigationController *nc=[[UINavigationController alloc] initWithRootViewController:tabC];
 

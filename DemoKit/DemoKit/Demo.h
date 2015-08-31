@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <LZAlertViewHelper/LZAlertViewHelper.h>
-#import "Student.h"
 
-typedef void (^StudentBlock) (Student *student);
+#define SourcePath [[NSBundle mainBundle] pathForResource:[[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent] ofType:nil inDirectory:@"SourceCode"]
+
+#define MakeSourcePath -(NSString*)sourcePath{return SourcePath;}
 
 @class DemoRunC;
 @interface Demo : NSObject
@@ -23,7 +24,5 @@ typedef void (^StudentBlock) (Student *student);
 -(BOOL)filterError:(NSError *)error;
 
 - (void)showImage:(UIImage *)image;
-
-- (void)createStudentForDemo:(StudentBlock)block;
 
 @end

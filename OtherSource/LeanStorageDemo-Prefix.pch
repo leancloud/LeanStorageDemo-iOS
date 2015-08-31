@@ -13,10 +13,6 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
 
-    #define SourcePath [[NSBundle mainBundle] pathForResource:[[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent] ofType:nil inDirectory:@"SourceCode"]
-
-    #define MakeSourcePath -(NSString*)sourcePath{return SourcePath;}
-
     #import <AVOSCloud/AVOSCloud.h>
 #endif
 
