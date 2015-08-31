@@ -9,6 +9,7 @@
 #import "Student.h"
 #import "AVObjectBasic.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "Demo+Utils.h"
 
 static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 

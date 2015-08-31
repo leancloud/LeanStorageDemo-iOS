@@ -7,6 +7,7 @@
 //
 
 #import "EngineBasic.h"
+#import "Demo+Utils.h"
 
 /*!
  *  云引擎与 SDK 的交互，需要结合云引擎项目学习 https://github.com/leancloud/sdk-demo-engine/blob/master/cloud.js

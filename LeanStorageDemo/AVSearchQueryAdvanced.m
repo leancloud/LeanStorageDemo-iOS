@@ -8,6 +8,7 @@
 
 #import "AVSearchQueryAdvanced.h"
 #import "DemoRunC.h"
+#import "Demo+Utils.h"
 #import "SearchResultController.h"
 
 static const int showResultButtonTag = 1000;

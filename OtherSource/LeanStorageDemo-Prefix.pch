@@ -14,5 +14,6 @@
     #import <MobileCoreServices/MobileCoreServices.h>
 
     #import <AVOSCloud/AVOSCloud.h>
+    #import <DemoKit/DemoKit.h>
 #endif
 

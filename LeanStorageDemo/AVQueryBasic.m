@@ -9,6 +9,7 @@
 #import "AVQueryBasic.h"
 #import "Student.h"
 #import "Post.h"
+#import "Demo+Utils.h"
 
 @implementation AVQueryBasic
 

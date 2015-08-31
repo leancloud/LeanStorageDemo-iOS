@@ -31,7 +31,7 @@
 		709679B21B0EEF2B00BB43D8 /* AVUserBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A71B0EEF2B00BB43D8 /* AVUserBasic.m */; };
 		709679B31B0EEF2B00BB43D8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A91B0EEF2B00BB43D8 /* Student.m */; };
 		70CD757D1B94BCDF00882317 /* Demo+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD757C1B94BCDF00882317 /* Demo+Utils.m */; };
-		8C00F7881945B69000E1F7BD /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F7871945B69000E1F7BD /* PBWebViewController.m */; };
+		70CD758C1B94C85500882317 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD758B1B94C85500882317 /* SearchResultController.m */; };
 		A3D37D97DAAD2B08662461B5 /* libPods-LeanStorageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB55DFFC420EBB26923F5DE8 /* libPods-LeanStorageDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +80,9 @@
 		709679A91B0EEF2B00BB43D8 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		70CD757B1B94BCDF00882317 /* Demo+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Demo+Utils.h"; sourceTree = "<group>"; };
 		70CD757C1B94BCDF00882317 /* Demo+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Demo+Utils.m"; sourceTree = "<group>"; };
-		8C00F7861945B69000E1F7BD /* PBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBWebViewController.h; sourceTree = "<group>"; };
-		8C00F7871945B69000E1F7BD /* PBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBWebViewController.m; sourceTree = "<group>"; };
+		70CD75891B94C81F00882317 /* LeanStorageDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanStorageDemo-Prefix.pch"; sourceTree = "<group>"; };
+		70CD758A1B94C85500882317 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		70CD758B1B94C85500882317 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		CB55DFFC420EBB26923F5DE8 /* libPods-LeanStorageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeanStorageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5EAEC5FDEBA56782FAA647 /* Pods-LeanStorageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanStorageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +102,9 @@
 		1F1E0FB518585AD200E9097E /* OtherSource */ = {
 			isa = PBXGroup;
 			children = (
+				70CD758A1B94C85500882317 /* SearchResultController.h */,
+				70CD758B1B94C85500882317 /* SearchResultController.m */,
+				70CD75891B94C81F00882317 /* LeanStorageDemo-Prefix.pch */,
 				1F1E0FB618585AD200E9097E /* main.m */,
 				1F66B1FC185EA8870034AA65 /* AppDelegate.h */,
 				1F66B1FD185EA8870034AA65 /* AppDelegate.m */,
@@ -116,7 +120,6 @@
 				1F66B209185EF7BA0034AA65 /* README.md */,
 				709679951B0EEF2B00BB43D8 /* LeanStorageDemo */,
 				1F1E0FB518585AD200E9097E /* OtherSource */,
-				8C00F7851945B69000E1F7BD /* PBWebViewController */,
 				1F3AF9B71828C6DE003277B5 /* Supporting Files */,
 				1F3AF9AE1828C6DE003277B5 /* Products */,
 				F79596D9E25631625E4112F5 /* Pods */,
@@ -181,15 +184,6 @@
 				706F85AC1B84D5280079CC55 /* Post.m */,
 			);
 			path = LeanStorageDemo;
-			sourceTree = "<group>";
-		};
-		8C00F7851945B69000E1F7BD /* PBWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8C00F7861945B69000E1F7BD /* PBWebViewController.h */,
-				8C00F7871945B69000E1F7BD /* PBWebViewController.m */,
-			);
-			path = PBWebViewController;
 			sourceTree = "<group>";
 		};
 		AF0CD71A68310C6D3DEC12ED /* Frameworks */ = {
@@ -329,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C00F7881945B69000E1F7BD /* PBWebViewController.m in Sources */,
 				709679AD1B0EEF2B00BB43D8 /* AVQueryBasic.m in Sources */,
 				1F66B1FE185EA8870034AA65 /* AppDelegate.m in Sources */,
 				709679B01B0EEF2B00BB43D8 /* AVSMSBasic.m in Sources */,
@@ -338,6 +331,7 @@
 				706F85AA1B84D2DF0079CC55 /* PointerBasic.m in Sources */,
 				709679AA1B0EEF2B00BB43D8 /* AVAnalyticsBasic.m in Sources */,
 				709679AC1B0EEF2B00BB43D8 /* AVObjectBasic.m in Sources */,
+				70CD758C1B94C85500882317 /* SearchResultController.m in Sources */,
 				706780151B244837002F1413 /* CQLBasic.m in Sources */,
 				706F85AD1B84D5280079CC55 /* Post.m in Sources */,
 				709679AE1B0EEF2B00BB43D8 /* AVRelationBasic.m in Sources */,
