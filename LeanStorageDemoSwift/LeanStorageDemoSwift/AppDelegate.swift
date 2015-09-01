@@ -8,10 +8,9 @@
 
 import UIKit
 import AVOSCloud
-import DemoKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -20,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AVOSCloud.setApplicationId("ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk", clientKey: "6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc")
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = rootController()
         window?.makeKeyAndVisible()
         rootController()
         
@@ -37,20 +37,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     var key = keys[i] as! String
                     var object: AnyObject? = dict.objectForKey(key)
                     if (object is NSArray) {
-                        var listC : DemoListC = DemoListC()
-                        listC.title = NSLocalizedString(key, comment:"")
-                        listC.contents = object as! [AnyObject];
-                        tabs.addObject(listC)
+//                        var listC : DemoListC = DemoListC()
+//                        listC.title = NSLocalizedString(key, comment:"")
+//                        listC.contents = object as! [AnyObject];
+//                        tabs.addObject(listC)
                     } else if (object is NSString) {
                         
                     }
                 }
             }
         }
+        var tabC = UITabBarController()
+        tabC.delegate = self
+        tabC.viewControllers = tabs as [AnyObject]
+        tabC.selectedIndex = 0
+        tabC.title = tabs[tabC.selectedIndex].title
         
-        
-        
-        return nil;
+        var nav = UINavigationController(rootViewController:tabC)
+
+        return nav;
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        tabBarController.title = viewController.title
     }
     
     func applicationWillResignActive(application: UIApplication) {

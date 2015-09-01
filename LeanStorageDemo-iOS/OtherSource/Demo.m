@@ -26,6 +26,13 @@
     }
 }
 
+- (void)logInfo:(NSString *)format,...NS_FORMAT_FUNCTION(1,2) {
+    va_list ap;
+    va_start(ap, format);
+    [self logMessage:[[NSString alloc] initWithFormat:format arguments:ap]];
+    va_end(ap);
+}
+
 - (void)log:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2){
     va_list ap;
     va_start(ap, format);
@@ -33,7 +40,7 @@
     va_end(ap);
 }
 
--(void)logMessage:(NSString*)msg{
+-(void)logMessage:(NSString*)msg {
     NSLog(@"%@",msg);
     NSString *text= self.outputView.text;
     self.outputView.text=[text stringByAppendingFormat:@"\n-------- RUN --------\n%@",msg];

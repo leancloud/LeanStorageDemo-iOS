@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706270ED1B9570E700CE6882 /* AVObjectDemo.swift */; };
 		70CD759C1B94CCDB00882317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD759B1B94CCDB00882317 /* AppDelegate.swift */; };
 		70CD759E1B94CCDB00882317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD759D1B94CCDB00882317 /* ViewController.swift */; };
 		70CD75A11B94CCDB00882317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CD759F1B94CCDB00882317 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		706270ED1B9570E700CE6882 /* AVObjectDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVObjectDemo.swift; sourceTree = "<group>"; };
 		70CD75961B94CCDB00882317 /* LeanStorageDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanStorageDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70CD759A1B94CCDB00882317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70CD759B1B94CCDB00882317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		70CD75BB1B94CE9C00882317 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				706270ED1B9570E700CE6882 /* AVObjectDemo.swift */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */,
 				70CD759E1B94CCDB00882317 /* ViewController.swift in Sources */,
 				70CD759C1B94CCDB00882317 /* AppDelegate.swift in Sources */,
 			);
