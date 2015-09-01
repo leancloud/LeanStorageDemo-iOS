@@ -15,6 +15,7 @@
 		1F66B207185EA8B40034AA65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F66B202185EA8B40034AA65 /* Images.xcassets */; };
 		1F66B208185EA8B40034AA65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F66B203185EA8B40034AA65 /* Localizable.strings */; };
 		1FAA7D581859551C00A2065B /* DemoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA7D571859551C00A2065B /* DemoConfig.plist */; };
+		2B83107BDDDB831F5F6FDA11 /* Pods_LeanStorageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CF423E7D26E489D7D8C9357 /* Pods_LeanStorageDemo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		706270F91B9578C900CE6882 /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 706270F01B9578C900CE6882 /* Demo.m */; };
 		706270FA1B9578C900CE6882 /* DemoListC.m in Sources */ = {isa = PBXBuildFile; fileRef = 706270F11B9578C900CE6882 /* DemoListC.m */; };
 		706270FB1B9578C900CE6882 /* DemoRunC.m in Sources */ = {isa = PBXBuildFile; fileRef = 706270F31B9578C900CE6882 /* DemoRunC.m */; };
@@ -38,7 +39,6 @@
 		709679B31B0EEF2B00BB43D8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 709679A91B0EEF2B00BB43D8 /* Student.m */; };
 		70CD757D1B94BCDF00882317 /* Demo+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD757C1B94BCDF00882317 /* Demo+Utils.m */; };
 		70CD758C1B94C85500882317 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD758B1B94C85500882317 /* SearchResultController.m */; };
-		A3D37D97DAAD2B08662461B5 /* libPods-LeanStorageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB55DFFC420EBB26923F5DE8 /* libPods-LeanStorageDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +54,7 @@
 		1F66B202185EA8B40034AA65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OtherSource/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1F66B203185EA8B40034AA65 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = OtherSource/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		1FAA7D571859551C00A2065B /* DemoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DemoConfig.plist; path = OtherSource/DemoConfig.plist; sourceTree = SOURCE_ROOT; };
+		6CF423E7D26E489D7D8C9357 /* Pods_LeanStorageDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanStorageDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		706270EF1B9578C900CE6882 /* Demo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		706270F01B9578C900CE6882 /* Demo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo.m; sourceTree = "<group>"; };
 		706270F11B9578C900CE6882 /* DemoListC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoListC.m; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		70CD75891B94C81F00882317 /* LeanStorageDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanStorageDemo-Prefix.pch"; sourceTree = "<group>"; };
 		70CD758A1B94C85500882317 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		70CD758B1B94C85500882317 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
-		CB55DFFC420EBB26923F5DE8 /* libPods-LeanStorageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeanStorageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5EAEC5FDEBA56782FAA647 /* Pods-LeanStorageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanStorageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D37D97DAAD2B08662461B5 /* libPods-LeanStorageDemo.a in Frameworks */,
+				2B83107BDDDB831F5F6FDA11 /* Pods_LeanStorageDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +225,7 @@
 		AF0CD71A68310C6D3DEC12ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB55DFFC420EBB26923F5DE8 /* libPods-LeanStorageDemo.a */,
+				6CF423E7D26E489D7D8C9357 /* Pods_LeanStorageDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,6 +252,7 @@
 				1F3AF9AB1828C6DE003277B5 /* Resources */,
 				1FBD6BDA18584F7200339D17 /* Copy Source Code Files */,
 				D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */,
+				30DFB7C2883AEA06DB1C89D5 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +322,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\n#rm -rf \"${to_path}\"\n#mkdir \"${to_path}\"\n\necho $to_path\n\nrsync -arc --delete ./LeanStorageDemo/*.m \"${to_path}\"\n\n\n";
+		};
+		30DFB7C2883AEA06DB1C89D5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -8,5 +8,14 @@
 
 import UIKit
 
-class AVObjectDemo: NSObject {
+class AVObjectDemo: Demo {
+    
+    func demoCreateObject() {
+        var student = Student()
+        student.name = "Mike"
+        student.age = 12
+        student.save()
+        log("创建成功:%@", student)
+    }
+    
 }

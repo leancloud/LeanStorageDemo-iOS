@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		703074491B957C2800FD796E /* DemoListC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074481B957C2800FD796E /* DemoListC.swift */; };
+		7030744B1B957DA200FD796E /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7030744A1B957DA200FD796E /* Demo.swift */; };
+		7030744D1B958F3C00FD796E /* DemoRunC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7030744C1B958F3C00FD796E /* DemoRunC.swift */; };
+		703074711B95B2C600FD796E /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 7030746F1B95B2C600FD796E /* Student.m */; };
 		706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706270ED1B9570E700CE6882 /* AVObjectDemo.swift */; };
 		70CD759C1B94CCDB00882317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD759B1B94CCDB00882317 /* AppDelegate.swift */; };
-		70CD759E1B94CCDB00882317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD759D1B94CCDB00882317 /* ViewController.swift */; };
 		70CD75A11B94CCDB00882317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CD759F1B94CCDB00882317 /* Main.storyboard */; };
 		70CD75A31B94CCDB00882317 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CD75A21B94CCDB00882317 /* Images.xcassets */; };
 		70CD75A61B94CCDB00882317 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CD75A41B94CCDB00882317 /* LaunchScreen.xib */; };
@@ -29,11 +32,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		703074481B957C2800FD796E /* DemoListC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoListC.swift; sourceTree = "<group>"; };
+		7030744A1B957DA200FD796E /* Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
+		7030744C1B958F3C00FD796E /* DemoRunC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoRunC.swift; sourceTree = "<group>"; };
+		7030746E1B95B2C500FD796E /* LeanStorageDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanStorageDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		7030746F1B95B2C600FD796E /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		703074701B95B2C600FD796E /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		706270ED1B9570E700CE6882 /* AVObjectDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVObjectDemo.swift; sourceTree = "<group>"; };
 		70CD75961B94CCDB00882317 /* LeanStorageDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanStorageDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70CD759A1B94CCDB00882317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70CD759B1B94CCDB00882317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		70CD759D1B94CCDB00882317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70CD75A01B94CCDB00882317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70CD75A21B94CCDB00882317 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70CD75A51B94CCDB00882317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -99,12 +107,14 @@
 			isa = PBXGroup;
 			children = (
 				70CD759B1B94CCDB00882317 /* AppDelegate.swift */,
-				70CD759D1B94CCDB00882317 /* ViewController.swift */,
+				703074481B957C2800FD796E /* DemoListC.swift */,
+				7030744A1B957DA200FD796E /* Demo.swift */,
+				7030744C1B958F3C00FD796E /* DemoRunC.swift */,
 				70CD759F1B94CCDB00882317 /* Main.storyboard */,
+				70CD75BC1B94DC2F00882317 /* DemoConfig.plist */,
 				70CD75A21B94CCDB00882317 /* Images.xcassets */,
 				70CD75A41B94CCDB00882317 /* LaunchScreen.xib */,
 				70CD75991B94CCDB00882317 /* Supporting Files */,
-				70CD75BC1B94DC2F00882317 /* DemoConfig.plist */,
 			);
 			path = LeanStorageDemoSwift;
 			sourceTree = "<group>";
@@ -138,6 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				706270ED1B9570E700CE6882 /* AVObjectDemo.swift */,
+				7030746F1B95B2C600FD796E /* Student.m */,
+				703074701B95B2C600FD796E /* Student.h */,
+				7030746E1B95B2C500FD796E /* LeanStorageDemoSwift-Bridging-Header.h */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -303,8 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */,
-				70CD759E1B94CCDB00882317 /* ViewController.swift in Sources */,
+				7030744D1B958F3C00FD796E /* DemoRunC.swift in Sources */,
+				7030744B1B957DA200FD796E /* Demo.swift in Sources */,
+				703074491B957C2800FD796E /* DemoListC.swift in Sources */,
 				70CD759C1B94CCDB00882317 /* AppDelegate.swift in Sources */,
+				703074711B95B2C600FD796E /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +448,13 @@
 			baseConfigurationReference = A5AC5B902E4AE4E032A5CB89 /* Pods-LeanStorageDemoSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LeanStorageDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demos/LeanStorageDemoSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -444,10 +463,12 @@
 			baseConfigurationReference = ED5CB223BCB79D5820E097C8 /* Pods-LeanStorageDemoSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LeanStorageDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demos/LeanStorageDemoSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};

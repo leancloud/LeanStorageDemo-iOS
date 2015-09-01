@@ -16,13 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Student.registerSubclass()
+        
         AVOSCloud.setApplicationId("ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk", clientKey: "6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc")
+        AVOSCloud.setAllLogsEnabled(true)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = rootController()
         window?.makeKeyAndVisible()
         rootController()
-        
         // Override point for customization after application launch.
         return true
     }
@@ -37,10 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                     var key = keys[i] as! String
                     var object: AnyObject? = dict.objectForKey(key)
                     if (object is NSArray) {
-//                        var listC : DemoListC = DemoListC()
-//                        listC.title = NSLocalizedString(key, comment:"")
-//                        listC.contents = object as! [AnyObject];
-//                        tabs.addObject(listC)
+                        var listC : DemoListC = DemoListC()
+                        listC.title = NSLocalizedString(key, comment:"")
+                        listC.contents = object as! [AnyObject];
+                        tabs.addObject(listC)
                     } else if (object is NSString) {
                         
                     }
