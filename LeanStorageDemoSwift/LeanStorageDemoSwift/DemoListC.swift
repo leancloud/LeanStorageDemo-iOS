@@ -14,12 +14,16 @@ class DemoListC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if demo != nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "查看源码", style: UIBarButtonItemStyle.Plain, target: self, action: "showSource")
+        }
+    }
+    
+    func showSource() {
+        var sourceC = SourceC()
+        sourceC.filePath = demo?.sourcePath()
+        navigationController?.pushViewController(sourceC, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +73,7 @@ class DemoListC: UITableViewController {
         } else {
             var className:String = info["class"] as! String
             var clsName = "LeanStorageDemoSwift." + className
-            var demo : Demo = NSClassFromString(clsName).alloc() as! Demo
+            var demo : Demo = NSClassFromString(clsName).new() as! Demo
             
             var listC = DemoListC()
             var contents = [[String:String]]()
@@ -77,7 +81,7 @@ class DemoListC: UITableViewController {
                 if method.hasPrefix("demo") {
                     var content = [String:String]()
                     content["method"] = method
-                    content["name"] = method
+                    content["name"] = method.substringFromIndex(advance(method.startIndex, 4))
                     contents.append(content)
                 }
             }

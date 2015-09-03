@@ -10,13 +10,15 @@ import UIKit
 
 class DemoRunC: UIViewController {
     var demo : Demo?
+    var sourceCodeView: UIWebView?
     var methodName : String = ""
     var runBtn: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = UIRectEdge.None
         view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        var textView = UITextView(frame: view.bounds)
+        var textView = UITextView(frame: view.frame)
         textView.editable = false
         textView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         view.addSubview(textView)
@@ -27,6 +29,7 @@ class DemoRunC: UIViewController {
         
         runBtn = UIBarButtonItem(title: "运行", style: UIBarButtonItemStyle.Plain, target: self, action: "run")
         navigationItem.rightBarButtonItem = self.runBtn
+        getMethodSourceCode()
     }
     
     func finish() {
@@ -48,15 +51,38 @@ class DemoRunC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getMethodSourceCode (){
+        if (demo?.sourcePath() != nil) {
+            var code = String(contentsOfFile: (demo?.sourcePath())!, encoding: NSUTF8StringEncoding, error: nil)
+            if code != nil {
+                var ptn = "func\\s{0,}\(self.methodName).*?\\{(.*?)\n    \\}"
+                var error: NSError?
+                var re = NSRegularExpression(pattern: ptn, options: NSRegularExpressionOptions.DotMatchesLineSeparators, error: &error)
+                if (error != nil) {
+                    
+                } else {
+                    var result: NSTextCheckingResult? = re!.firstMatchInString(code!, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, count(code!)))
+                    if (result != nil) {
+                        var nsRange : NSRange = result!.rangeAtIndex(1)
+                        var range = Range<String.Index>(start: advance(code!.startIndex, nsRange.location), end: advance(code!.startIndex, nsRange.location + nsRange.length))
+                        var methodeCode = code?.substringWithRange(range)
+                        var sc = SourceC()
+                        addChildViewController(sc)
+                        sc.setupWebView()
+                        view.addSubview(sc.webView)
+                        sourceCodeView = sc.webView
+                        var f = demo!.outputView!.frame
+                        var height = f.size.height * 0.5
+                        UIView.animateWithDuration(0.25, animations: { () -> Void in
+                            sc.webView.frame = CGRectMake(0, f.origin.y, f.size.width, height)
+                            sc.webView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+                            self.demo!.outputView!.frame = CGRectMake(0, f.origin.y + height, f.size.width, f.size.height - height)
+                        })
+                        sc.loadCode(methodeCode)
+                    }
+                }
+            }
+        }
     }
-    */
-
+    
 }
