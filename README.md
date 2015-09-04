@@ -6,13 +6,13 @@
 ![file1](https://cloud.githubusercontent.com/assets/5022872/9401084/59601560-47fc-11e5-8b38-cc09a3584b70.png)
 
 ## 介绍
-这个示例项目是为了帮助使用 LeanCloud 的开发者, 尽快的熟悉和使用SDK而建立的。主要展示 LeanCloud SDK的各种基础和高级用法.
+这个示例项目是为了帮助使用 LeanCloud 的开发者, 尽快的熟悉和使用SDK而建立的。主要展示 LeanCloud SDK的各种基础和高级用法。可喜的是，该示例项目用 Swift 重写了一遍，放在了 LeanStorageDemoSwift 项目下，将展示如何在 Swift 中优雅地使用 LeanCloud SDK。
 
 ## 如何运行
 
 ```
- 	// iOS 
-	cd LeanStorageDemo-iOS
+ 	// Objective-C 
+	cd LeanStorageDemoObjc
    pod install --verbose --no-repo-update (如果提示找不到库，则可去掉 --no-repo-update)
    open LeanStorageDemo.xcworkspace
    
