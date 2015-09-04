@@ -10,6 +10,7 @@ import UIKit
 import AVOSCloud
 
 let kPostKeyLikes = "likes"
+let kPostKeyAuthor = "author"
 
 class Post: AVObject, AVSubclassing {
     
