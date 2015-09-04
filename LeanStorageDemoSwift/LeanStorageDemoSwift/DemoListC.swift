@@ -77,7 +77,7 @@ class DemoListC: UITableViewController {
             
             var listC = DemoListC()
             var contents = [[String:String]]()
-            for method in demo.allDemoMethods() {
+            for method in demo.allDemoMethods(demo.self) {
                 if method.hasPrefix("demo") {
                     var content = [String:String]()
                     content["method"] = method

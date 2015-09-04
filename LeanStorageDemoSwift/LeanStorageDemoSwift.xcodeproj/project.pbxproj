@@ -16,10 +16,12 @@
 		7030747B1B95DE0000FD796E /* AVUserDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7030747A1B95DE0000FD796E /* AVUserDemo.swift */; };
 		7030747D1B95DE0900FD796E /* AVFileDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7030747C1B95DE0900FD796E /* AVFileDemo.swift */; };
 		703074A11B961FAA00FD796E /* SourceC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074A01B961FAA00FD796E /* SourceC.swift */; };
-		703074A61B96A07100FD796E /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 703074A31B96A07100FD796E /* Student.m */; };
 		703074A81B96D00900FD796E /* html in Resources */ = {isa = PBXBuildFile; fileRef = 703074A71B96D00900FD796E /* html */; };
 		703074AA1B9756A600FD796E /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074A91B9756A600FD796E /* ImageViewController.swift */; };
 		703074AC1B975BD800FD796E /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 703074AB1B975BD800FD796E /* cloud.png */; };
+		703074AE1B9873C700FD796E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074AD1B9873C700FD796E /* Post.swift */; };
+		703074B01B988EBD00FD796E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074AF1B988EBD00FD796E /* Student.swift */; };
+		703074B41B989F9F00FD796E /* AlertViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703074B31B989F9F00FD796E /* AlertViewHelper.swift */; };
 		706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706270ED1B9570E700CE6882 /* AVObjectDemo.swift */; };
 		70CD759C1B94CCDB00882317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD759B1B94CCDB00882317 /* AppDelegate.swift */; };
 		70CD75A11B94CCDB00882317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CD759F1B94CCDB00882317 /* Main.storyboard */; };
@@ -50,12 +52,13 @@
 		7030747A1B95DE0000FD796E /* AVUserDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVUserDemo.swift; sourceTree = "<group>"; };
 		7030747C1B95DE0900FD796E /* AVFileDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFileDemo.swift; sourceTree = "<group>"; };
 		703074A01B961FAA00FD796E /* SourceC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceC.swift; sourceTree = "<group>"; };
-		703074A31B96A07100FD796E /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
-		703074A41B96A07100FD796E /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		703074A51B96A07100FD796E /* LeanStorageDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LeanStorageDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		703074A71B96D00900FD796E /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		703074A91B9756A600FD796E /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		703074AB1B975BD800FD796E /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
+		703074AD1B9873C700FD796E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		703074AF1B988EBD00FD796E /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		703074B31B989F9F00FD796E /* AlertViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewHelper.swift; sourceTree = "<group>"; };
 		706270ED1B9570E700CE6882 /* AVObjectDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVObjectDemo.swift; sourceTree = "<group>"; };
 		70CD75961B94CCDB00882317 /* LeanStorageDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanStorageDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70CD759A1B94CCDB00882317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,13 +127,14 @@
 		70CD75981B94CCDB00882317 /* LeanStorageDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				703074A31B96A07100FD796E /* Student.m */,
-				703074A41B96A07100FD796E /* Student.h */,
+				703074AD1B9873C700FD796E /* Post.swift */,
+				703074AF1B988EBD00FD796E /* Student.swift */,
 				703074A51B96A07100FD796E /* LeanStorageDemoSwift-Bridging-Header.h */,
 				70CD759B1B94CCDB00882317 /* AppDelegate.swift */,
 				703074481B957C2800FD796E /* DemoListC.swift */,
 				7030744A1B957DA200FD796E /* Demo.swift */,
 				7030744C1B958F3C00FD796E /* DemoRunC.swift */,
+				703074B31B989F9F00FD796E /* AlertViewHelper.swift */,
 				703074A91B9756A600FD796E /* ImageViewController.swift */,
 				703074A01B961FAA00FD796E /* SourceC.swift */,
 				70CD759F1B94CCDB00882317 /* Main.storyboard */,
@@ -360,12 +364,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				703074A61B96A07100FD796E /* Student.m in Sources */,
 				706270EE1B9570E700CE6882 /* AVObjectDemo.swift in Sources */,
 				7030744D1B958F3C00FD796E /* DemoRunC.swift in Sources */,
 				703074771B95DDBB00FD796E /* PointerDemo.swift in Sources */,
+				703074AE1B9873C700FD796E /* Post.swift in Sources */,
+				703074B01B988EBD00FD796E /* Student.swift in Sources */,
 				703074751B95DD9F00FD796E /* AVQueryDemo.swift in Sources */,
 				7030747B1B95DE0000FD796E /* AVUserDemo.swift in Sources */,
+				703074B41B989F9F00FD796E /* AlertViewHelper.swift in Sources */,
 				7030744B1B957DA200FD796E /* Demo.swift in Sources */,
 				703074A11B961FAA00FD796E /* SourceC.swift in Sources */,
 				7030747D1B95DE0900FD796E /* AVFileDemo.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class AVFileDemo: Demo {
     func demoCreateFile() {

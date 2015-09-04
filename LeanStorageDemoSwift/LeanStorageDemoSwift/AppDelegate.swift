@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Student.registerSubclass()
+        Post.registerSubclass()
+        Demo.allProperties(Post.self)
+        Demo.propertyNames(Post.self)
         
         AVOSCloud.setApplicationId("ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk", clientKey: "6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc")
         AVOSCloud.setAllLogsEnabled(true)

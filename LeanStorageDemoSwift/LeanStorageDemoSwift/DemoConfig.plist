@@ -36,6 +36,14 @@
 			<key>detail</key>
 			<string>AVFile 基本文件操作</string>
 		</dict>
+		<dict>
+			<key>class</key>
+			<string>PointerDemo</string>
+			<key>name</key>
+			<string>Pointer</string>
+			<key>detail</key>
+			<string>Pointer 一对一、一对多关系建模</string>
+		</dict>
 	</array>
 </dict>
 </plist>

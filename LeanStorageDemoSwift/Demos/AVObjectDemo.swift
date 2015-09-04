@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class AVObjectDemo: Demo {
     
@@ -37,13 +38,13 @@ class AVObjectDemo: Demo {
         var student = getFirstStudent()
         var objectId = student.objectId
         
-        var fetchStudent = Student.objectWithoutDataWithObjectId(objectId)
+        var fetchStudent = Student(withoutDataWithObjectId: objectId)
         fetchStudent.fetch()
         log("获取了对象:%@", fetchStudent)
     }
     
     func demoCreateObjectAndFile() {
-        var student: Student = Student.object()
+        var student: Student = Student()
         student.name = "Mike"
         var avatar: AVFile = AVFile.fileWithName("cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png")) as! AVFile
         student.avatar = avatar
@@ -97,7 +98,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoAnyType() {
-        var student: Student = Student.object()
+        var student: Student = Student()
         student.any = 1
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -137,7 +138,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoSubscriptingReadWrite() {
-        var student: Student = Student.object()
+        var student: Student = Student()
         student[kStudentKeyName] = "subscript"
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -148,7 +149,7 @@ class AVObjectDemo: Demo {
     
     func demoArrayAddObject() {
         var studentId = getFirstStudent().objectId
-        var student: Student = Student.objectWithoutDataWithObjectId(studentId)
+        var student: Student = Student(withoutDataWithObjectId: studentId)
         student.fetchInBackgroundWithBlock({(object: AVObject?, error: NSError?) in
             if self.filterError(error) {
                 self.log("hobbis before : \(student.hobbies)")
@@ -230,7 +231,7 @@ class AVObjectDemo: Demo {
         self.createStudentsForDemo { (students) -> Void in
             var fetchStudents = [Student]()
             for student: Student in students {
-                var fetchStudent: Student = Student.objectWithoutDataWithObjectId(student.objectId)
+                var fetchStudent: Student = Student(withoutDataWithObjectId: student.objectId)
                 fetchStudents.append(fetchStudent)
             }
             
