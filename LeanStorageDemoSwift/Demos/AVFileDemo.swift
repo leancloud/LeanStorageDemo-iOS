@@ -11,8 +11,8 @@ import AVOSCloud
 
 class AVFileDemo: Demo {
     func demoCreateFile() {
-        var data: NSData = NSData(contentsOfFile: (NSBundle.mainBundle().pathForResource("cloud", ofType: "png"))!)!
-        var file: AVFile = AVFile.fileWithName("cloud.png", data: data) as! AVFile
+        var data = NSData(contentsOfFile: (NSBundle.mainBundle().pathForResource("cloud", ofType: "png"))!)
+        var file = AVFile(name: "cloud.png", data: data)
         file.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
             if (self.filterError(error)) {
                 self.log("文件已经保存到服务器:[\(file.objectId)] file:\(file.url)")
@@ -22,7 +22,7 @@ class AVFileDemo: Demo {
     }
     
     func demoFromPathCreateFile() {
-        var file: AVFile = AVFile.fileWithName("cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png")) as! AVFile
+        var file = AVFile(name: "cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png"))
         file.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             if (self.filterError(error)) {
                 self.log("文件已经保存到服务器:[\(file.objectId)] \(file.url)")
@@ -39,7 +39,7 @@ class AVFileDemo: Demo {
     }
     
     func demoDeleteFile() {
-        var file: AVFile = AVFile.fileWithName("cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png")) as! AVFile
+        var file = AVFile(name: "cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png"))
         file.save()
         
         file.deleteInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
@@ -65,10 +65,10 @@ class AVFileDemo: Demo {
     }
     
     func demoFileMetaData() {
-        var path: String = NSBundle.mainBundle().pathForResource("cloud", ofType: "png")!
-        var image: UIImage = UIImage(contentsOfFile: path)!
-        var imageData: NSData = UIImageJPEGRepresentation(image, 0.8)
-        var file: AVFile = AVFile.fileWithData(imageData) as! AVFile
+        var path = NSBundle.mainBundle().pathForResource("cloud", ofType: "png")!
+        var image = UIImage(contentsOfFile: path)!
+        var imageData = UIImageJPEGRepresentation(image, 0.8)
+        var file = AVFile(data: imageData)
         file.metaData.setObject(image.size.width, forKey: "width")
         file.metaData.setObject(image.size.height, forKey: "height")
         file.metaData.setObject("LeanCloud", forKey: "author")
@@ -93,7 +93,7 @@ class AVFileDemo: Demo {
     
     func demoCombineQiniuApi() {
         getDemoFile { (file) -> Void in
-            var thumbnailFile: AVFile = AVFile.fileWithURL("\(file!.url)?imageView/1/w/50/h/100") as! AVFile
+            var thumbnailFile = AVFile(URL: "\(file!.url)?imageView/1/w/50/h/100")
             thumbnailFile.getDataInBackgroundWithBlock({(data: NSData?, error: NSError?) in
                 if self.filterError(error) {
                     var image: UIImage = UIImage(data: data!, scale: UIScreen.mainScreen().scale)!

@@ -46,7 +46,7 @@ class AVObjectDemo: Demo {
     func demoCreateObjectAndFile() {
         var student: Student = Student()
         student.name = "Mike"
-        var avatar: AVFile = AVFile.fileWithName("cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png")) as! AVFile
+        var avatar: AVFile = AVFile(name: "cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png"));
         student.avatar = avatar
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -270,7 +270,7 @@ class AVObjectDemo: Demo {
         var students = [Student]()
         for i in 10..<20 {
             var student: Student = Student()
-            var avatar: AVFile = AVFile.fileWithName("avatar.jpg", contentsAtPath: NSBundle.mainBundle().pathForResource("alpacino.jpg", ofType: nil)!) as! AVFile
+            var avatar = AVFile(name: "avatar.jpg", contentsAtPath: NSBundle.mainBundle().pathForResource("alpacino.jpg", ofType: nil)!)
             student.age =  Int32(i)
             students.append(student)
         }

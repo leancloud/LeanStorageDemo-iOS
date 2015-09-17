@@ -325,7 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\necho \"warning: $to_path\"\n\nrsync -arc --delete ./Demos/*.swift \"${to_path}\"\n";
+			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n#echo \"warning: $to_path\"\n\nrsync -arc --delete ./Demos/*.swift \"${to_path}\"\n";
 		};
 		71A118A7379B911E3CF88998 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
