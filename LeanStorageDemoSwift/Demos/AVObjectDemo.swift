@@ -12,7 +12,7 @@ import AVOSCloud
 class AVObjectDemo: Demo {
     
     func demoCreateObject() {
-        var student = Student()
+        let student = Student()
         student.name = "Mike"
         student.age = 12
         student.save()
@@ -21,7 +21,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoUpdateObject() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         log("更改名字前的对象:%@", student)
         student.setObject("Jane", forKey: kStudentKeyName)
         student.save()
@@ -29,24 +29,24 @@ class AVObjectDemo: Demo {
     }
     
     func demoDeleteObject() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         student.delete()
         log("删除了对象:%@", student)
     }
     
     func demoFetchObject() {
-        var student = getFirstStudent()
-        var objectId = student.objectId
+        let student = getFirstStudent()
+        let objectId = student.objectId
         
-        var fetchStudent = Student(withoutDataWithObjectId: objectId)
+        let fetchStudent = Student(withoutDataWithObjectId: objectId)
         fetchStudent.fetch()
         log("获取了对象:%@", fetchStudent)
     }
     
     func demoCreateObjectAndFile() {
-        var student: Student = Student()
+        let student: Student = Student()
         student.name = "Mike"
-        var avatar: AVFile = AVFile(name: "cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png"));
+        let avatar: AVFile = AVFile(name: "cloud.png", contentsAtPath: NSBundle.mainBundle().pathForResource("cloud", ofType: "png"));
         student.avatar = avatar
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -56,18 +56,18 @@ class AVObjectDemo: Demo {
     }
     
     func demoFromDictionaryCreateObject() {
-        var json: NSString = "{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}"
-        var dict: [NSObject: AnyObject] = NSJSONSerialization.JSONObjectWithData((json.dataUsingEncoding(NSUTF8StringEncoding))!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! [NSObject:AnyObject]
+        let json: NSString = "{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}"
+        var dict: [NSObject: AnyObject] = (try! NSJSONSerialization.JSONObjectWithData((json.dataUsingEncoding(NSUTF8StringEncoding))!, options: NSJSONReadingOptions.AllowFragments)) as! [NSObject:AnyObject]
         var array = dict["result"] as! [AnyObject]
-        var o: [NSObject: AnyObject] = array[0] as! [NSObject: AnyObject]
-        var user: AVUser = AVUser()
+        let o: [NSObject: AnyObject] = array[0] as! [NSObject: AnyObject]
+        let user: AVUser = AVUser()
         user.objectFromDictionary(o)
         self.log("从一大段文本创建了User对象，user:\(user)")
     }
     
     func demoWithDictionaryCreateObject() {
-        var dict: [NSObject: AnyObject] = ["name": "Mike"]
-        var student: Student = Student(className: Student.parseClassName(), dictionary: dict)
+        let dict: [NSObject: AnyObject] = ["name": "Mike"]
+        let student: Student = Student(className: Student.parseClassName(), dictionary: dict)
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
                 self.log("用字典赋值字段并保存成功！student:\(student)")
@@ -77,7 +77,7 @@ class AVObjectDemo: Demo {
     
     func demoOfflineCreateObject() {
         self.log("请在网络关闭时运行本方法，然后开启网络，看是否保存上")
-        var object: AVObject = AVObject(className: "Student")
+        let object: AVObject = AVObject(className: "Student")
         object.setObject(NSStringFromSelector(__FUNCTION__), forKey: "name")
         object.saveEventually({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -87,7 +87,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoCounter() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         student.fetchWhenSave = true
         student.incrementKey("age", byAmount: 1)
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
@@ -98,7 +98,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoAnyType() {
-        var student: Student = Student()
+        let student: Student = Student()
         student.any = 1
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -122,12 +122,12 @@ class AVObjectDemo: Demo {
     
     
     func demoGetAllKeys() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         self.log("对象的所有字段为：\(student.allKeys())")
     }
     
     func demoRemoveKey() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         self.log("移除前有字段：\(student.allKeys())")
         student.removeObjectForKey(kStudentKeyName)
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
@@ -138,7 +138,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoSubscriptingReadWrite() {
-        var student: Student = Student()
+        let student: Student = Student()
         student[kStudentKeyName] = "subscript"
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -148,8 +148,8 @@ class AVObjectDemo: Demo {
     }
     
     func demoArrayAddObject() {
-        var studentId = getFirstStudent().objectId
-        var student: Student = Student(withoutDataWithObjectId: studentId)
+        let studentId = getFirstStudent().objectId
+        let student: Student = Student(withoutDataWithObjectId: studentId)
         student.fetchInBackgroundWithBlock({(object: AVObject?, error: NSError?) in
             if self.filterError(error) {
                 self.log("hobbis before : \(student.hobbies)")
@@ -164,7 +164,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoArrayAddMultipleObject() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         self.log("添加前，student.hobbies = \(student.hobbies)")
         student.addObjectsFromArray(["table tennis", "fly"], forKey: kStudentKeyHobbies)
         self.log("将两个爱好添加到了爱好数组里")
@@ -176,7 +176,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoArrayRemoveObject() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         self.log("hobbis before : \(student.hobbies)")
         student.removeObject("swimming", forKey: kStudentKeyHobbies)
         student.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
@@ -187,7 +187,7 @@ class AVObjectDemo: Demo {
     }
     
     func demoArrayAddUniqueObject() {
-        var student = getFirstStudent()
+        let student = getFirstStudent()
         self.log("hobbis before : \(student.hobbies)")
         student.addUniqueObject("swimming", forKey: kStudentKeyHobbies)
         self.log("添加了唯一对象 swimming 到爱好数组中")
@@ -201,7 +201,7 @@ class AVObjectDemo: Demo {
     func createStudentsForDemo(block: (students: [Student]) -> Void) {
         var students = [Student]()
         for i in 10..<20 {
-            var student: Student = Student()
+            let student: Student = Student()
             student.age =  Int32(i)
             students.append(student)
         }
@@ -215,7 +215,7 @@ class AVObjectDemo: Demo {
     func demoBatchCreate() {
         var students = [Student]()
         for i in 10..<20 {
-            var student: Student = Student()
+            let student: Student = Student()
             student.age =  Int32(i)
             students.append(student)
         }
@@ -231,7 +231,7 @@ class AVObjectDemo: Demo {
         self.createStudentsForDemo { (students) -> Void in
             var fetchStudents = [Student]()
             for student: Student in students {
-                var fetchStudent: Student = Student(withoutDataWithObjectId: student.objectId)
+                let fetchStudent: Student = Student(withoutDataWithObjectId: student.objectId)
                 fetchStudents.append(fetchStudent)
             }
             
@@ -269,7 +269,7 @@ class AVObjectDemo: Demo {
     func demoBatchCreateObjectAndFile() {
         var students = [Student]()
         for i in 10..<20 {
-            var student: Student = Student()
+            let student: Student = Student()
             var avatar = AVFile(name: "avatar.jpg", contentsAtPath: NSBundle.mainBundle().pathForResource("alpacino.jpg", ofType: nil)!)
             student.age =  Int32(i)
             students.append(student)

@@ -21,10 +21,10 @@ class SourceC: UIViewController {
     
     func setupWebView() {
         webView = UIWebView(frame: self.view.bounds)
-        webView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        webView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         webView.scalesPageToFit = true
         webView.opaque = false
-        var color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        let color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         webView.backgroundColor = color
         view.backgroundColor = color
         view.addSubview(webView)
@@ -37,23 +37,28 @@ class SourceC: UIViewController {
     
     func loadCode(code: String?) {
         if code != nil {
-            if let htmlRoot = NSBundle.mainBundle().resourcePath?.stringByAppendingPathComponent("html") {
+            if let htmlRoot = NSBundle.mainBundle().URLForResource("html", withExtension: nil) {
                 if SourceC.html == nil {
                     var error: NSError?
-                    SourceC.html = String(contentsOfFile: htmlRoot.stringByAppendingPathComponent("index.html"), encoding: NSUTF8StringEncoding, error: &error)
-                    println(error)
+                    do {
+                        SourceC.html = try String(contentsOfFile: htmlRoot.URLByAppendingPathComponent("index.html").path!, encoding: NSUTF8StringEncoding)
+                    } catch let error1 as NSError {
+                        error = error1
+                        SourceC.html = nil
+                    }
+                    print(error)
                 }
                 let range = Range<String.Index>(start: (SourceC.html!).startIndex, end: (SourceC.html!).endIndex)
                 let htmlCode: NSString = (SourceC.html!).stringByReplacingOccurrencesOfString("__CODE__", withString: code!, options: NSStringCompareOptions.LiteralSearch, range: range)
-                webView.loadHTMLString(htmlCode as String, baseURL: NSURL(fileURLWithPath: htmlRoot, isDirectory: true))
+                webView.loadHTMLString(htmlCode as String, baseURL: NSURL(fileURLWithPath: htmlRoot.path!, isDirectory: true))
             }
         }
     }
     
     func loadSource() {
         if filePath != nil {
-            title = filePath!.lastPathComponent
-            var code = String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)
+            title = NSURL(fileURLWithPath: filePath!).lastPathComponent
+            let code = try? String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
             loadCode(code)
         }
     }

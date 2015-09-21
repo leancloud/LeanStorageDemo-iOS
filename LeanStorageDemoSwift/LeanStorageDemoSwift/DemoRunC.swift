@@ -18,9 +18,9 @@ class DemoRunC: UIViewController {
         super.viewDidLoad()
         edgesForExtendedLayout = UIRectEdge.None
         view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        var textView = UITextView(frame: view.frame)
+        let textView = UITextView(frame: view.frame)
         textView.editable = false
-        textView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        textView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         view.addSubview(textView)
         
         textView.text = "点击右上角'运行'按钮查看运行结果\n"
@@ -38,10 +38,10 @@ class DemoRunC: UIViewController {
     }
     
     func run() {
-        var av = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        let av = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         av.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: av)
-        var sel = NSSelectorFromString(methodName)
+        let sel = NSSelectorFromString(methodName)
         
         UIControl().sendAction(sel, to: demo!, forEvent: nil)
     }
@@ -53,26 +53,32 @@ class DemoRunC: UIViewController {
     
     func getMethodSourceCode (){
         if (demo?.sourcePath() != nil) {
-            var code = String(contentsOfFile: (demo?.sourcePath())!, encoding: NSUTF8StringEncoding, error: nil)
+            let code = try? String(contentsOfFile: (demo?.sourcePath())!, encoding: NSUTF8StringEncoding)
             if code != nil {
-                var ptn = "func\\s{0,}\(self.methodName).*?\\{(.*?)\n    \\}"
+                let ptn = "func\\s{0,}\(self.methodName).*?\\{(.*?)\n    \\}"
                 var error: NSError?
-                var re = NSRegularExpression(pattern: ptn, options: NSRegularExpressionOptions.DotMatchesLineSeparators, error: &error)
+                var re: NSRegularExpression?
+                do {
+                    re = try NSRegularExpression(pattern: ptn, options: NSRegularExpressionOptions.DotMatchesLineSeparators)
+                } catch let error1 as NSError {
+                    error = error1
+                    re = nil
+                }
                 if (error != nil) {
                     
                 } else {
-                    var result: NSTextCheckingResult? = re!.firstMatchInString(code!, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, count(code!)))
+                    let result: NSTextCheckingResult? = re!.firstMatchInString(code!, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, (code!).characters.count))
                     if (result != nil) {
-                        var nsRange : NSRange = result!.rangeAtIndex(1)
-                        var range = Range<String.Index>(start: advance(code!.startIndex, nsRange.location), end: advance(code!.startIndex, nsRange.location + nsRange.length))
-                        var methodeCode = code?.substringWithRange(range)
-                        var sc = SourceC()
+                        let nsRange : NSRange = result!.rangeAtIndex(1)
+                        let range = Range<String.Index>(start: code!.startIndex.advancedBy(nsRange.location), end: code!.startIndex.advancedBy(nsRange.location + nsRange.length))
+                        let methodeCode = code?.substringWithRange(range)
+                        let sc = SourceC()
                         addChildViewController(sc)
                         sc.setupWebView()
                         view.addSubview(sc.webView)
                         sourceCodeView = sc.webView
-                        var f = demo!.outputView!.frame
-                        var height = f.size.height * 0.5
+                        let f = demo!.outputView!.frame
+                        let height = f.size.height * 0.5
                         UIView.animateWithDuration(0.25, animations: { () -> Void in
                             sc.webView.frame = CGRectMake(0, f.origin.y, f.size.width, height)
                             sc.webView.autoresizingMask = UIViewAutoresizing.FlexibleWidth

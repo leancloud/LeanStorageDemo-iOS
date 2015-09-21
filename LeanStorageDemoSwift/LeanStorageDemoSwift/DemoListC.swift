@@ -21,7 +21,7 @@ class DemoListC: UITableViewController {
     }
     
     func showSource() {
-        var sourceC = SourceC()
+        let sourceC = SourceC()
         sourceC.filePath = demo?.sourcePath()
         navigationController?.pushViewController(sourceC, animated: true)
     }
@@ -47,41 +47,42 @@ class DemoListC: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
             cell?.detailTextLabel?.textColor = UIColor.grayColor()
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        var info : NSDictionary = contents[indexPath.row] as! NSDictionary
+        let info : NSDictionary = contents[indexPath.row] as! NSDictionary
         cell!.textLabel?.text = info["name"] as? String
         cell!.detailTextLabel?.text = info["detail"] as? String
         return cell!
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var info : NSDictionary = contents[indexPath.row] as! NSDictionary
-        var method :String? = info["method"] as? String
+        let info : NSDictionary = contents[indexPath.row] as! NSDictionary
+        let method :String? = info["method"] as? String
         var vc : UIViewController?
         
         if (method != nil) {
-            var rc = DemoRunC()
+            let rc = DemoRunC()
             rc.demo = demo
             rc.demo?.demoRunC = rc
             rc.methodName = method!
             vc = rc
         } else {
-            var className:String = info["class"] as! String
-            var clsName = "LeanStorageDemoSwift." + className
-            var demo : Demo = NSClassFromString(clsName).new() as! Demo
+            let className:String = info["class"] as! String
+            let clsName = "LeanStorageDemoSwift." + className
+            let demoType = NSClassFromString(clsName) as! Demo.Type
+            let demo : Demo = demoType.init()
             
-            var listC = DemoListC()
+            let listC = DemoListC()
             var contents = [[String:String]]()
             for method in demo.allDemoMethods(demo.self) {
                 if method.hasPrefix("demo") {
                     var content = [String:String]()
                     content["method"] = method
-                    content["name"] = method.substringFromIndex(advance(method.startIndex, 4))
+                    content["name"] = method.substringFromIndex(method.startIndex.advancedBy(4))
                     contents.append(content)
                 }
             }

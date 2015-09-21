@@ -11,38 +11,38 @@ import AVOSCloud
 
 class AVQueryDemo: Demo {
     func demoBasicQuery() {
-        var q = Student.query()
-        var students = q.findObjects()
+        let q = Student.query()
+        let students = q.findObjects()
         log("找回了一组学生:%@", students)
     }
     
     func demoGetFirst() {
-        var q = Student.query()
-        var student = q.getFirstObject()
+        let q = Student.query()
+        let student = q.getFirstObject()
         log("找回了第一个学生:%@", student)
     }
     
     func demoLimit() {
-        var q = Student.query()
+        let q = Student.query()
         q.limit = 5
-        var students = q.findObjects()
+        let students = q.findObjects()
         log("找回了五个学生:%@", students)
     }
     
     func demoSkip() {
-        var q = Student.query()
+        let q = Student.query()
         q.orderByAscending("createdAt")
         q.skip = 3
-        var student = q.getFirstObject()
+        let student = q.getFirstObject()
         log("找回了第三个创建的学生:%@", student)
     }
 
     func demoAndQuery() {
-        var query1: AVQuery = Student.query()
+        let query1: AVQuery = Student.query()
         query1.whereKey(kStudentKeyName, notEqualTo: "Mike")
-        var query2: AVQuery = Student.query()
+        let query2: AVQuery = Student.query()
         query2.whereKey(kStudentKeyName, hasPrefix: "M")
-        var query: AVQuery = AVQuery.andQueryWithSubqueries([query1, query2])
+        let query: AVQuery = AVQuery.andQueryWithSubqueries([query1, query2])
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
                 self.log("名字不为 Mike 且 M 开头的学生：\(objects)")
@@ -51,11 +51,11 @@ class AVQueryDemo: Demo {
     }
     
     func demoOrQuery() {
-        var query1: AVQuery = Student.query()
+        let query1: AVQuery = Student.query()
         query1.whereKey(kStudentKeyName, equalTo: "Mike")
-        var query2: AVQuery = Student.query()
+        let query2: AVQuery = Student.query()
         query2.whereKey(kStudentKeyName, hasPrefix: "J")
-        var query: AVQuery = AVQuery.orQueryWithSubqueries([query1, query2])
+        let query: AVQuery = AVQuery.orQueryWithSubqueries([query1, query2])
         query.countObjectsInBackgroundWithBlock({(number: Int, error: NSError?) in
             if self.filterError(error) {
                 self.log("名字为 Mike 或 J 开头的学生有 \(number) 个")
@@ -64,7 +64,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoByKeyOrder() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.orderByDescending(kStudnetKeyAge)
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -74,7 +74,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoAddSecondOrder() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.orderByDescending(kStudnetKeyAge)
         query.addDescendingOrder(kStudentKeyName)
         query.limit = 5
@@ -86,7 +86,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoBySortDescriptorsOrder() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.orderBySortDescriptors([NSSortDescriptor(key: kStudnetKeyAge, ascending: false), NSSortDescriptor(key: kStudentKeyName, ascending: true)])
         query.limit = 5
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
@@ -97,7 +97,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoByArraySizeQuery() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.whereKey(kStudentKeyHobbies, sizeEqualTo: 1)
         query.limit = 4
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
@@ -108,7 +108,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoContainedIn() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.whereKey(kStudentKeyName, containedIn: ["Mike", "Jane"])
         query.limit = 5
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
@@ -119,7 +119,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoContainObjectsInArray() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.whereKey(kStudentKeyHobbies, containsAllObjectsInArray: ["swimming", "running"])
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -129,7 +129,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoLimitResultCount() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.limit = 5
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -139,8 +139,8 @@ class AVQueryDemo: Demo {
     }
     
     func demoRegex() {
-        var query: AVQuery = Student.query()
-        var regex = "^M.*"
+        let query: AVQuery = Student.query()
+        let regex = "^M.*"
         query.whereKey(kStudentKeyName, matchesRegex: regex)
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -150,7 +150,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoOneKeyMultipleCondition() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.whereKey(kStudentKeyName, hasPrefix: "M")
         query.whereKey(kStudentKeyName, hasSuffix: "e")
         query.whereKey(kStudentKeyName, containsString: "i")
@@ -163,10 +163,10 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryEqualToObject() {
-        var query1: AVQuery = Student.query()
+        let query1: AVQuery = Student.query()
         query1.getFirstObjectInBackgroundWithBlock({(student: AVObject?, error: NSError?) in
             if self.filterError(error) {
-                var query: AVQuery = Post.query()
+                let query: AVQuery = Post.query()
                 query.whereKey(kPostKeyAuthor, equalTo: student)
                 query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
                     if self.filterError(error) {
@@ -178,10 +178,10 @@ class AVQueryDemo: Demo {
     }
     
     func demoMatchesInSubquery() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.orderByDescending("createdAt")
         query.limit = 50
-        var postQuery: AVQuery = Post.query()
+        let postQuery: AVQuery = Post.query()
         postQuery.whereKey(kPostKeyAuthor, matchesQuery: query)
         postQuery.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -191,10 +191,10 @@ class AVQueryDemo: Demo {
     }
     
     func demoDoesNotMatchesInSubquery() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.orderByDescending("createdAt")
         query.limit = 50
-        var postQuery: AVQuery = Post.query()
+        let postQuery: AVQuery = Post.query()
         postQuery.whereKey(kPostKeyAuthor, doesNotMatchQuery: query)
         postQuery.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -205,8 +205,8 @@ class AVQueryDemo: Demo {
     
     func demoLastModifyEnabled() {
         AVOSCloud.setLastModifyEnabled(true)
-        var student = getFirstStudent()
-        var query: AVQuery = Student.query()
+        let student = getFirstStudent()
+        let query: AVQuery = Student.query()
         query.getObjectInBackgroundWithId(student.objectId, block: {(object: AVObject?, error: NSError?) in
             if self.filterError(error) {
                 query.getObjectInBackgroundWithId(student.objectId, block: {(object: AVObject?, error: NSError?) in
@@ -220,7 +220,7 @@ class AVQueryDemo: Demo {
     
     func demoLastModifyEnabled2() {
         AVOSCloud.setLastModifyEnabled(true)
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.limit = 5
         query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
@@ -234,7 +234,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyCacheThenNetwork() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.CacheThenNetwork
         query.maxCacheAge = 60 * 60
         query.limit = 1
@@ -258,7 +258,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyCacheElseNetwork() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.CacheElseNetwork
         query.maxCacheAge = 60 * 60
         query.limit = 6
@@ -275,7 +275,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyNetworkElseCache() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.NetworkElseCache
         query.maxCacheAge = 60 * 60
         query.limit = 4
@@ -292,7 +292,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyNetworkOnly() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.NetworkOnly
         query.maxCacheAge = 60 * 60
         query.limit = 3
@@ -304,7 +304,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyCacheOnly() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.CacheOnly
         query.maxCacheAge = 60 * 60
         query.limit = 2
@@ -322,7 +322,7 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryPolicyIgnoreCache() {
-        var query: AVQuery = Student.query()
+        let query: AVQuery = Student.query()
         query.cachePolicy = AVCachePolicy.IgnoreCache
         query.limit = 2
         if query.hasCachedResult() {

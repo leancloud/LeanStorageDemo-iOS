@@ -11,8 +11,8 @@ import AVOSCloud
 
 class PointerDemo: Demo {
     func demoRelateObject() {
-        var student = getFirstStudent()
-        var post: Post = Post()
+        let student = getFirstStudent()
+        let post: Post = Post()
         post.content = "每个 iOS 程序员必备的 8 个开发工具"
         post.author = student
         post.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
@@ -23,9 +23,9 @@ class PointerDemo: Demo {
     }
     
     func demoObjectArray() {
-        var student1 = getFirstStudent()
-        var student2 = getSecoundStudent()
-        var post: Post = Post()
+        let student1 = getFirstStudent()
+        let student2 = getSecoundStudent()
+        let post: Post = Post()
         post.content = "每个 iOS 程序员必备的 8 个开发工具"
         post.saveInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
@@ -41,23 +41,23 @@ class PointerDemo: Demo {
     }
     
     func demoNotIncludeObject() {
-        var query: AVQuery = Post.query()
+        let query: AVQuery = Post.query()
         query.whereKey(kPostKeyLikes, sizeEqualTo: 2)
         query.getFirstObjectInBackgroundWithBlock({(object: AVObject?, error: NSError?) in
             if self.filterError(error) {
-                var post: Post = object as! Post
+                let post: Post = object as! Post
                 self.log("Post.likes = \(post.likes)")
             }
         })
     }
     
     func demoIncludeObject() {
-        var query: AVQuery = Post.query()
+        let query: AVQuery = Post.query()
         query.includeKey(kPostKeyLikes)
         query.whereKey(kPostKeyLikes, sizeEqualTo: 2)
         query.getFirstObjectInBackgroundWithBlock({(object: AVObject?, error: NSError?) in
             if self.filterError(error) {
-                var post: Post = object as! Post
+                let post: Post = object as! Post
                 self.log("找回了 Post 及其 likes 字段下的 Object Array :\(post.likes)")
             }
         })

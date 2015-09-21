@@ -33,32 +33,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     private func rootController() -> UIViewController? {
-        var tabs: NSMutableArray = NSMutableArray()
+        var tabs = [UIViewController]()
         if let path = NSBundle.mainBundle().pathForResource("DemoConfig", ofType: "plist") {
             if let dict = NSDictionary(contentsOfFile: path) {
                 var keys: NSArray
                 keys = dict.allKeys;
                 for i in 0..<keys.count {
-                    var key = keys[i] as! String
-                    var object: AnyObject? = dict.objectForKey(key)
+                    let key = keys[i] as! String
+                    let object: AnyObject? = dict.objectForKey(key)
                     if (object is NSArray) {
-                        var listC : DemoListC = DemoListC()
+                        let listC : DemoListC = DemoListC()
                         listC.title = NSLocalizedString(key, comment:"")
                         listC.contents = object as! [AnyObject];
-                        tabs.addObject(listC)
+                        tabs.append(listC)
                     } else if (object is NSString) {
                         
                     }
                 }
             }
         }
-        var tabC = UITabBarController()
+        let tabC = UITabBarController()
         tabC.delegate = self
-        tabC.viewControllers = tabs as [AnyObject]
+        tabC.viewControllers = tabs
         tabC.selectedIndex = 0
         tabC.title = tabs[tabC.selectedIndex].title
         
-        var nav = UINavigationController(rootViewController:tabC)
+        let nav = UINavigationController(rootViewController:tabC)
 
         return nav;
     }

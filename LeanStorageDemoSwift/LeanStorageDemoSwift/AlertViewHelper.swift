@@ -14,7 +14,7 @@ class AlertViewHelper:NSObject, UIAlertViewDelegate {
     
     func showInputView(message: String, block:(input:String?) -> Void) {
         finishBlock = block
-        var alertView = UIAlertView(title: nil, message: message, delegate: self as UIAlertViewDelegate, cancelButtonTitle: "取消")
+        let alertView = UIAlertView(title: nil, message: message, delegate: self as UIAlertViewDelegate, cancelButtonTitle: "取消")
         alertView.addButtonWithTitle("确定")
         alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput
         alertView.show()

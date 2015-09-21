@@ -14,7 +14,7 @@ class Demo: NSObject {
     var demoRunC : DemoRunC?
     var alertViewHelper: AlertViewHelper = AlertViewHelper()
     
-    override init() {
+    override required init() {
         super.init()
     }
     
@@ -34,14 +34,14 @@ class Demo: NSObject {
         var pNames = [String]()
         
         var propertyCount : UInt32 = 0
-        var myClass: AnyClass = anyObject.classForCoder
+        let myClass: AnyClass = anyObject.classForCoder
         let properties = class_copyPropertyList(myClass, &propertyCount)
         for i in 0..<numericCast(propertyCount) {
             let property: objc_property_t = properties[i]
-            var cattrs = property_getAttributes(property)
+            let cattrs = property_getAttributes(property)
             var attr = String.fromCString(cattrs)
-            var cname = property_getName(property)
-            var name = String.fromCString(cname)!
+            let cname = property_getName(property)
+            let name = String.fromCString(cname)!
             let mtd = class_getInstanceMethod(myClass, Selector(name))
             let imp: IMP = method_getImplementation(mtd)
             pNames.append(name)
@@ -54,18 +54,18 @@ class Demo: NSObject {
         
         // retrieve the properties via the class_copyPropertyList function
         var count: UInt32 = 0;
-        var myClass: AnyClass = anyObject.classForCoder;
-        var properties = class_copyPropertyList(myClass, &count);
+        let myClass: AnyClass = anyObject.classForCoder;
+        let properties = class_copyPropertyList(myClass, &count);
         
         // iterate each objc_property_t struct
         for var i: UInt32 = 0; i < count; i++ {
-            var property = properties[Int(i)];
+            let property = properties[Int(i)];
             
             // retrieve the property name by calling property_getName function
-            var cname = property_getName(property);
+            let cname = property_getName(property);
             
             // covert the c string into a Swift string
-            var name = String.fromCString(cname);
+            let name = String.fromCString(cname);
             results.append(name!);
         }
         
@@ -80,17 +80,17 @@ class Demo: NSObject {
     }
     
     func log(format: String, _ args:CVarArgType...) {
-        var msg = String(format: format, arguments: args)
-        println(msg)
-        var text = outputView?.text
+        let msg = String(format: format, arguments: args)
+        print(msg)
+        let text = outputView?.text
         outputView?.text = text?.stringByAppendingFormat("\n-------- RUN --------\n%@", msg)
         finish()
     }
     
     func getNthStudent(skip: Int) -> Student{
-        var q = Student.query()
+        let q = Student.query()
         q.skip = skip
-        var obj = q.getFirstObject()
+        let obj = q.getFirstObject()
         if (obj == nil) {
             log("请先运行创建对象的例子");
         }
@@ -119,15 +119,15 @@ class Demo: NSObject {
     }
 
     func sourcePath() -> String? {
-        var clsName = NSStringFromClass(self.dynamicType) as String
-        var range = clsName.rangeOfString(".", options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
-        var nameRange = Range<String.Index>(start: advance(range!.startIndex,1), end: clsName.endIndex)
-        var fileName = clsName.substringWithRange(nameRange)
+        let clsName = NSStringFromClass(self.dynamicType) as String
+        let range = clsName.rangeOfString(".", options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
+        let nameRange = Range<String.Index>(start: range!.startIndex.advancedBy(1), end: clsName.endIndex)
+        let fileName = clsName.substringWithRange(nameRange)
         return NSBundle.mainBundle().pathForResource(fileName, ofType: "swift", inDirectory: "SourceCode")
     }
     
     func showImage(image: UIImage) {
-        var vc: ImageViewController = ImageViewController()
+        let vc: ImageViewController = ImageViewController()
         vc.image = image
         self.demoRunC?.navigationController?.pushViewController(vc, animated: true)
     }

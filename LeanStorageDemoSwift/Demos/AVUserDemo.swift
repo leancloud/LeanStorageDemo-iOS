@@ -13,7 +13,7 @@ class AVUserDemo: Demo {
     var testUsername: String!
     var testPassword: String!
     
-    override init() {
+    required init() {
         super.init()
         testUsername = "Swift"
         testPassword = "password"
@@ -24,7 +24,7 @@ class AVUserDemo: Demo {
     }
     
     func demoCurrentUser() {
-        var user = AVUser.currentUser()
+        let user = AVUser.currentUser()
         if user != nil {
             log("当前用户:%@", user)
         } else {
@@ -33,11 +33,15 @@ class AVUserDemo: Demo {
     }
     
     func demoRegisterUser() {
-        var user = AVUser()
+        let user = AVUser()
         user.username = testUsername
         user.password = testPassword
         var error: NSError?
-        user.signUp(&error)
+        do {
+            try user.signUp()
+        } catch let error1 as NSError {
+            error = error1
+        }
         if (filterError(error)) {
             log("已注册用户:%@", user)
         }
@@ -46,7 +50,13 @@ class AVUserDemo: Demo {
     
     func demoLogin() {
         var error : NSError?
-        var user = AVUser.logInWithUsername(testUsername, password: testPassword, error: &error)
+        var user: AVUser!
+        do {
+            user = try AVUser.logInWithUsername(testUsername, password: testPassword)
+        } catch let error1 as NSError {
+            error = error1
+            user = nil
+        }
         if (filterError(error)) {
             log("登录成功, user:%@", user)
         }
@@ -58,7 +68,7 @@ class AVUserDemo: Demo {
     }
     
     func demoDeleteUser() {
-        var user = AVUser.currentUser()
+        let user = AVUser.currentUser()
         if user != nil {
             user.delete()
             log("删除用户成功：%@",user)
@@ -83,7 +93,7 @@ class AVUserDemo: Demo {
     
     func demoEmailRegister() {
         alertViewHelper.showInputView("请输入您的邮箱来注册", block: { (email) -> Void in
-            var user: AVUser = AVUser()
+            let user: AVUser = AVUser()
             user.username = email
             user.password = self.testPassword
             user.email = email
@@ -91,7 +101,7 @@ class AVUserDemo: Demo {
             user.signUpInBackgroundWithBlock({(succeeded: Bool, error: NSError?) in
                 if self.filterError(error) {
                     self.log("用户注册成功 \(user)")
-                    var user: AVUser = AVUser.currentUser()
+                    let user: AVUser = AVUser.currentUser()
                     self.log("当前用户 \(user.username)  邮箱 \(user.email)")
                     self.log("请检查邮箱进行验证。")
                 }
@@ -120,18 +130,18 @@ class AVUserDemo: Demo {
     }
     
     func randomString(length: Int) -> String{
-        var charSet = "abcdefghijklmnopgrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var charSetN = count(charSet)
+        let charSet = "abcdefghijklmnopgrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let charSetN = charSet.characters.count
         var result = ""
         for i in 0 ..< length {
-            result.append(charSet[advance(charSet.startIndex, random() % charSetN)])
+            result.append(charSet[charSet.startIndex.advancedBy(random() % charSetN)])
         }
         return result
     }
     
     func demoPhoneNumberRegisterUser() {
         alertViewHelper.showInputView("请输入手机号码来注册", block: { (phoneNumber) -> Void in
-            var user = AVUser()
+            let user = AVUser()
             user.username = self.randomString(6)
             user.password = self.testPassword
             user.mobilePhoneNumber = phoneNumber
@@ -180,7 +190,7 @@ class AVUserDemo: Demo {
             AVUser.requestPasswordResetWithPhoneNumber(phoneNumber, block: {(succeeded: Bool, error: NSError?) in
                 if self.filterError(error) {
                     self.alertViewHelper.showInputView("短信已发送，请输入验证码来重置密码", block: { (smsCode) -> Void in
-                        var newPassword = "111111"
+                        let newPassword = "111111"
                         AVUser.resetPasswordWithSmsCode(smsCode, newPassword: newPassword, block: {(succeeded: Bool, error: NSError?) in
                             if self.filterError(error) {
                                 self.log("密码重置成功，新密码为 \(newPassword)")
