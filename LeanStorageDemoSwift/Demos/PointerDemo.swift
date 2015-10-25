@@ -12,6 +12,7 @@ import AVOSCloud
 class PointerDemo: Demo {
     func demoRelateObject() {
         let student = getFirstStudent()
+        
         let post: Post = Post()
         post.content = "每个 iOS 程序员必备的 8 个开发工具"
         post.author = student

@@ -77,11 +77,12 @@ class AVObjectDemo: Demo {
     
     func demoOfflineCreateObject() {
         self.log("请在网络关闭时运行本方法，然后开启网络，看是否保存上")
-        let object: AVObject = AVObject(className: "Student")
+        let object = AVObject(className: "Student")
         object.setObject(NSStringFromSelector(__FUNCTION__), forKey: "name")
+        object["any"] = 10;
         object.saveEventually({(succeeded: Bool, error: NSError?) in
             if self.filterError(error) {
-                self.log("离线保存完毕，请开启网络")
+                self.log("离线保存完毕，请开启网络。object: %@", object)
             }
         })
     }

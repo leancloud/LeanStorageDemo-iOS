@@ -24,7 +24,7 @@ class Student: AVObject, AVSubclassing {
     
     @NSManaged var age: Int32
     
-    @NSManaged var hobbies: [AnyObject]?
+    @NSManaged var hobbies: [String]?
     
     @NSManaged var any: AnyObject?
     

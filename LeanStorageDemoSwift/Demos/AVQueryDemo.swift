@@ -36,6 +36,20 @@ class AVQueryDemo: Demo {
         let student = q.getFirstObject()
         log("找回了第三个创建的学生:%@", student)
     }
+    
+    func demoBasicFind() {
+        let query = Post.query()
+        query.whereKey(kPostKeyAuthor, equalTo: getFirstStudent())
+        query.limit = 5
+        query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
+            if self.filterError(error) {
+                self.log("找回 \(objects?.count) 个 Post:\n")
+                for post in objects as! [Post] {
+                    self.log("author:\(post.author) content:\(post.content)");
+                }
+            }
+        })
+    }
 
     func demoAndQuery() {
         let query1: AVQuery = Student.query()
@@ -163,16 +177,12 @@ class AVQueryDemo: Demo {
     }
     
     func demoQueryEqualToObject() {
-        let query1: AVQuery = Student.query()
-        query1.getFirstObjectInBackgroundWithBlock({(student: AVObject?, error: NSError?) in
+        let student = getFirstStudent();
+        let query: AVQuery = Post.query()
+        query.whereKey(kPostKeyAuthor, equalTo: student)
+        query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
             if self.filterError(error) {
-                let query: AVQuery = Post.query()
-                query.whereKey(kPostKeyAuthor, equalTo: student)
-                query.findObjectsInBackgroundWithBlock({(objects: [AnyObject]?, error: NSError?) in
-                    if self.filterError(error) {
-                        self.log("找到第一个学生发的微博：\(objects)")
-                    }
-                })
+                self.log("找到第一个学生发的微博：\(objects)")
             }
         })
     }

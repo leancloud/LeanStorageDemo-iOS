@@ -29,7 +29,7 @@
 		70CD75A61B94CCDB00882317 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CD75A41B94CCDB00882317 /* LaunchScreen.xib */; };
 		70CD75B21B94CCDB00882317 /* LeanStorageDemoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD75B11B94CCDB00882317 /* LeanStorageDemoSwiftTests.swift */; };
 		70CD75BD1B94DC2F00882317 /* DemoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70CD75BC1B94DC2F00882317 /* DemoConfig.plist */; };
-		DDA9BEEF6EF7F2FDA200E700 /* Pods_LeanStorageDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A77B7F4CA83BEC51A0EF83 /* Pods_LeanStorageDemoSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DDA9BEEF6EF7F2FDA200E700 /* Pods_LeanStorageDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A77B7F4CA83BEC51A0EF83 /* Pods_LeanStorageDemoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -512,7 +512,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LeanStorageDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.leancloud.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.avoscloud.LeanStorageDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LeanStorageDemoSwift/LeanStorageDemoSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -528,7 +528,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LeanStorageDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.leancloud.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.avoscloud.LeanStorageDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LeanStorageDemoSwift/LeanStorageDemoSwift-Bridging-Header.h";
 			};
