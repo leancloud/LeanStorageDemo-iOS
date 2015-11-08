@@ -39,6 +39,7 @@
 "Batch"     ="批量";
 "Not"       ="不";
 "Or"        ="或";
+"Upload"    ="上传";
 
 // noun
 "Object"    ="对象";
@@ -91,6 +92,7 @@
 "Subscripting"="下标";
 "Cloud"     ="云";
 "Function"  ="函数";
+"Extension" ="后缀";
 
 // adj
 "Second"    ="第二";
