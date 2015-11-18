@@ -106,6 +106,9 @@
     NSMutableArray *tabs=[NSMutableArray array];
     
     NSArray *keys=[config allKeys];
+    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [(NSString*)obj1 compare:obj2];
+    }];
     
     for (int i=0; i<keys.count; i++) {
         NSString *key=keys[i];
