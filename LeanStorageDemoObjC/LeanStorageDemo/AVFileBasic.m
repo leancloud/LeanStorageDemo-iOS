@@ -140,5 +140,42 @@
     [self log:@"清除了全部文件的缓存，请运行用文件ID获取文件的例子，会看到下载进度多次被回调"];
 }
 
+//    upload the file which extension is mp3
+//    best define method like this, and use the param fileExtension replace the @"mp3"
+//    and drag some .mp3 file into the xcode then run method
+//     - (void)batchUpdateFileWithFileExtension:(NSString*)fileExtension
+- (void)demoFromLocalBatchUploadFileWithFileExtension{
+    
+    //get the names of file which will upload
+    NSArray *bundleFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSBundle mainBundle].bundlePath error:nil];
+    
+    NSMutableArray *fileNames = [NSMutableArray array];
+    
+    [bundleFiles enumerateObjectsUsingBlock:^(NSString *fileName, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[fileName pathExtension] isEqualToString:@"mp3"]) {
+            [fileNames addObject:fileName];
+        } ;
+    }];
+    
+    NSMutableArray *successUploadFiles = [NSMutableArray array];
+    NSMutableArray *failureUploadFiles = [NSMutableArray array];
+    
+    //upload
+    [fileNames enumerateObjectsUsingBlock:^(NSString *fileName, NSUInteger idx, BOOL * _Nonnull stop) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            AVFile *file = [AVFile fileWithName:fileName contentsAtPath:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                //upload result
+                if (succeeded) {
+                    [successUploadFiles addObject:fileName];
+                }else {
+                    [failureUploadFiles addObject:fileName];
+                }
+            }];
+        });
+    }];
+
+}
+
 MakeSourcePath
 @end
