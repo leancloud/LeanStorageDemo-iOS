@@ -29,7 +29,7 @@ static const int contentLabelTag = 1000;
 {
     [super viewDidLoad];
     
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +58,7 @@ static const int contentLabelTag = 1000;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width - 20, 0)];
         contentLabel.tag = contentLabelTag;
         contentLabel.font = [UIFont systemFontOfSize:12];
@@ -73,9 +73,9 @@ static const int contentLabelTag = 1000;
     }
     
     if (indexPath.row%2) {
-        cell.backgroundColor=[UIColor colorWithRed:247/255.0 green:248/255.0 blue:248/255.0 alpha:1];
+        cell.backgroundColor = [UIColor colorWithRed:247/255.0 green:248/255.0 blue:248/255.0 alpha:1];
     }else{
-        cell.backgroundColor=[UIColor whiteColor];
+        cell.backgroundColor = [UIColor whiteColor];
     }
     AVObject *object = [self.objects objectAtIndex:indexPath.row];
 //    NSString *appUrl = [object objectForKey:@"_app_url"];

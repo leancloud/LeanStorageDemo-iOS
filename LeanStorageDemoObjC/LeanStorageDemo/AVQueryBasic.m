@@ -14,7 +14,7 @@
 @implementation AVQueryBasic
 
 -(void)demoByClassNameQuery{
-    AVQuery *query=[Student query];
+    AVQuery *query = [Student query];
     //限制查询返回数
     [query setLimit:3];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -25,9 +25,9 @@
 }
 
 -(void)demoByGeoQuery{
-    AVQuery *query=[Student query];
+    AVQuery *query = [Student query];
     //我们要找这个点附近的Student
-    AVGeoPoint *geo=[AVGeoPoint geoPointWithLatitude:31.9 longitude:114.78];
+    AVGeoPoint *geo = [AVGeoPoint geoPointWithLatitude:31.9 longitude:114.78];
     [query whereKey:@"location" nearGeoPoint:geo];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -37,7 +37,7 @@
 }
 
 -(void)demoOnlyGetQueryResultCount{
-    AVQuery *query=[Student query];
+    AVQuery *query = [Student query];
     [query countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
         if ([self  filterError:error]) {
             [self log:[NSString stringWithFormat:@"查询结果: \n%ld个Student", (long)number]];
@@ -99,8 +99,8 @@
 
 - (void)demoBySortDescriptorsOrder {
     AVQuery *query = [Student query];
-    [query orderBySortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:kStudnetKeyAge ascending:@(NO)],
-                                    [NSSortDescriptor sortDescriptorWithKey:kStudentKeyName ascending:@(YES)]]];
+    [query orderBySortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:kStudnetKeyAge ascending:NO],
+                                    [NSSortDescriptor sortDescriptorWithKey:kStudentKeyName ascending:YES]]];
     [query setLimit:5];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {

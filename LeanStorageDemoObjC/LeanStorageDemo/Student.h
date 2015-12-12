@@ -17,8 +17,8 @@ static NSString *const kStudentKeyName = @"name";
 static NSString *const kStudnetKeyFriends = @"friends";
 
 typedef enum{
-    GenderUnkonwn=0,
-    GenderMale=1,
+    GenderUnkonwn = 0,
+    GenderMale = 1,
     GenderFamale
 }GenderType;
 
