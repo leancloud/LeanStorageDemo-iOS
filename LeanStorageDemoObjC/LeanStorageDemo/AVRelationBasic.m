@@ -16,17 +16,17 @@
     //假设有2个Student xiaoQiang和xiaoHong
     //把这两个人关联xiaoGang的好友
     
-    Student *xiaoQiang=[Student object];
+    Student *xiaoQiang = [Student object];
     xiaoQiang.name=@"XiaoQiang";
     //save是同步的保存方法, 会卡住线程, 这里为了方便理解才使用. 正常情况请尽量使用异步方法,比如saveInBackground等
     [xiaoQiang save];
     
-    Student *xiaoHong=[Student object];
+    Student *xiaoHong = [Student object];
     xiaoHong.name=@"XiaoHong";
     [xiaoHong save];
     
     
-    Student *xiaoGang=[Student object];
+    Student *xiaoGang = [Student object];
     xiaoGang.name=@"XiaoGang";
     
     

@@ -13,10 +13,10 @@
 
 -(void)demoCreateFile{
     //获取要保存的数据
-    NSData *data=[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
     
     //用数据创建文件
-    AVFile *file=[AVFile fileWithName:@"cloud.png" data:data];
+    AVFile *file = [AVFile fileWithName:@"cloud.png" data:data];
     
     //保存文件
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -30,7 +30,7 @@
 
 -(void)demoFromPathCreateFile{
     //从本地文件路径创建文件
-    AVFile *file=[AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
+    AVFile *file = [AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
     //保存文件
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
@@ -43,7 +43,7 @@
 
 -(void)demoDeleteFile{
     //需要先得到一个AVFile, 可以是从Cloud数据中返回的, 这里直接创建了一个文件 然后删除它
-    AVFile *file=[AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
+    AVFile *file = [AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
     [file save];
     
     //删除文件
@@ -68,7 +68,7 @@
                 if(data){
                     //获取到了文件内容
                     //这儿我们已知它是个图片 所以可以显示图片
-                    UIImage *img=[UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
+                    UIImage *img = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
                     [self showImage:img];
                     [self log:[NSString stringWithFormat:@"成功得到图片: %@",[img description]]];
                 }
@@ -127,7 +127,7 @@
 }
 
 - (void)demoFileLocalPath {
-    AVFile *file=[AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
+    AVFile *file = [AVFile fileWithName:@"cloud.png" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"保存了文件，文件本地路径为：%@", file.localPath];

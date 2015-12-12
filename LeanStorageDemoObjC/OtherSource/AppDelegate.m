@@ -55,8 +55,8 @@
     [AVOSCloud registerForRemoteNotification];
 #endif
     
-    self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController=[self rootController];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [self rootController];
     [self.window makeKeyAndVisible];
     
     
@@ -101,51 +101,51 @@
 #pragma mark - DemoApp的方法, 不需要关注
 
 - (UIViewController *)rootController {
-    NSDictionary *config=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DemoConfig" ofType:@"plist"]];
+    NSDictionary *config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DemoConfig" ofType:@"plist"]];
     
-    NSMutableArray *tabs=[NSMutableArray array];
+    NSMutableArray *tabs = [NSMutableArray array];
     
-    NSArray *keys=[config allKeys];
+    NSArray *keys = [config allKeys];
     keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [(NSString*)obj1 compare:obj2];
     }];
     
-    for (int i=0; i<keys.count; i++) {
-        NSString *key=keys[i];
-        id object =config[key];
+    for (int i = 0; i < keys.count; i++) {
+        NSString *key = keys[i];
+        id object = config[key];
         if ([object isKindOfClass:[NSArray class]]) {
-            DemoListC *listC=[[DemoListC alloc] init];
-            listC.title=NSLocalizedString(key, nil);
-            listC.tabBarItem.image=[UIImage imageNamed:@"cloud"];
+            DemoListC *listC = [[DemoListC alloc] init];
+            listC.title = NSLocalizedString(key, nil);
+            listC.tabBarItem.image = [UIImage imageNamed:@"cloud"];
             
             listC.contents=object;
             [tabs addObject:listC];
         }else if ([object isKindOfClass:[NSString class]]) {
             Class cl= NSClassFromString(object);
             if (cl) {
-                UIViewController * controller=[[cl alloc] init];
-                controller.title=NSLocalizedString(key, nil);
+                UIViewController * controller = [[cl alloc] init];
+                controller.title = NSLocalizedString(key, nil);
                 [tabs addObject:controller];
             }
         }
     }
     
-    UITabBarController *tabC=[[UITabBarController alloc] init];
-    tabC.delegate=self;
+    UITabBarController *tabC = [[UITabBarController alloc] init];
+    tabC.delegate = self;
     [tabC setViewControllers:tabs];
     tabC.selectedIndex = 0;
-    tabC.title=[tabs[tabC.selectedIndex] title];
+    tabC.title = [tabs[tabC.selectedIndex] title];
     
     if ([tabC respondsToSelector:@selector(edgesForExtendedLayout)])
         tabC.edgesForExtendedLayout = UIRectEdgeNone;
     
-    UINavigationController *nc=[[UINavigationController alloc] initWithRootViewController:tabC];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tabC];
 
     return nc;
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    tabBarController.title=viewController.title;
+    tabBarController.title = viewController.title;
 }
 
 @end

@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     if (self.demo) {
-        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"查看源码"
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"查看源码"
                                                                                 style:UIBarButtonItemStyleBordered
                                                                                target:self action:@selector(showSource)];
     }
@@ -42,8 +42,8 @@
 }
 
 -(void)showSource{
-    SourceViewController *vc=[[SourceViewController alloc] init];
-    vc.filePath=self.demo.sourcePath;
+    SourceViewController *vc = [[SourceViewController alloc] init];
+    vc.filePath = self.demo.sourcePath;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -64,47 +64,47 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell==Nil) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.detailTextLabel.textColor=[UIColor grayColor];
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    if (cell == Nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    NSDictionary *info=self.contents[indexPath.row];
+    NSDictionary *info = self.contents[indexPath.row];
     
-    cell.textLabel.text=info[@"name"];
-    cell.detailTextLabel.text=info[@"detail"];
+    cell.textLabel.text = info[@"name"];
+    cell.detailTextLabel.text = info[@"detail"];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *info=self.contents[indexPath.row];
-    NSString *method=info[@"method"];
+    NSDictionary *info = self.contents[indexPath.row];
+    NSString *method = info[@"method"];
     
-    UIViewController *vc=nil;
+    UIViewController *vc = nil;
     
     if (method) {
-        DemoRunC *rc=[[DemoRunC alloc] init];
-        rc.demo=self.demo;
+        DemoRunC *rc = [[DemoRunC alloc] init];
+        rc.demo = self.demo;
         
-        rc.methodName=method;
-        vc=rc;
-    }else{
-        NSString *className=info[@"class"];
+        rc.methodName = method;
+        vc = rc;
+    } else {
+        NSString *className = info[@"class"];
         if (className) {
             Demo *demo= [[NSClassFromString(className) alloc] init];
-            DemoListC *listC=[[DemoListC alloc] init];
+            DemoListC *listC = [[DemoListC alloc] init];
             
-            listC.demo=demo;
-            listC.contents=[demo allDemoMethod];
-            vc=listC;
+            listC.demo = demo;
+            listC.contents = [demo allDemoMethod];
+            vc = listC;
             
         }
     }
     
     if (vc) {
-        vc.title=info[@"name"];
+        vc.title = info[@"name"];
         if (self.navigationController) {
             [self.navigationController pushViewController:vc animated:YES];
         }else{

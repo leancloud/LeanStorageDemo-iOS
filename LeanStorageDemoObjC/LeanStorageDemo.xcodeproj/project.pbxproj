@@ -268,7 +268,7 @@
 		1F3AF9A51828C6DE003277B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = AVOS;
 			};
 			buildConfigurationList = 1F3AF9A81828C6DE003277B5 /* Build configuration list for PBXProject "LeanStorageDemo" */;
@@ -407,6 +407,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -471,7 +472,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OtherSource/LeanStorageDemo-Prefix.pch";
 				INFOPLIST_FILE = "OtherSource/LeanStorageDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.avoscloud.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = LeanStorageDemo;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -491,7 +493,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OtherSource/LeanStorageDemo-Prefix.pch";
 				INFOPLIST_FILE = "OtherSource/LeanStorageDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.avoscloud.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = LeanStorageDemo;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

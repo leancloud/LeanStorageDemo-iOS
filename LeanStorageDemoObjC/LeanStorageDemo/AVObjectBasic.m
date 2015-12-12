@@ -20,8 +20,8 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 -(void)demoCreateObject{
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
-    student.age=12;
-    student.gender=GenderMale;
+    student.age = 12;
+    student.gender = GenderMale;
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"创建成功 %@", student];
@@ -63,7 +63,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 }
 
 -(void)demoGetObject{
-    AVObject *student=[AVObject objectWithoutDataWithClassName:@"Student" objectId:@"55750444e4b0f22726a0c9bb"];
+    AVObject *student = [AVObject objectWithoutDataWithClassName:@"Student" objectId:@"55750444e4b0f22726a0c9bb"];
     [student fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"获取成功: %@", object];
@@ -76,7 +76,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 - (void)demoCreateObjectAndFile {
     Student *student = [Student object];
     student.name = @"Mike";
-    AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
+    AVFile *avatar = [AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
     
     student.avatar = avatar;
     
@@ -109,7 +109,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 - (void)demoOfflineCreateObject{
     // 不管在线还是离线都能保存，这里测试离线是否能保存
     [self log:@"请在网络关闭时运行本方法，然后开启网络，看是否保存上"];
-    AVObject *object=[AVObject objectWithClassName:@"Student"];
+    AVObject *object = [AVObject objectWithClassName:@"Student"];
     [object setObject:NSStringFromSelector(_cmd) forKey:@"name"];
     [object saveEventually:^(BOOL succeeded, NSError *error) {
         [self log:@"error : %@", error];
@@ -330,7 +330,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     NSMutableArray *students = [NSMutableArray array];
     for (int i = 10; i < 15; i++) {
         Student *student = [Student object];
-        AVFile *avatar=[AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
+        AVFile *avatar = [AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
         student.avatar = avatar;
         student.age = i;
         [students addObject:student];

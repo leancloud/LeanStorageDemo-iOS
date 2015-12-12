@@ -54,8 +54,8 @@ static NSString *const kDemoPassword = @"123456";
 
 -(void)demoUsernameRegister{
     AVUser *user= [AVUser user];
-    user.username=kDemoUsername;
-    user.password=kDemoPassword;
+    user.username = kDemoUsername;
+    user.password = kDemoPassword;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"用户注册成功 %@",user];
@@ -94,14 +94,14 @@ static NSString *const kDemoPassword = @"123456";
         if (confirm) {
             AVUser *user = [AVUser user];
             user.username= email;
-            user.password=kDemoPassword;
+            user.password = kDemoPassword;
             user.email = email;
             user[@"gender"] = @"男" ;
             // 需要在网站勾选启用注册用户邮箱验证，否则不会发验证邮件
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"用户注册成功 %@",user];
-                    AVUser *user =[AVUser currentUser];
+                    AVUser *user = [AVUser currentUser];
                     [self log:@"当前用户 %@  邮箱 %@  性别 %@",user.username, user.email, user[@"gender"]];
                     [self log:@"请检查邮箱进行验证。"];
                 }
