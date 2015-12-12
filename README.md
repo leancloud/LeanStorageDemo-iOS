@@ -23,7 +23,7 @@
     open LeanStorageDemoSwift.xcworkspace
 ```
 
- `AVOS.framework` 支持 iOS6 以上的设备上，Demo 中设置的默认运行设备是 iOS7 以上，如果要在 iOS6 的设备上运行，只需修改 Xcode 里的 `Deployment Target` 为 iOS6 即可。
+ `AVOSCloud.framework` 静态库支持 iOS6 以上的设备上，Demo 也是使用的静态库， Demo 中设置的默认运行设备是 iOS7 以上，如果要在 iOS6 的设备上运行，只需修改 Xcode 里的 `Deployment Target` 为 iOS6 即可。另外注意，因为动态库只支持 iOS8 以上的设备，如果使用了 `AVOSCloud.framework` 动态库， `Deployment Target` 必须为 iOS8 以上 。
 
 ## 使用说明
 
