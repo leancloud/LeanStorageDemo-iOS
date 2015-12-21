@@ -12,39 +12,39 @@
 // 大多数 Array 的限制条件也可以作用于 Relation，如 whereKey:sizeEqualTo
 @implementation AVRelationBasic
 
--(void)demoAddRelation{
+- (void)demoAddRelation {
     //假设有2个Student xiaoQiang和xiaoHong
     //把这两个人关联xiaoGang的好友
     
     Student *xiaoQiang = [Student object];
-    xiaoQiang.name=@"XiaoQiang";
+    xiaoQiang.name = @"XiaoQiang";
     //save是同步的保存方法, 会卡住线程, 这里为了方便理解才使用. 正常情况请尽量使用异步方法,比如saveInBackground等
     [xiaoQiang save];
     
     Student *xiaoHong = [Student object];
-    xiaoHong.name=@"XiaoHong";
+    xiaoHong.name = @"XiaoHong";
     [xiaoHong save];
     
     
     Student *xiaoGang = [Student object];
-    xiaoGang.name=@"XiaoGang";
+    xiaoGang.name = @"XiaoGang";
     
     
     //获取Relation属性
-    AVRelation *friends= [xiaoGang relationforKey:@"friends"];
+    AVRelation *friends = [xiaoGang relationforKey:@"friends"];
     
     [friends addObject:xiaoQiang];
     [friends addObject:xiaoHong];
     
     //保存
     [xiaoGang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if([self filterError:error]) {
-            [self log:[NSString stringWithFormat:@"关联成功 %@",xiaoGang]];
+        if ([self filterError:error]) {
+            [self log:[NSString stringWithFormat:@"关联成功 %@", xiaoGang]];
         }
     }];
 }
 
--(void)demoGetRelationMember{
+- (void)demoGetRelationMember {
     AVQuery *query = [Student query];
     [query whereKey:kStudentKeyName equalTo:@"XiaoGang"];
     Student *xiaoGang = (Student *)[query getFirstObject];
@@ -56,7 +56,7 @@
     //这是AVObject的另一个获取数据的用法, 只有在数据不存在时进行网络请求
     [xiaoGang fetchIfNeeded];
     //获取Relation属性
-    AVRelation *friends= [xiaoGang relationforKey:@"friends"];
+    AVRelation *friends = [xiaoGang relationforKey:@"friends"];
     [[friends query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"关联获取成功 %@", objects];
@@ -64,7 +64,7 @@
     }];
 }
 
-- (Student *)getStudentWithFriends{
+- (Student *)getStudentWithFriends {
     AVQuery *query = [Student query];
     [query whereKey:kStudentKeyName equalTo:@"XiaoGang"];
     [query whereKey:kStudnetKeyFriends sizeEqualTo:2];
@@ -76,7 +76,7 @@
     return xiaoGang;
 }
 
--(void)demoDeleteRelationMember{
+- (void)demoDeleteRelationMember {
     Student *xiaoGang = [self getStudentWithFriends];
     AVRelation *friends = [xiaoGang relationforKey:kStudnetKeyFriends];
     AVQuery *friendsQuery = [friends query];
@@ -92,7 +92,7 @@
     [xiaoGang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                [self log:@"关联删除之后 friends: %@",objects];
+                [self log:@"关联删除之后 friends: %@", objects];
             }];
         }
     }];
@@ -131,4 +131,5 @@
 }
 
 MakeSourcePath
+
 @end

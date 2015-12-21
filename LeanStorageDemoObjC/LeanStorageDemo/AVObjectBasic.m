@@ -11,13 +11,13 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "Demo+Utils.h"
 
-static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
+static NSString * kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 
 @implementation AVObjectBasic
 
 #pragma mark - 简单的增删改查
 
--(void)demoCreateObject{
+- (void)demoCreateObject {
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
     student.age = 12;
@@ -29,7 +29,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
--(void)demoUpdateObject{
+- (void)demoUpdateObject {
     //我们先创建一个Object 才可以更新
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
@@ -37,7 +37,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     //Object也可以用同步方法保存
     [student save];
     
-    [self log:@"创建一个Student, 名字是:%@",student.name];
+    [self log:@"创建一个Student, 名字是:%@", student.name];
     
     //更新操作
     student.name = @"Jack";
@@ -49,7 +49,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     
 }
 
--(void)demoDeleteObject{
+- (void)demoDeleteObject {
     Student *student = [[Student alloc] init];
     student.name = @"Mike";
     [student save];
@@ -62,7 +62,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
--(void)demoGetObject{
+- (void)demoGetObject {
     AVObject *student = [AVObject objectWithoutDataWithClassName:@"Student" objectId:@"55750444e4b0f22726a0c9bb"];
     [student fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
         if ([self filterError:error]) {
@@ -106,7 +106,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     }];
 }
 
-- (void)demoOfflineCreateObject{
+- (void)demoOfflineCreateObject {
     // 不管在线还是离线都能保存，这里测试离线是否能保存
     [self log:@"请在网络关闭时运行本方法，然后开启网络，看是否保存上"];
     AVObject *object = [AVObject objectWithClassName:@"Student"];
@@ -135,7 +135,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
     [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"Student 的 any 列被保存为了数字: %@", student];
-            student.any =@"hello world";
+            student.any = @"hello world";
             [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"Student 的 any 列被保存为了字符串：%@", student];
@@ -203,7 +203,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
 - (void)demoArrayAddMultipleObject {
     [self createStudentForDemo:^(Student *student) {
         [self log:@"添加前，student.hobbies = %@", student.hobbies];
-        [student addObjectsFromArray:@[@"table tennis", @"fly"] forKey:kStudentKeyHobbies];
+        [student addObjectsFromArray:@[ @"table tennis", @"fly" ] forKey:kStudentKeyHobbies];
         [self log:@"将两个爱好添加到了爱好数组里"];
         [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if ([self filterError:error]) {
@@ -221,7 +221,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
             [self log:@"hobbis before : %@", student.hobbies];
             // 移除对象到数组
             [student removeObject:@"swimming" forKey:kStudentKeyHobbies];
-            // 或者用：[student removeObjectsInArray:@[@"swimming"] forKey:kStudentKeyHobbies];
+            // 或者用：[student removeObjectsInArray:@[ @"swimming" ] forKey:kStudentKeyHobbies];
             [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"hobbis after: %@", student.hobbies];
@@ -236,7 +236,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
         [self log:@"hobbis before : %@", student.hobbies];
         [student addUniqueObject:@"swimming" forKey:kStudentKeyHobbies];
         // 或者用下面语句
-        // [student addUniqueObjectsFromArray:@[@"swimming"] forKey:kStudentKeyHobbies];
+        // [student addUniqueObjectsFromArray:@[ @"swimming" ] forKey:kStudentKeyHobbies];
         [self log:@"添加了唯一对象 swimming 到爱好数组中"];
         [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if ([self filterError:error]) {
@@ -290,7 +290,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
             }
             [AVObject fetchAllIfNeededInBackground:fetchStudents block:^(NSArray *objects, NSError *error) {
                 if ([self filterError:error]) {
-                    [self log:@"批量获取了10个学生！他们是：%@",fetchStudents];
+                    [self log:@"批量获取了10个学生！他们是：%@", fetchStudents];
                 }
             }];
         }
@@ -307,7 +307,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
             }
             [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
-                    [self log:@"批量更新了10个学生！他们是：%@",students];
+                    [self log:@"批量更新了10个学生！他们是：%@", students];
                 }
             }];
         }
@@ -319,7 +319,7 @@ static NSString *kDemoStudentId = @"55750444e4b0f22726a0c9bb";
         if ([self filterError:error]) {
             [AVObject deleteAllInBackground:students block:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
-                    [self log:@"批量删除了10个学生！他们是：%@",students];
+                    [self log:@"批量删除了10个学生！他们是：%@", students];
                 }
             }];
         }

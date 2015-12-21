@@ -13,7 +13,7 @@
 
 @implementation AVQueryBasic
 
--(void)demoByClassNameQuery{
+- (void)demoByClassNameQuery {
     AVQuery *query = [Student query];
     //限制查询返回数
     [query setLimit:3];
@@ -24,7 +24,7 @@
     }];
 }
 
--(void)demoByGeoQuery{
+- (void)demoByGeoQuery {
     AVQuery *query = [Student query];
     //我们要找这个点附近的Student
     AVGeoPoint *geo = [AVGeoPoint geoPointWithLatitude:31.9 longitude:114.78];
@@ -36,7 +36,7 @@
     }];
 }
 
--(void)demoOnlyGetQueryResultCount{
+- (void)demoOnlyGetQueryResultCount {
     AVQuery *query = [Student query];
     [query countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
         if ([self  filterError:error]) {
@@ -123,7 +123,7 @@
 
 - (void)demoContainedIn {
     AVQuery *query = [Student query];
-    [query whereKey:kStudentKeyName containedIn:@[@"Mike", @"Jane"]];
+    [query whereKey:kStudentKeyName containedIn:@[ @"Mike", @"Jane" ]];
     query.limit = 5;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -134,7 +134,7 @@
 
 - (void)demoContainObjectsInArray_ {
     AVQuery *query = [Student query];
-    [query whereKey:kStudentKeyHobbies containsAllObjectsInArray:@[@"swimming", @"running"]];
+    [query whereKey:kStudentKeyHobbies containsAllObjectsInArray:@[ @"swimming", @"running" ]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"爱好有 swimming 和 running 的学生", objects];
@@ -171,7 +171,7 @@
     [query whereKey:kStudentKeyName containsString:@"i"];
     [query setLimit:3];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if ([self filterError:error]){
+        if ([self filterError:error]) {
             [self log:@"名字有前缀 M 和后缀 e且包含字符 i 的学生：%@", objects];
         }
     }];
@@ -265,7 +265,7 @@
 - (void)demoQueryPolicyCacheThenNetwork_ {
     AVQuery *query = [Student query];
     query.cachePolicy = kAVCachePolicyCacheThenNetwork;
-    query.maxCacheAge= 60 * 60; // 单位秒
+    query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 1;
     __block NSInteger count = 0;
     if ([query hasCachedResult]) {
@@ -288,7 +288,7 @@
 - (void)demoQueryPolicyCacheElseNetwork_ {
     AVQuery *query = [Student query];
     query.cachePolicy = kAVCachePolicyCacheElseNetwork;
-    query.maxCacheAge= 60 * 60; // 单位秒
+    query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 6;
     if ([query hasCachedResult]) {
         [self log:@"有缓存，将从缓存中获取结果"];
@@ -305,7 +305,7 @@
 - (void)demoQueryPolicyNetworkElseCache_ {
     AVQuery *query = [Student query];
     query.cachePolicy = kAVCachePolicyNetworkElseCache;
-    query.maxCacheAge= 60 * 60; // 单位秒
+    query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 4;
     if ([query hasCachedResult]) {
         [self log:@"有缓存，无网络时将从缓存获取结果"];
@@ -324,7 +324,7 @@
     AVQuery *query = [Student query];
     // 跟默认 IngoreCache 策略不同的是此策略会记录缓存
     query.cachePolicy = kAVCachePolicyNetworkOnly;
-    query.maxCacheAge= 60 * 60; // 单位秒
+    query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 3;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -336,7 +336,7 @@
 - (void)demoQueryPolicyCacheOnly_ {
     AVQuery *query = [Student query];
     query.cachePolicy = kAVCachePolicyCacheOnly;
-    query.maxCacheAge= 60 * 60; // 单位秒
+    query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 2;
     if ([query hasCachedResult]) {
         [self log:@"有缓存，将从缓存中获取"];
@@ -373,4 +373,5 @@
 }
 
 MakeSourcePath
+
 @end
