@@ -8,19 +8,19 @@
 
 #import "AVUserBasic.h"
 
-static NSString *const kDemoUsername = @"XiaoMing";
-static NSString *const kDemoPassword = @"123456";
+static NSString * const kDemoUsername = @"XiaoMing";
+static NSString * const kDemoPassword = @"123456";
 
 @implementation AVUserBasic
 
-- (void)logUnLogin{
+- (void)logUnLogin {
     [self log:@"未有用户登录，请先运行用户登录的示例"];
 }
 
 - (void)demoCurrentUser {
     AVUser *user = [AVUser currentUser];
     if (user) {
-        [self log:@"当前用户 %@ , 用户名 %@",user, user.username];
+        [self log:@"当前用户 %@ , 用户名 %@", user, user.username];
         [self log:@"此时可直接跳转主页面"];
     } else {
         [self logUnLogin];
@@ -42,7 +42,7 @@ static NSString *const kDemoPassword = @"123456";
     if (user) {
         [user deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (error) {
-                [self log:@"%@",error];
+                [self log:@"%@", error];
             }
             [AVUser logOut];
             [self log:@"已删除用户 %@", user.username];
@@ -52,22 +52,22 @@ static NSString *const kDemoPassword = @"123456";
     }
 }
 
--(void)demoUsernameRegister{
-    AVUser *user= [AVUser user];
+- (void)demoUsernameRegister {
+    AVUser *user = [AVUser user];
     user.username = kDemoUsername;
     user.password = kDemoPassword;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
-            [self log:@"用户注册成功 %@",user];
-            [self log:@"当前用户 %@",user.username];
+            [self log:@"用户注册成功 %@", user];
+            [self log:@"当前用户 %@", user.username];
         }
     }];
 }
 
--(void)demoUsernameLogin{
+- (void)demoUsernameLogin {
     [AVUser logInWithUsernameInBackground:kDemoUsername password:kDemoPassword block:^(AVUser *user, NSError *error) {
         if ([self filterError:error]) {
-            [self log:@"登录成功 %@",user];
+            [self log:@"登录成功 %@", user];
         }
     }];
 }
@@ -86,23 +86,22 @@ static NSString *const kDemoPassword = @"123456";
     }
 }
 
-
 #pragma mark - email
 
--(void)demoEmailRegister{
+- (void)demoEmailRegister {
     [self.alertViewHelper showInputAlertViewWithMessage:@"请输入您的邮箱来注册" block:^(BOOL confirm, NSString *email) {
         if (confirm) {
             AVUser *user = [AVUser user];
-            user.username= email;
+            user.username = email;
             user.password = kDemoPassword;
             user.email = email;
             user[@"gender"] = @"男" ;
             // 需要在网站勾选启用注册用户邮箱验证，否则不会发验证邮件
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
-                    [self log:@"用户注册成功 %@",user];
+                    [self log:@"用户注册成功 %@", user];
                     AVUser *user = [AVUser currentUser];
-                    [self log:@"当前用户 %@  邮箱 %@  性别 %@",user.username, user.email, user[@"gender"]];
+                    [self log:@"当前用户 %@  邮箱 %@  性别 %@", user.username, user.email, user[@"gender"]];
                     [self log:@"请检查邮箱进行验证。"];
                 }
             }];
@@ -122,13 +121,13 @@ static NSString *const kDemoPassword = @"123456";
     }];
 }
 
--(void)demoEmailResetPassword{
+- (void)demoEmailResetPassword {
     //假设用户的邮箱是这个 重置密码链接会发到这里 用户打开会重新填写新密码
     [self.alertViewHelper showInputAlertViewWithMessage:@"请输入您的邮箱进行重置密码" block:^(BOOL confirm, NSString *email) {
         if (confirm) {
             [AVUser requestPasswordResetForEmailInBackground:email block:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
-                    [self log:@"重置密码的连接已经发送到用户邮箱 %@",email];
+                    [self log:@"重置密码的连接已经发送到用户邮箱 %@", email];
                 }
             }];
         }
@@ -181,7 +180,7 @@ static NSString *const kDemoPassword = @"123456";
                         if (confirm) {
                             [AVUser logInWithMobilePhoneNumberInBackground:phoneNumber smsCode:smsCode block:^(AVUser *user, NSError *error) {
                                 if ([self filterError:error]) {
-                                    [self log:@"成功登录 用户为%@",user];
+                                    [self log:@"成功登录 用户为%@", user];
                                 }
                             }];
                         }
@@ -222,7 +221,7 @@ static NSString *const kDemoPassword = @"123456";
                         if (confirm) {
                             [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:phone smsCode:smsCode block:^(AVUser *user, NSError *error) {
                                 if ([self filterError:error]) {
-                                    [self log:@"注册或登录成功 phone:%@\nuser:%@",phone, user];
+                                    [self log:@"注册或登录成功 phone:%@\nuser:%@", phone, user];
                                 }
                             }];
                         }
@@ -237,11 +236,12 @@ static NSString *const kDemoPassword = @"123456";
 
 - (void)demoAnonymousUserLogin {
     [AVAnonymousUtils logInWithBlock:^(AVUser *user, NSError *error) {
-        if([self filterError:error]) {
+        if ([self filterError:error]) {
             [self log:@"匿名用户登录成功，user : %@ \n username : %@ ", user, user.username];
         }
     }];
 }
 
 MakeSourcePath
+
 @end

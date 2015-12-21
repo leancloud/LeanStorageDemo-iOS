@@ -12,11 +12,12 @@
 #import "SearchResultController.h"
 
 static const int showResultButtonTag = 1000;
+
 @implementation AVSearchQueryAdvanced {
     NSArray *_objects;
 }
 
-- (void)demoByKeywordQuery{
+- (void)demoByKeywordQuery {
     // 需要控制台开启应用内搜索
     AVSearchQuery *searchQuery = [AVSearchQuery searchWithQueryString:@"Xiao"];
     searchQuery.className = @"Student";
@@ -24,11 +25,11 @@ static const int showResultButtonTag = 1000;
     searchQuery.limit = 10;
     searchQuery.cachePolicy = kAVCachePolicyCacheElseNetwork;
     searchQuery.maxCacheAge = 60;
-    searchQuery.fields = @[@"name"];
+    searchQuery.fields = @[ @"name" ];
     [searchQuery findInBackground:^(NSArray *objects, NSError *error) {
         if (objects) {
             [self log:[NSString stringWithFormat:@"查询结果: \n%@", [objects description]]];
-        }else{
+        } else {
             [self log:[NSString stringWithFormat:@"查询出错: \n%@", [error description]]];
         }
         _objects = objects;
@@ -55,4 +56,5 @@ static const int showResultButtonTag = 1000;
 }
 
 MakeSourcePath
+
 @end

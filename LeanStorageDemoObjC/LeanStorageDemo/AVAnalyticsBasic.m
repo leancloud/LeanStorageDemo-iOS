@@ -19,44 +19,45 @@
 */
 
 - (void)logEvent:(NSString *)eventName {
-    [self log:[NSString stringWithFormat:@"提交了事件： %@",eventName]];
+    [self log:[NSString stringWithFormat:@"提交了事件： %@", eventName]];
 }
 
--(void)demoAnalyticsDeviceError{
+- (void)demoAnalyticsDeviceError {
     NSString *event = @"刷卡器错误";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
--(void)demoAnalyticsSwipSuccess{
+- (void)demoAnalyticsSwipSuccess {
     NSString *event = @"刷卡成功";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
--(void)demoAnalyticsSwipError{
+- (void)demoAnalyticsSwipError {
     NSString *event = @"刷卡失败";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
--(void)demoAnalyticsRefund{
+- (void)demoAnalyticsRefund {
     NSString *event = @"退货";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
--(void)demoAnalyticsReverse{
+- (void)demoAnalyticsReverse {
     NSString *event = @"冲正";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
--(void)demoAnalyticsCupsError{
+- (void)demoAnalyticsCupsError {
     NSString *event = @"CUPS错误";
     [AVAnalytics event:event];
     [self logEvent:event];
 }
 
 MakeSourcePath
+
 @end
