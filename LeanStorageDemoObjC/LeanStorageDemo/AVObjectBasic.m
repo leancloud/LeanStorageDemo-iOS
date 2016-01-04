@@ -11,7 +11,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "Demo+Utils.h"
 
-static NSString * kDemoStudentId = @"55750444e4b0f22726a0c9bb";
+static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 
 @implementation AVObjectBasic
 
