@@ -29,7 +29,7 @@
 
 ### 登录后台查看数据
 
-用 账号/密码 (leancloud@163.com/Public123) 登录 https://leancloud.cn ，选择应用 `LeanStorage-Demo` ，即可查看后台数据。强烈建议你边查看后台边运行 Demo。当在 Demo 运行代码来增删改查时，就可以在后台看到相应的数据变化。
+用 账号/密码 (leancloud@163.com/Public123) 登录 https://leancloud.cn ，选择应用 `LeanStorageDemo` ，即可查看后台数据。强烈建议你边查看后台边运行 Demo。当在 Demo 运行代码来增删改查时，就可以在后台看到相应的数据变化。
 
 ![image](https://cloud.githubusercontent.com/assets/5022872/7763947/3b25548e-007b-11e5-9a1b-af3ca1806175.png)
 
