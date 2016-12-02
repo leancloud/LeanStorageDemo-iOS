@@ -15,7 +15,7 @@
 #import "Student.h"
 #import "Post.h"
 
-#warning 请替换成自己的id和key ，或用 leancloud@163.com/Public123  登录，来查看后台数据
+#warning 请替换成自己的id和key，来查看自己的后台数据
 #define AVOSCloudAppID  @"G3ROSsF7zRSA3vHD5zw7mDv1"
 #define AVOSCloudAppKey @"xx0gLOhJsksq4DauasmJrTGf"
 
