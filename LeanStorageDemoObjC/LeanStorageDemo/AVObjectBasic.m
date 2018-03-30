@@ -76,15 +76,18 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 - (void)demoCreateObjectAndFile {
     Student *student = [Student object];
     student.name = @"Mike";
-    AVFile *avatar = [AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
-    
-    student.avatar = avatar;
-    
-    [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            [self log:@"保存对象与文件成功。 student : %@", student];
-        }
-    }];
+    NSError *error = nil;
+    AVFile *avatar = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
+    if (!error) {
+        
+        student.avatar = avatar;
+        
+        [student saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if ([self filterError:error]) {
+                [self log:@"保存对象与文件成功。 student : %@", student];
+            }
+        }];
+    }
 }
 
 - (void)demoFromDictionaryCreateObject {
@@ -330,10 +333,13 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
     NSMutableArray *students = [NSMutableArray array];
     for (int i = 10; i < 15; i++) {
         Student *student = [Student object];
-        AVFile *avatar = [AVFile fileWithName:@"avatar.jpg" contentsAtPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil]];
-        student.avatar = avatar;
-        student.age = i;
-        [students addObject:student];
+        NSError *error = nil;
+        AVFile *avatar = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
+        if (!error) {
+            student.avatar = avatar;
+            student.age = i;
+            [students addObject:student];
+        }
     }
     [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
