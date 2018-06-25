@@ -6,7 +6,7 @@
 ![file1](https://cloud.githubusercontent.com/assets/5022872/9401084/59601560-47fc-11e5-8b38-cc09a3584b70.png)
 
 ## 介绍
-这个示例项目是为了帮助使用 LeanCloud 的开发者, 尽快的熟悉和使用SDK而建立的。主要展示 LeanCloud SDK的各种基础和高级用法。可喜的是，该示例项目用 Swift 2 重写了一遍，放在了 LeanStorageDemoSwift 项目下，将展示如何在 Swift 中优雅地使用 LeanCloud SDK。
+这个示例项目是为了帮助使用 LeanCloud 的开发者, 尽快的熟悉和使用SDK而建立的。主要展示 LeanCloud SDK的各种基础和高级用法。
 
 ## 如何运行
 
@@ -16,11 +16,7 @@
     # 如果提示找不到库，则可去掉 --no-repo-update
     pod install --verbose --no-repo-update 
     open LeanStorageDemo.xcworkspace
-   
-    // Swift
-    cd LeanStorageDemoSwift
-    pod install --verbose --no-repo-update
-    open LeanStorageDemoSwift.xcworkspace
+
 ```
 
  `AVOSCloud.framework` 静态库支持 iOS6 以上的设备上，Demo 也是使用的静态库， Demo 中设置的默认运行设备是 iOS7 以上，如果要在 iOS6 的设备上运行，只需修改 Xcode 里的 `Deployment Target` 为 iOS6 即可。另外注意，因为动态库只支持 iOS8 以上的设备，如果使用了 `AVOSCloud.framework` 动态库， `Deployment Target` 必须为 iOS8 以上 。
