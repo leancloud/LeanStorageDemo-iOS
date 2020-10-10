@@ -246,12 +246,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F3AF9E21828C6DE003277B5 /* Build configuration list for PBXNativeTarget "LeanStorageDemo" */;
 			buildPhases = (
+				21B729C0768C50211B289B84 /* [CP] Check Pods Manifest.lock */,
 				ECAB2276AFAF70F349D93CB4 /* Check Pods Manifest.lock */,
 				1F3AF9A91828C6DE003277B5 /* Sources */,
 				1F3AF9AA1828C6DE003277B5 /* Frameworks */,
 				1F3AF9AB1828C6DE003277B5 /* Resources */,
 				1FBD6BDA18584F7200339D17 /* Copy Source Code Files */,
 				D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */,
+				41999CAE1215C4C93C1012EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,7 +275,7 @@
 			};
 			buildConfigurationList = 1F3AF9A81828C6DE003277B5 /* Build configuration list for PBXProject "LeanStorageDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -321,6 +323,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nset -e\n\nto_path=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SourceCode\"\n\n\n#rm -rf \"${to_path}\"\n#mkdir \"${to_path}\"\n\necho $to_path\n\nrsync -arc --delete ./LeanStorageDemo/*.m \"${to_path}\"\n";
+		};
+		21B729C0768C50211B289B84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeanStorageDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41999CAE1215C4C93C1012EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo-resources.sh",
+				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeanStorageDemo/Pods-LeanStorageDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D8BDB0576F9DE693CFDEC8E2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
