@@ -1,10 +1,4 @@
-//
-//  Student.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-18.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
+
 
 #import "Student.h"
 

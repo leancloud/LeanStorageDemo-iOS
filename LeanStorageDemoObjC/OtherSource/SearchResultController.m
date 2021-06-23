@@ -1,10 +1,3 @@
-//
-//  SearchResultController.m
-//  AVOSDemo
-//
-//  Created by Qihe Bian on 6/9/14.
-//  Copyright (c) 2014 AVOS. All rights reserved.
-//
 
 #import "SearchResultController.h"
 #import "PBWebViewController.h"
@@ -77,7 +70,7 @@ static const int contentLabelTag = 1000;
     }else{
         cell.backgroundColor = [UIColor whiteColor];
     }
-    AVObject *object = [self.objects objectAtIndex:indexPath.row];
+    LCObject *object = [self.objects objectAtIndex:indexPath.row];
 //    NSString *appUrl = [object objectForKey:@"_app_url"];
 //    NSString *deeplink = [object objectForKey:@"_deeplink"];
     NSMutableString *hightlight = [[[[object objectForKey:@"_highlight"] objectForKey:@"name"] firstObject] mutableCopy];
@@ -108,7 +101,7 @@ static const int contentLabelTag = 1000;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AVObject *object = [self.objects objectAtIndex:indexPath.row];
+    LCObject *object = [self.objects objectAtIndex:indexPath.row];
     NSString *appUrl = [object objectForKey:@"_app_url"];
     NSString *deeplink = [object objectForKey:@"_deeplink"];
     if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:deeplink]]) {

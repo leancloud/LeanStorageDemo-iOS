@@ -1,10 +1,3 @@
-//
-//  Demo+Utils.m
-//  LeanStorageDemo
-//
-//  Created by lzw on 15/9/1.
-//  Copyright (c) 2015年 AVOS. All rights reserved.
-//
 
 #import "Demo+Utils.h"
 

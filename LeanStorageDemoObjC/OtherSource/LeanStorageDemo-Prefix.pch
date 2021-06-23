@@ -13,6 +13,6 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
 
-    #import <AVOSCloud/AVOSCloud.h>
+    #import <LeanCloudObjc/Foundation.h>
 #endif
 

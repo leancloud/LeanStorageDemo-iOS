@@ -6,11 +6,11 @@
 	<array>
 		<dict>
 			<key>class</key>
-			<string>AVObjectBasic</string>
+			<string>LCObjectBasic</string>
 			<key>name</key>
-			<string>AVObject</string>
+			<string>LCObject</string>
 			<key>detail</key>
-			<string>基本AVObject用法, 增删改查</string>
+			<string>基本LCObject用法, 增删改查</string>
 		</dict>
 		<dict>
 			<key>class</key>
@@ -22,15 +22,7 @@
 		</dict>
 		<dict>
 			<key>class</key>
-			<string>AVRelationBasic</string>
-			<key>name</key>
-			<string>AVRelation</string>
-			<key>detail</key>
-			<string>多对多关系建模</string>
-		</dict>
-		<dict>
-			<key>class</key>
-			<string>AVUserBasic</string>
+			<string>LCUserBasic</string>
 			<key>name</key>
 			<string>用户</string>
 			<key>detail</key>
@@ -38,31 +30,23 @@
 		</dict>
 		<dict>
 			<key>class</key>
-			<string>AVQueryBasic</string>
+			<string>LCQueryBasic</string>
 			<key>name</key>
 			<string>查询</string>
 			<key>detail</key>
-			<string>AVQuery基本用法</string>
+			<string>LCQuery基本用法</string>
 		</dict>
 		<dict>
 			<key>class</key>
-			<string>AVFileBasic</string>
+			<string>LCFileBasic</string>
 			<key>name</key>
 			<string>文件</string>
 			<key>detail</key>
-			<string>AVFile 基本文件操作</string>
+			<string>LCFile 基本文件操作</string>
 		</dict>
 		<dict>
 			<key>class</key>
-			<string>AVAnalyticsBasic</string>
-			<key>name</key>
-			<string>统计用法</string>
-			<key>detail</key>
-			<string>AVAnalytics 基本文件操作</string>
-		</dict>
-		<dict>
-			<key>class</key>
-			<string>AVSMSBasic</string>
+			<string>LCSMSBasic</string>
 			<key>name</key>
 			<string>SMS</string>
 			<key>detail</key>
@@ -97,11 +81,11 @@
 	<array>
 		<dict>
 			<key>class</key>
-			<string>AVSearchQueryAdvanced</string>
+			<string>LCSearchQueryAdvanced</string>
 			<key>name</key>
 			<string>搜索</string>
 			<key>detail</key>
-			<string>AVSearchQuery基本用法</string>
+			<string>LCSearchQuery基本用法</string>
 		</dict>
 	</array>
 </dict>

@@ -1,22 +1,15 @@
-//
-//  AVFileBasic.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-12.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
 
-#import "AVFileBasic.h"
+#import "LCFileBasic.h"
 #import "ImageViewController.h"
 
-@implementation AVFileBasic
+@implementation LCFileBasic
 
 - (void)demoCreateFile {
     //获取要保存的数据
     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]];
     
     //用数据创建文件
-    AVFile *file = [AVFile fileWithData:data name:@"cloud.png"];
+    LCFile *file = [LCFile fileWithData:data name:@"cloud.png"];
     
     //保存文件
     [file uploadWithCompletionHandler:^(BOOL succeeded, NSError * _Nullable error) {
@@ -31,7 +24,7 @@
 - (void)demoFromPathCreateFile {
     //从本地文件路径创建文件
     NSError *error = nil;
-    AVFile *file = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]
+    LCFile *file = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]
                                        error:&error];
     if (!error) {
         //保存文件
@@ -46,9 +39,9 @@
 }
 
 - (void)demoDeleteFile {
-    //需要先得到一个AVFile, 可以是从Cloud数据中返回的, 这里直接创建了一个文件 然后删除它
+    //需要先得到一个LCFile, 可以是从Cloud数据中返回的, 这里直接创建了一个文件 然后删除它
     NSError *error = nil;
-    AVFile *file = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]
+    LCFile *file = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"]
                                        error:&error];
     
     if (!error) {
@@ -82,7 +75,7 @@
 - (void)demoWithFileIdGetFile {
     NSString *fileId = @"5573fddee4b06a32094af62b";
     //第一步先得到文件实例, 其中会包含文件的地址
-    [AVFile getFileWithObjectId:fileId completionHandler:^(AVFile * _Nullable file, NSError * _Nullable error) {
+    [LCFile getFileWithObjectId:fileId completionHandler:^(LCFile * _Nullable file, NSError * _Nullable error) {
         if ([self filterError:error]) {
             [self log:[NSString stringWithFormat:@"获取成功: %@", [file description]]];
             //文件实例获取成功可以再进一步获取文件内容
@@ -106,7 +99,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
-    AVFile *file = [AVFile fileWithData:imageData];
+    LCFile *file = [LCFile fileWithData:imageData];
     NSMutableDictionary *dic = file.metaData.mutableCopy;
     [dic setObject:@(image.size.width) forKey:@"width"];
     [dic setObject:@(image.size.height) forKey:@"height"];
@@ -121,8 +114,8 @@
 
 - (void)demoThumbnail {
     NSString *fileId = @"5573fddee4b06a32094af62b";
-    // 这里从 objectId 获取 AVFile 只是为了Demo用，在你的应用中可能是从另外一个对象获得
-    [AVFile getFileWithObjectId:fileId completionHandler:^(AVFile * _Nullable file, NSError * _Nullable error) {
+    // 这里从 objectId 获取 LCFile 只是为了Demo用，在你的应用中可能是从另外一个对象获得
+    [LCFile getFileWithObjectId:fileId completionHandler:^(LCFile * _Nullable file, NSError * _Nullable error) {
         if ([self filterError:error]) {
             if (file.url) {
                 // 第一个参数为 scaleToFit
@@ -140,10 +133,10 @@
 // 更多图片处理请参考 http://docs.qiniu.com/api/v6/image-process.html
 - (void)demoCombineQiniuApi {
     NSString *fileId = @"5573fddee4b06a32094af62b";
-    [AVFile getFileWithObjectId:fileId completionHandler:^(AVFile * _Nullable file, NSError * _Nullable error) {
+    [LCFile getFileWithObjectId:fileId completionHandler:^(LCFile * _Nullable file, NSError * _Nullable error) {
         if ([self filterError:error]) {
             if (file.url) {
-                AVFile *thumbnailFile = [AVFile fileWithRemoteURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?imageView/1/w/%@/h/%@", file.url, @"50", @"100"]]];
+                LCFile *thumbnailFile = [LCFile fileWithRemoteURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?imageView/1/w/%@/h/%@", file.url, @"50", @"100"]]];
                 [thumbnailFile downloadWithCompletionHandler:^(NSURL * _Nullable filePath, NSError * _Nullable error) {
                     if ([self filterError:error]) {
                         UIImage *image = [UIImage imageWithContentsOfFile:filePath.path];
@@ -160,7 +153,7 @@
 
 - (void)demoFileLocalPath {
     NSError *error = nil;
-    AVFile *file = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"] error:&error];
+    LCFile *file = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"cloud" ofType:@"png"] error:&error];
     if (!error) {
         [file uploadWithCompletionHandler:^(BOOL succeeded, NSError * _Nullable error) {
             if ([self filterError:error]) {
@@ -171,7 +164,7 @@
 }
 
 - (void)demoClearFileCache {
-    [AVFile clearAllPersistentCache];
+    [LCFile clearAllPersistentCache];
     [self log:@"清除了全部文件的缓存，请运行用文件ID获取文件的例子，会看到下载进度多次被回调"];
 }
 
@@ -199,7 +192,7 @@
     [fileNames enumerateObjectsUsingBlock:^(NSString *fileName, NSUInteger idx, BOOL * _Nonnull stop) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSError *error = nil;
-            AVFile *file = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:fileName ofType:nil] error:&error];
+            LCFile *file = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:fileName ofType:nil] error:&error];
             if (!error) {
                 [file uploadWithCompletionHandler:^(BOOL succeeded, NSError * _Nullable error) {
                     //upload result

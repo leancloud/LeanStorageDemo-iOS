@@ -1,10 +1,3 @@
-//
-//  DemoListC.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-11.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
 
 #import "DemoListC.h"
 #import "SourceViewController.h"
@@ -24,21 +17,6 @@
                                                                                 style:UIBarButtonItemStyleBordered
                                                                                target:self action:@selector(showSource)];
     }
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    //统计页面打开
-    [AVAnalytics beginLogPageView:self.title];
-//
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    
-    //统计页面关闭
-    [AVAnalytics endLogPageView:self.title];
 }
 
 -(void)showSource{
