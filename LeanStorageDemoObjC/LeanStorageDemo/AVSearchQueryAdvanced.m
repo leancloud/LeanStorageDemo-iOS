@@ -1,29 +1,21 @@
-//
-//  AVSearchQueryBasic.m
-//  AVOSDemo
-//
-//  Created by Qihe Bian on 6/9/14.
-//  Copyright (c) 2014 AVOS. All rights reserved.
-//
-
-#import "AVSearchQueryAdvanced.h"
+#import "LCSearchQueryAdvanced.h"
 #import "DemoRunC.h"
 #import "Demo+Utils.h"
 #import "SearchResultController.h"
 
 static const int showResultButtonTag = 1000;
 
-@implementation AVSearchQueryAdvanced {
+@implementation LCSearchQueryAdvanced {
     NSArray *_objects;
 }
 
 - (void)demoByKeywordQuery {
     // 需要控制台开启应用内搜索
-    AVSearchQuery *searchQuery = [AVSearchQuery searchWithQueryString:@"Xiao"];
+    LCSearchQuery *searchQuery = [LCSearchQuery searchWithQueryString:@"Xiao"];
     searchQuery.className = @"Student";
     searchQuery.highlights = @"name";
     searchQuery.limit = 10;
-    searchQuery.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    searchQuery.cachePolicy = kLCCachePolicyCacheElseNetwork;
     searchQuery.maxCacheAge = 60;
     searchQuery.fields = @[ @"name" ];
     [searchQuery findInBackground:^(NSArray *objects, NSError *error) {

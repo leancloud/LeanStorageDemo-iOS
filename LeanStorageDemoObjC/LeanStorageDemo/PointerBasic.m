@@ -1,10 +1,3 @@
-//
-//  PointerBasic.m
-//  LeanStorageDemo
-//
-//  Created by lzw on 15/8/19.
-//  Copyright (c) 2015年 LeanCloud. All rights reserved.
-//
 
 #import "PointerBasic.h"
 #import "Student.h"
@@ -49,10 +42,10 @@
 }
 
 - (void)demoNotIncludeObject {
-    AVQuery *query = [Post query];
+    LCQuery *query = [Post query];
     // 默认不包含 likes 字段的具体数据
     [query whereKey:kPostKeyLikes sizeEqualTo:2];
-    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+    [query getFirstObjectInBackgroundWithBlock:^(LCObject *object, NSError *error) {
         if ([self filterError:error]) {
             Post *post = (Post *)object;
             [self log:@"Post.likes = %@", post.likes];
@@ -61,11 +54,11 @@
 }
 
 - (void)demoIncludeObject {
-    AVQuery *query = [Post query];
+    LCQuery *query = [Post query];
     // 让返回结果包含了具体的数据，不单单是赞的人的 objectId
     [query includeKey:kPostKeyLikes];
     [query whereKey:kPostKeyLikes sizeEqualTo:2];
-    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+    [query getFirstObjectInBackgroundWithBlock:^(LCObject *object, NSError *error) {
         if ([self filterError:error]) {
             Post *post = (Post *)object;
             [self log:@"找回了 Post 及其 likes 字段下的 Object Array :%@", post.likes];

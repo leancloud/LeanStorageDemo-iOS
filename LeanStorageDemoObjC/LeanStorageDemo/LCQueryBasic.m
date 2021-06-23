@@ -1,20 +1,12 @@
-//
-//  AVQueryBasic.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-12.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
-
-#import "AVQueryBasic.h"
+#import "LCQueryBasic.h"
 #import "Student.h"
 #import "Post.h"
 #import "Demo+Utils.h"
 
-@implementation AVQueryBasic
+@implementation LCQueryBasic
 
 - (void)demoByClassNameQuery {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     //限制查询返回数
     [query setLimit:3];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -25,9 +17,9 @@
 }
 
 - (void)demoByGeoQuery {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     //我们要找这个点附近的Student
-    AVGeoPoint *geo = [AVGeoPoint geoPointWithLatitude:31.9 longitude:114.78];
+    LCGeoPoint *geo = [LCGeoPoint geoPointWithLatitude:31.9 longitude:114.78];
     [query whereKey:@"location" nearGeoPoint:geo];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -37,7 +29,7 @@
 }
 
 - (void)demoOnlyGetQueryResultCount {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
         if ([self  filterError:error]) {
             [self log:[NSString stringWithFormat:@"查询结果: \n%ld个Student", (long)number]];
@@ -46,13 +38,13 @@
 }
 
 - (void)demoAndQuery_ {
-    AVQuery *query1 = [Student query];
+    LCQuery *query1 = [Student query];
     [query1 whereKey:kStudentKeyName notEqualTo:@"Mike"];;
     
-    AVQuery *query2 = [Student query];
+    LCQuery *query2 = [Student query];
     [query2 whereKey:kStudentKeyName hasPrefix:@"M"];
     
-    AVQuery *query = [AVQuery andQueryWithSubqueries:@[query1, query2]];
+    LCQuery *query = [LCQuery andQueryWithSubqueries:@[query1, query2]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"名字不为 Mike 且 M 开头的学生：%@", objects];
@@ -61,13 +53,13 @@
 }
 
 - (void)demoOrQuery_ {
-    AVQuery *query1 = [Student query];
+    LCQuery *query1 = [Student query];
     [query1 whereKey:kStudentKeyName equalTo:@"Mike"];
     
-    AVQuery *query2 = [Student query];
+    LCQuery *query2 = [Student query];
     [query2 whereKey:kStudentKeyName hasPrefix:@"J"];
     
-    AVQuery *query = [AVQuery orQueryWithSubqueries:@[query1, query2]];
+    LCQuery *query = [LCQuery orQueryWithSubqueries:@[query1, query2]];
     [query countObjectsInBackgroundWithBlock:^(NSInteger number, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"名字为 Mike 或 J 开头的学生有 %ld 个", number];
@@ -76,7 +68,7 @@
 }
 
 - (void)demoByKeyOrder {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query orderByDescending:kStudnetKeyAge];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -86,7 +78,7 @@
 }
 
 - (void)demoAddSecondOrder {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query orderByDescending:kStudnetKeyAge];
     [query addDescendingOrder:kStudentKeyName];
     [query setLimit:5];
@@ -98,7 +90,7 @@
 }
 
 - (void)demoBySortDescriptorsOrder {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query orderBySortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:kStudnetKeyAge ascending:NO],
                                     [NSSortDescriptor sortDescriptorWithKey:kStudentKeyName ascending:YES]]];
     [query setLimit:5];
@@ -110,7 +102,7 @@
 }
 
 - (void)demoByArraySizeQuery {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     // 数组大小
     [query whereKey:kStudentKeyHobbies sizeEqualTo:1];
     [query setLimit:4];
@@ -122,7 +114,7 @@
 }
 
 - (void)demoContainedIn {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query whereKey:kStudentKeyName containedIn:@[ @"Mike", @"Jane" ]];
     query.limit = 5;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -133,7 +125,7 @@
 }
 
 - (void)demoContainObjectsInArray_ {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query whereKey:kStudentKeyHobbies containsAllObjectsInArray:@[ @"swimming", @"running" ]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -143,7 +135,7 @@
 }
 
 - (void)demoLimitResultCount {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     // 默认 100，最大 1000
     query.limit = 5;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -154,7 +146,7 @@
 }
 
 - (void)demoRegex {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     NSString *regex = @"^M.*";
     [query whereKey:kStudentKeyName matchesRegex:regex];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -165,7 +157,7 @@
 }
 
 - (void)demoOneKeyMultipleCondition {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query whereKey:kStudentKeyName hasPrefix:@"M"];
     [query whereKey:kStudentKeyName hasSuffix:@"e"];
     [query whereKey:kStudentKeyName containsString:@"i"];
@@ -178,11 +170,11 @@
 }
 
 - (void)demoQueryEqualToObject_ {
-    AVQuery *query1 = [Student query];
+    LCQuery *query1 = [Student query];
     // 获取一个学生作为示例
-    [query1 getFirstObjectInBackgroundWithBlock:^(AVObject *student, NSError *error) {
+    [query1 getFirstObjectInBackgroundWithBlock:^(LCObject *student, NSError *error) {
         if ([self filterError:error]) {
-            AVQuery *query = [Post query];
+            LCQuery *query = [Post query];
             // 直接等于某个对象
             [query whereKey:kPostKeyAuthor equalTo:student];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -196,11 +188,11 @@
 }
 
 - (void)demoMatchesInSubquery {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query orderByDescending:@"createdAt"];
     query.limit = 50;
     
-    AVQuery *postQuery = [Post query];
+    LCQuery *postQuery = [Post query];
     [postQuery whereKey:kPostKeyAuthor matchesQuery:query];
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -210,11 +202,11 @@
 }
 
 - (void)demoDoesNotMatchesInSubquery_ {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     [query orderByDescending:@"createdAt"];
     query.limit = 50;
     
-    AVQuery *postQuery = [Post query];
+    LCQuery *postQuery = [Post query];
     [postQuery whereKey:kPostKeyAuthor doesNotMatchQuery:query];
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([self filterError:error]) {
@@ -225,15 +217,15 @@
 
 - (void)demoLastModifyEnabled {
     // 放在 AppDelegate 较好
-    [AVOSCloud setLastModifyEnabled:YES];
+    [LCApplication setLastModifyEnabled:YES];
     
     [self createStudentForDemo:^(Student *student) {
-        AVQuery *query = [Student query];
+        LCQuery *query = [Student query];
         // 此次应该走了网络
-        [query getObjectInBackgroundWithId:student.objectId block:^(AVObject *object, NSError *error) {
+        [query getObjectInBackgroundWithId:student.objectId block:^(LCObject *object, NSError *error) {
             if ([self filterError:error]) {
                 // 客户端把该对象的 udpatedAt 传给服务器，服务器判断对象未改变，于是返回 304 和空数据，客户端返回本地缓存的数据，节省流量
-                [query getObjectInBackgroundWithId:student.objectId block:^(AVObject *object, NSError *error) {
+                [query getObjectInBackgroundWithId:student.objectId block:^(LCObject *object, NSError *error) {
                     if ([self filterError:error]) {
                         [self log:@"从缓存中获得数据：%@", object];
                     }
@@ -245,9 +237,9 @@
 
 - (void)demoLastModifyEnabled2 {
     // 放在 AppDelegate 较好，建议开启，节省流量
-    [AVOSCloud setLastModifyEnabled:YES];
+    [LCApplication setLastModifyEnabled:YES];
     
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     query.limit = 5;
     // 从网络获取了数据
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -263,8 +255,8 @@
 }
 
 - (void)demoQueryPolicyCacheThenNetwork_ {
-    AVQuery *query = [Student query];
-    query.cachePolicy = kAVCachePolicyCacheThenNetwork;
+    LCQuery *query = [Student query];
+    query.cachePolicy = kLCCachePolicyCacheThenNetwork;
     query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 1;
     __block NSInteger count = 0;
@@ -286,8 +278,8 @@
 }
 
 - (void)demoQueryPolicyCacheElseNetwork_ {
-    AVQuery *query = [Student query];
-    query.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    LCQuery *query = [Student query];
+    query.cachePolicy = kLCCachePolicyCacheElseNetwork;
     query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 6;
     if ([query hasCachedResult]) {
@@ -303,8 +295,8 @@
 }
 
 - (void)demoQueryPolicyNetworkElseCache_ {
-    AVQuery *query = [Student query];
-    query.cachePolicy = kAVCachePolicyNetworkElseCache;
+    LCQuery *query = [Student query];
+    query.cachePolicy = kLCCachePolicyNetworkElseCache;
     query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 4;
     if ([query hasCachedResult]) {
@@ -321,9 +313,9 @@
 }
 
 - (void)demoQueryPolicyNetworkOnly_ {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     // 跟默认 IngoreCache 策略不同的是此策略会记录缓存
-    query.cachePolicy = kAVCachePolicyNetworkOnly;
+    query.cachePolicy = kLCCachePolicyNetworkOnly;
     query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 3;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -334,8 +326,8 @@
 }
 
 - (void)demoQueryPolicyCacheOnly_ {
-    AVQuery *query = [Student query];
-    query.cachePolicy = kAVCachePolicyCacheOnly;
+    LCQuery *query = [Student query];
+    query.cachePolicy = kLCCachePolicyCacheOnly;
     query.maxCacheAge = 60 * 60; // 单位秒
     query.limit = 2;
     if ([query hasCachedResult]) {
@@ -351,9 +343,9 @@
 }
 
 - (void)demoQueryPolicyIgnoreCache_ {
-    AVQuery *query = [Student query];
+    LCQuery *query = [Student query];
     // 默认策略，不用设置也行，查询结果将不记录到本地
-    query.cachePolicy = kAVCachePolicyIgnoreCache;
+    query.cachePolicy = kLCCachePolicyIgnoreCache;
     query.limit = 2;
     if ([query hasCachedResult]) {
         [self log:@"有缓存，但无视之"];
@@ -368,7 +360,7 @@
 }
 
 - (void)demoClearAllCache {
-    [AVQuery clearAllCachedResults];
+    [LCQuery clearAllCachedResults];
     [self log:@"已清除所有的缓存结果"];
 }
 

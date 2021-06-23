@@ -1,10 +1,3 @@
-//
-//  Post.h
-//  LeanStorageDemo
-//
-//  Created by lzw on 15/8/19.
-//  Copyright (c) 2015年 LeanCloud. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "Student.h"
@@ -13,7 +6,7 @@
 #define kPostKeyAuthor @"author"
 #define kPostKeyContent @"content";
 
-@interface Post : AVObject<AVSubclassing>
+@interface Post : LCObject<LCSubclassing>
 
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) Student *author;

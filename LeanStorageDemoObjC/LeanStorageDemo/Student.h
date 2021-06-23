@@ -1,12 +1,4 @@
-//
-//  Student.h
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-18.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
 
-#import <AVOSCloud/AVOSCloud.h>
 
 static NSString *const kStudentKeyHobbies = @"hobbies";
 static NSString *const kStudnetKeyAvatar = @"avatar";
@@ -22,9 +14,9 @@ typedef enum{
     GenderFamale
 }GenderType;
 
-@interface Student : AVObject<AVSubclassing>
+@interface Student : LCObject<LCSubclassing>
 
-@property (nonatomic, strong) AVFile *avatar;
+@property (nonatomic, strong) LCFile *avatar;
 @property (nonatomic, copy)   NSString *name;
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) GenderType gender;

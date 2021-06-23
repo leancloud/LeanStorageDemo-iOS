@@ -1,10 +1,3 @@
-//
-//  DemoRunC.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-12.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
 
 #import "DemoRunC.h"
 #import "SourceViewController.h"

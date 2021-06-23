@@ -1,19 +1,10 @@
-//
-//  AVObjectBasic.m
-//  AVOSDemo
-//
-//  Created by Travis on 13-12-12.
-//  Copyright (c) 2013年 AVOS. All rights reserved.
-//
-
 #import "Student.h"
-#import "AVObjectBasic.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "LCObjectBasic.h"
 #import "Demo+Utils.h"
 
 static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 
-@implementation AVObjectBasic
+@implementation LCObjectBasic
 
 #pragma mark - 简单的增删改查
 
@@ -63,8 +54,8 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 }
 
 - (void)demoGetObject {
-    AVObject *student = [AVObject objectWithoutDataWithClassName:@"Student" objectId:@"55750444e4b0f22726a0c9bb"];
-    [student fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+    LCObject *student = [LCObject objectWithObjectId: @"55750444e4b0f22726a0c9bb"];
+    [student fetchInBackgroundWithBlock:^(LCObject *object, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"获取成功: %@", object];
         }
@@ -77,7 +68,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
     Student *student = [Student object];
     student.name = @"Mike";
     NSError *error = nil;
-    AVFile *avatar = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
+    LCFile *avatar = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
     if (!error) {
         
         student.avatar = avatar;
@@ -94,7 +85,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
     NSString *json = @"{\"result\":[{\"gender\":true,\"profileThumbnail\":{\"__type\":\"File\",\"id\":\"5416e87fe4b0f645f29e15cd\",\"name\":\"ugQgIhsiRCBmAyUXPiJBIXvMEQHmq2zoRV6RVabF\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/4nTUcDbKVGDZymrd\"},\"profilePicture\":{\"__type\":\"File\",\"id\":\"5416e877e4b0f645f29e15b6\",\"name\":\"fdrWE627VCPGB8pi1p343XiYk3f2m93mEtU3IvLD\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/eyeFsPgmhxlaPfK8\"},\"activeness\":0,\"nickName\":\"璇璇\",\"likedCount\":750,\"pickiness\":0.15086206896551724,\"username\":\"18588888888\",\"viewedCount\":962,\"viewCount\":232,\"mobilePhoneVerified\":false,\"nearestOnline\":0,\"peerId\":\"18588888888\",\"importFromParse\":false,\"emailVerified\":false,\"signature\":\"~大家好~!希望在钟情交到一些朋友!喜欢我的话就赞我吧！\",\"likeCount\":35,\"recommendIndex\":0.6376030539823643,\"postCount\":3,\"hotness\":0.7796257796257796,\"meetedUser\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"playlistRel\":{\"__type\":\"Relation\",\"className\":\"Playlist\"},\"lastOnlineDate\":{\"__type\":\"Date\",\"iso\":\"2014-10-01T03:55:28.163Z\"},\"birthday\":{\"__type\":\"Date\",\"iso\":\"1991-03-15T13:22:12.000Z\"},\"post0\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/k4TO50kRytl2YTAR.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"QOoUkunpDf8LwRAegol7M07Pia3p8umgBSJtsXqn\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/Gu6uLsGds6FqKnWJ\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5412c79be4b080380a4895b6\",\"createdAt\":\"2014-09-12T10:14:51.102Z\",\"updatedAt\":\"2014-09-12T10:14:51.108Z\"},\"post1\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/aNm5STA2uuVAXrJi.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"CtGjAUT1JoKo9JI5CL0xWMsm0NVjjU0CWL9UO4DB\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/GPWno3YM2L6D08ub\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"541934ece4b013b181daab26\",\"createdAt\":\"2014-09-17T07:14:52.461Z\",\"updatedAt\":\"2014-09-17T07:14:52.473Z\"},\"post2\":{\"media\":{\"__type\":\"File\",\"name\":\"media.mp4\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/KwsYBMOzyGXZGzDU.mp4\"},\"cover\":{\"__type\":\"File\",\"name\":\"lUNfftRFnu2xJ7IONu1wAoMtAQFEERTADkLmKST7\",\"url\":\"http://ac-mgqe2oiy.qiniudn.com/YOR7l2ws58DlJYiG\"},\"posterRlt\":{\"__type\":\"Relation\",\"className\":\"_User\"},\"objectId\":\"5419a7d2e4b0002e6997c743\",\"createdAt\":\"2014-09-17T15:25:06.765Z\",\"updatedAt\":\"2014-09-17T15:25:06.782Z\"},\"objectId\":\"5416e880e4b0f645f29e15ce\",\"createdAt\":\"2014-09-15T13:24:16.128Z\",\"updatedAt\":\"2014-10-09T07:50:40.971Z\"}]}";
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
     NSDictionary *o = [[dict objectForKey:@"result"] objectAtIndex:0];
-    AVUser *user = [AVUser user];
+    LCUser *user = [LCUser user];
     [user objectFromDictionary:o];
     [self log:@"从一大段文本创建了User对象，user:%@", user];
 }
@@ -112,7 +103,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 - (void)demoOfflineCreateObject {
     // 不管在线还是离线都能保存，这里测试离线是否能保存
     [self log:@"请在网络关闭时运行本方法，然后开启网络，看是否保存上"];
-    AVObject *object = [AVObject objectWithClassName:@"Student"];
+    LCObject *object = [LCObject objectWithClassName:@"Student"];
     [object setObject:NSStringFromSelector(_cmd) forKey:@"name"];
     [object saveEventually:^(BOOL succeeded, NSError *error) {
         [self log:@"error : %@", error];
@@ -189,7 +180,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 - (void)demoArrayAddObject {
     Student *student = [Student objectWithoutDataWithObjectId:kDemoStudentId];
     // 获取 Demo 的对象
-    [student fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+    [student fetchInBackgroundWithBlock:^(LCObject *object, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"hobbis before : %@", student.hobbies];
             // 添加对象到数组
@@ -219,7 +210,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 - (void)demoArrayRemoveObject {
     Student *student = [Student objectWithoutDataWithObjectId:kDemoStudentId];
     // 获取 Demo 的对象
-    [student fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+    [student fetchInBackgroundWithBlock:^(LCObject *object, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"hobbis before : %@", student.hobbies];
             // 移除对象到数组
@@ -251,14 +242,14 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 
 #pragma mark - 批量操作
 
-- (void)createStudentsForDemo:(AVArrayResultBlock)block {
+- (void)createStudentsForDemo:(LCArrayResultBlock)block {
     NSMutableArray *students = [NSMutableArray array];
     for (int i = 10; i < 20; i++) {
         Student *student = [Student object];
         student.age = i;
         [students addObject:student];
     }
-    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+    [LCObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
         if (error) {
             block(nil, error);
         } else {
@@ -274,7 +265,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
         student.age = i;
         [students addObject:student];
     }
-    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+    [LCObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"批量创建了10个学生！他们是：%@", students];
         }
@@ -291,7 +282,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
                 Student *fetchStudent = [Student objectWithoutDataWithObjectId:student.objectId];
                 [fetchStudents addObject:fetchStudent];
             }
-            [AVObject fetchAllIfNeededInBackground:fetchStudents block:^(NSArray *objects, NSError *error) {
+            [LCObject fetchAllIfNeededInBackground:fetchStudents block:^(NSArray *objects, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"批量获取了10个学生！他们是：%@", fetchStudents];
                 }
@@ -308,7 +299,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
                 // 构造对象，无数据
                 student.name = @"Mike";
             }
-            [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+            [LCObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"批量更新了10个学生！他们是：%@", students];
                 }
@@ -320,7 +311,7 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
 - (void)demoBatchDelete {
     [self createStudentsForDemo:^(NSArray *students, NSError *error) {
         if ([self filterError:error]) {
-            [AVObject deleteAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+            [LCObject deleteAllInBackground:students block:^(BOOL succeeded, NSError *error) {
                 if ([self filterError:error]) {
                     [self log:@"批量删除了10个学生！他们是：%@", students];
                 }
@@ -334,14 +325,14 @@ static NSString * kDemoStudentId = @"5689e6b700b009a31b17e08b";
     for (int i = 10; i < 15; i++) {
         Student *student = [Student object];
         NSError *error = nil;
-        AVFile *avatar = [AVFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
+        LCFile *avatar = [LCFile fileWithLocalPath:[[NSBundle mainBundle] pathForResource:@"alpacino.jpg" ofType:nil] error:&error];
         if (!error) {
             student.avatar = avatar;
             student.age = i;
             [students addObject:student];
         }
     }
-    [AVObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
+    [LCObject saveAllInBackground:students block:^(BOOL succeeded, NSError *error) {
         if ([self filterError:error]) {
             [self log:@"批量了保存了10个学生及其头像，他们是：%@", students];
         }
